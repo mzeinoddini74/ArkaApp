@@ -1,0 +1,94 @@
+﻿@model List<ArkaApp.Models.EntityModels.User>
+
+@{
+    ViewBag.Title = "مدیریت نقش ها";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="section">
+    <ul class="breadcrumb breadcrumb-style ">
+        <li class="breadcrumb-item">
+            <h4 class="page-title m-b-0">مدیریت نقش ها</h4>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="/Dashboard/Index">
+                <i class="fas fa-home"></i>
+            </a>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="/UserRoleManagement/Index">
+                لیست نقش ها
+            </a>
+        </li>
+        <li class="breadcrumb-item active">لیست کاربران نقش @ViewBag.RoleTitle</li>
+    </ul>
+    <div class="section-body">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="col-12">لیست کاربران نقش @ViewBag.RoleTitle</h4>
+                    </div>
+
+                    <div class="card-body">
+
+                        @using (Html.BeginForm("Users", "UserRoleManagement", FormMethod.Get))
+                        {
+                            if (Model.Count > 0)
+                            {
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-md">
+                                        <tbody>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>تصویر</th>
+                                                <th>نام</th>
+                                                <th>نام کاربری</th>
+                                                <th>موبایل</th>
+                                                <th>آدرس پست الکترونیکی</th>
+                                                <th>وضعیت</th>
+                                            </tr>
+                                            @{
+                                                int row = 1;
+                                                foreach (var item in Model)
+                                                {
+                                                    <tr>
+                                                        <td>@row</td>
+                                                        <td><img src="@item.ProfilePicture" class="d-block mx-auto img-fluid rounded" width="100" /></td>
+                                                        <td><a href="@Url.Action("Detail","UserManagement",new {id=item.UserID })">@item.FullName</a></td>
+                                                        <td>@item.UserName</td>
+                                                        <td>@item.MobileNumber</td>
+                                                        <td>@item.EmailAddress</td>
+                                                        <td>
+                                                            @if (item.IsEnabled)
+                                                            {
+                                                                <p class="text-success"><i class="fas fa-check"></i>&nbsp;فعال</p>
+                                                            }
+                                                            else
+                                                            {
+                                                                <p class="text-danger"><i class="fas fa-times"></i>&nbsp;غیر فعال</p>
+                                                            }
+                                                        </td>
+                                                    </tr>
+
+                                                    row++;
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            }
+                            else
+                            {
+                                <p class="text-dark">رکوردی یافت نشد.</p>
+                            }
+                        }
+                    </div>
+                    <div class="card-footer text-right">
+                        <a href="/UserRoleManagement/Index" class="btn btn-outline-primary">بازگشت</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

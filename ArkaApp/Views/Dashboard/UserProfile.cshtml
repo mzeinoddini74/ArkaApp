@@ -1,0 +1,151 @@
+﻿@model ArkaApp.Models.ViewModels.UserEditViewModel
+@{
+    ViewBag.Title = "پروفایل";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="section">
+    <ul class="breadcrumb breadcrumb-style ">
+        <li class="breadcrumb-item">
+            <h4 class="page-title m-b-0">پروفایل</h4>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="/Dashboard/Index">
+                <i class="fas fa-home"></i>
+            </a>
+        </li>
+        <li class="breadcrumb-item active">پروفایل</li>
+    </ul>
+    <div class="section-body">
+        <div class="row mt-sm-4">
+            <div class="col-12 col-md-12 col-lg-4">
+                <div class="card author-box">
+                    <div class="card-body">
+                        <div class="author-box-center">
+                            @if (Model.ProfilePicture != null)
+                            {
+                                <figure class="avatar mr-2 avatar-xl">
+                                    <img src="@Model.ProfilePicture" alt="تصویر">
+                                    <i class="fas fa-trash fa-lg trashbadge text-danger font-20" id="btnDeletePicture" data-id="@Model.UserID" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="حذف تصویر فعلی"></i>
+                                </figure>
+
+                            }
+                            else
+                            {
+                                <figure class="avatar mr-2 avatar-xl">
+                                    <img src="~/Images/png/user.png" alt="تصویر">
+                                </figure>
+                            }
+
+
+                            <div class="clearfix mt-3"></div>
+                            <div class="author-box-name">
+                                <a href="#">@Model.FullName</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-8">
+                <div class="card">
+                    <div class="padding-20">
+                        <ul class="nav nav-tabs" id="myTab2" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="home-tab2" data-toggle="tab" href="#about" role="tab" aria-selected="true">ویرایش اطلاعات</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content tab-bordered" id="myTab3Content">
+                            <div class="tab-pane fade show active" id="about" role="tabpanel" aria-labelledby="home-tab2">
+                                @if (ViewBag.Done != null && ViewBag.Done == "Done")
+                                {
+                                    <div class="alert alert-success" role="alert">
+                                        عملیات با موفقیت انجام شد.
+                                    </div>
+                                }
+                                <div class="card-header">
+                                    <h4>ویرایش اطلاعات</h4>
+                                </div>
+                                @using (Html.BeginForm("UserProfile", "Dashboard", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    @Html.HiddenFor(model => model.UserID)
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="form-group col-md-6 col-12">
+                                                @Html.LabelFor(model => model.FullName)
+                                                @Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @class = "form-control", maxLength = "200" } })
+                                                @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="form-group col-md-6 col-12">
+                                                @Html.LabelFor(model => model.EmailAddress)
+                                                @Html.EditorFor(model => model.EmailAddress, new { htmlAttributes = new { @class = "form-control", maxLength = "200" } })
+                                                @Html.ValidationMessageFor(model => model.EmailAddress, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-md-6 col-12">
+                                                @Html.LabelFor(model => model.ProfilePicture)
+                                                <input name="File" class="form-control" type="file" />
+                                            </div>
+                                            <div class="form-group col-md-6 col-12">
+                                                @Html.LabelFor(model => model.MobileNumber)
+                                                @Html.EditorFor(model => model.MobileNumber, new { htmlAttributes = new { @class = "form-control", maxLength = "11" } })
+                                                @Html.ValidationMessageFor(model => model.MobileNumber, "", new { @class = "text-danger" })
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="card-footer text-right">
+                                        <a href="/Dashboard/Index" class="btn btn-outline-primary">بازگشت</a>
+                                        <button type="submit" class="btn btn-primary">ذخیره تغییرات</button>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts{
+    <script src="~/Scripts/select2/js/select2.full.min.js"></script>
+    <script src="~/Scripts/sweetalert/sweetalert.min.js"></script>
+    <script>
+        $('#btnDeletePicture').click(function () {
+            var id = $('#btnDeletePicture').data("id");
+            swal({
+                title: 'آیا از حذف تصویر مطمئن هستید؟',
+                icon: 'warning',
+                buttons: true,
+                dangerMode: true,
+            }).then((willDelete) => {
+                if (willDelete) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/Dashboard/DeletePicture/" + id, // the URL of the controller action method
+                        data: null, // optional data
+                        success: function (result) {
+                            swal('تصویر با موفقیت حذف شد.', {
+                                icon: 'success',
+                            });
+                            location.reload();
+                        },
+                        error: function (result) {
+                            swal('تصویر حذف نشد.', {
+                                icon: 'error',
+                            });
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
+}
+@section Styles{
+    <link href="~/Content/select2/css/select2.min.css" rel="stylesheet" />
+}

@@ -1,0 +1,122 @@
+﻿@model ArkaApp.Models.EntityModels.ExploreLog
+
+@{
+    ViewBag.Title = "Explore";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<ul class="breadcrumb breadcrumb-style ">
+    <li class="breadcrumb-item">
+        <h4 class="page-title m-b-0">Explore</h4>
+    </li>
+    <li class="breadcrumb-item">
+        <a href="/Dashboard/Index">
+            <i class="fas fa-home"></i>
+        </a>
+    </li>
+    <li class="breadcrumb-item"><a href="/Explore/Index">لیست پست ها</a></li>
+    <li class="breadcrumb-item active">Explore</li>
+</ul>
+<div class="section-body">
+    <div class="row mt-sm-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="tab-pane show" id="settings" role="tabpanel" aria-labelledby="profile-tab2">
+                        <div class="card-header">
+                            <h4>لطفا فرم زیر را تکمیل کنید.</h4>
+                        </div>
+                        @using (Html.BeginForm("ExploreRequest", "Explore", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true)
+
+                            <input type="hidden" name="PostID" id="PostID" value="@ViewBag.PostID" />
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="form-group col-md-6 col-12">
+                                        @Html.LabelFor(model => model.FromDateFa)
+                                        @Html.EditorFor(model => model.FromDateFa, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                        @Html.ValidationMessageFor(model => model.FromDateFa, "", new { @class = "text-danger" })
+
+                                    </div>
+                                    <div class="form-group col-md-6 col-12">
+                                        @Html.LabelFor(model => model.EndDateFa)
+                                        @Html.EditorFor(model => model.EndDateFa, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                        @Html.ValidationMessageFor(model => model.EndDateFa, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer text-right">
+                                <a href="/Explore/Index" class="btn btn-outline-primary">بازگشت</a>
+                                <button type="submit" class="btn btn-primary">ذخیره تغییرات</button>
+                            </div>
+
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+
+    <script src="~/Scripts/persianDatePicker/persian-date.js"></script>
+    <script src="~/Scripts/persianDatePicker/persian-datepicker.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var to, from;
+
+            $('#EndDateFa').click(function () {
+                if ($('#FromDateFa').val() == '') {
+                    $('#FromDateFa').next().html('لطفا تاریخ شروع را وارد کنید.');
+                }
+                else {
+                    $('#FromDateFa').next().html('');
+
+                    to = $("#EndDateFa").persianDatepicker({
+                        inline: false,
+                        autoClose: true,
+                        format: 'YYYY/MM/DD',
+                        minDate: new persianDate().valueOf(),
+                        initialValue: false,
+                        onSelect: function (unix) {
+                            to.touched = true;
+                            if (from && from.options && from.options.maxDate != unix) {
+                                var cachedValue = from.getState().selected.unixDate;
+                                from.options = { maxDate: unix };
+                                if (from.touched) {
+                                    from.setDate(cachedValue);
+                                }
+                            }
+                        }
+                    });
+
+                }
+            });
+
+            from = $("#FromDateFa").persianDatepicker({
+                inline: false,
+                autoClose: true,
+                format: 'YYYY/MM/DD',
+                minDate: new persianDate().valueOf(),
+                initialValue: false,
+                altFieldFormatter: function (unixDate) { return unixDate },
+                onSelect: function (unix) {
+                    from.touched = true;
+                    if (to && to.options && to.options.minDate != unix) {
+                        var cachedValue = to.getState().selected.unixDate;
+                        to.options = { minDate: unix };
+                        if (to.touched) {
+                            to.setDate(cachedValue);
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+}
+@section Styles{
+    <link href="~/Content/persianDatePicker/persian-datepicker.css" rel="stylesheet" />
+}

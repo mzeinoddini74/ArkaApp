@@ -1,0 +1,112 @@
+﻿@model ArkaApp.Models.ViewModels.LoginViewModel
+
+@{
+    ViewBag.Title = "ورود";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+<section class="section">
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h4>ورود</h4>
+                    </div>
+                    <div class="card-body">
+
+                        <div id="error" class="errorSection" style="display:none;"></div>
+                        @using (Ajax.BeginForm("Index", "Home",
+                            new AjaxOptions
+                            {
+                                HttpMethod = "POST",
+                                OnFailure = "OnFailure",
+                                OnSuccess = "OnSuccess",
+                                OnBegin = "OnBegin"
+                            }))
+                        {
+                            if (ViewBag.LinkExpired != null && ViewBag.LinkExpired == "Done")
+                            {
+                                <div class="alert alert-danger" role="alert">
+                                    اعتبار لینک بازیابی به اتمام رسیده است. لطفا مجددا تلاش کنید.
+                                </div>
+                            }
+                            if (ViewBag.Failed != null && ViewBag.Failed == "Failed")
+                            {
+                                <div class="alert alert-danger" role="alert">
+                                    عملیات با موفقیت انجام نشد.لطفا مجددا تلاش کنید.
+                                </div>
+                            }
+                            if (ViewBag.EmailSent != null && ViewBag.EmailSent == "Done")
+                            {
+                                <div class="alert alert-success" role="alert">
+                                    ایمیل بازیابی رمزعبور با موفقیت ارسال شد.
+                                </div>
+                            }
+                            if (ViewBag.Done != null && ViewBag.Done == "Done")
+                            {
+                                <div class="alert alert-success" role="alert">
+                                    عملیات با موفقیت انجام شد.
+                                </div>
+                            }
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger text-white" })
+
+                            <input id="returnUrl" name="returnUrl" type="hidden" value="@ViewBag.ReturnUrl" />
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.UserName)
+                                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control", maxlength = 200, autocomplete = "off", tabindex = "1" } })
+                                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <div class="d-block">
+                                    @Html.LabelFor(model => model.Password)
+                                    <div class="float-right">
+                                        <a href="/Home/ForgotPassword" class="text-small" tabindex="4">
+                                            رمز عبور را فراموش کرده اید؟
+                                        </a>
+                                    </div>
+                                </div>
+                                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", maxlength = 50, autocomplete = "off", tabindex = "2" } })
+                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="form-group">
+                                <div class="custom-control custom-checkbox">
+                                    @Html.CheckBox("Rememeber", false, new { @class = "custom-control-input" })
+                                    <label class="custom-control-label" for="Rememeber">مرا به خاطر بسپار</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="3">
+                                    ورود
+                                </button>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts{
+    <script>
+        function OnFailure(result) {
+            $("#error").show(1000);
+            $("#error").html(result);
+        }
+        function OnBegin() {
+            $("#error").hide(1000);
+        }
+        function OnSuccess(data) {
+            if (data.url) {
+                window.location.href = data.url;
+            }
+            else {
+                $("#error").show(1000);
+                $("#error").html(data);
+            }
+        }
+    </script>
+}

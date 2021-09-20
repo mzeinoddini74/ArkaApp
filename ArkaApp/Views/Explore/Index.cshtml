@@ -1,0 +1,122 @@
+﻿@model ArkaApp.Models.ViewModels.PostSearchViewModel
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Explore";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="section">
+    <ul class="breadcrumb breadcrumb-style ">
+        <li class="breadcrumb-item">
+            <h4 class="page-title m-b-0">لیست پست ها</h4>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="/Dashboard/Index">
+                <i class="fas fa-home"></i>
+            </a>
+        </li>
+        <li class="breadcrumb-item active">لیست پست ها</li>
+    </ul>
+    <div class="section-body">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="col-9">لیست پست ها</h4>
+                        <h4 class="col-3 text-right"><a href="@Url.Action("Dashboard","GetPosts",new { conName = "Explore" })" class="btn btn-primary">بروز رسانی لیست</a></h4>
+                    </div>
+
+                    @using (Html.BeginForm("Index", "Explore", FormMethod.Get))
+                    {
+                        <div class="card-body">
+                            @if (ViewBag.Done != null && ViewBag.Done == "Done")
+                            {
+                                <div class="alert alert-success" role="alert">
+                                    درخواست شما با موفقیت ارسال شد.
+                                </div>
+                            }
+                            @if (ViewBag.Error != null && ViewBag.Error == "400")
+                            {
+                                <div class="alert alert-warning" role="alert">
+                                    پست انتخابی یافت نشد.
+                                </div>
+                            }
+                            else if (ViewBag.Error != null && ViewBag.Error == "401")
+                            {
+                                <div class="alert alert-danger" role="alert">
+                                    درخواست غیرمجاز می باشد.
+                                </div>
+                            }
+                            else if (ViewBag.Error != null && ViewBag.Error == "Error")
+                            {
+                                <div class="alert alert-danger" role="alert">
+                                    در ارسال درخواست مشکلی پیش آمده است. لطفا مجددا تلاش کنید.
+                                </div>
+                            }
+
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-10">
+                                        @Html.TextBoxFor(model => model.Caption, new { @class = "form-control", placeholder = @Html.DisplayNameFor(x => x.Caption) })
+                                    </div>
+                                    <div class="col-2">
+                                        <button class="btn btn-outline-primary btn-block" type="submit" name="SearchButton" id="SearchButton" value="جستجو"><i data-feather="search"></i>&nbsp; جستجو</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            @if (Model.SearchResults.Count > 0)
+                            {
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-md">
+                                        <tbody>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>کپشن</th>
+                                                <th></th>
+                                            </tr>
+                                            @{
+                                                int row = 1;
+                                                foreach (var item in Model.SearchResults)
+                                                {
+                                                    <tr>
+                                                        <td>@row</td>
+                                                        <td>@item.Caption</td>
+
+                                                        <td>
+                                                            <a class="btn btn-outline-primary" href="@Url.Action("ExploreRequest", "Explore", new { id = item.PostID })">Explore</a>
+                                                        </td>
+                                                    </tr>
+
+                                                    row++;
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            }
+                            else
+                            {
+                                <p class="text-dark">رکوردی یافت نشد.</p>
+                            }
+                        </div>
+                        <div class="card-footer text-right" style="direction:ltr;">
+                            @Html.PagedListPager(Model.SearchResults, page => Url.Action("Index", new RouteValueDictionary()
+                                {
+                                { "Page", page },
+                                { "Caption", Model.Caption }
+                                }),
+                                PagedListRenderOptions.ClassicPlusFirstAndLast)
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Styles{
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+}

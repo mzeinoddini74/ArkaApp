@@ -1,0 +1,90 @@
+﻿@model ArkaApp.Models.ViewModels.PaymentSearchViewModel
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "سابقه خرید";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="section">
+    <ul class="breadcrumb breadcrumb-style ">
+        <li class="breadcrumb-item">
+            <h4 class="page-title m-b-0">سابقه خرید</h4>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="/Dashboard/Index">
+                <i class="fas fa-home"></i>
+            </a>
+        </li>
+        <li class="breadcrumb-item active">سابقه خرید</li>
+    </ul>
+    <div class="section-body">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="col-9">سابقه خرید</h4>
+                    </div>
+
+                    @using (Html.BeginForm("Payment", "Wallet", FormMethod.Get))
+                    {
+                        <div class="card-body">
+                            @if (Model.SearchResults.Count > 0)
+                            {
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-md">
+                                        <tbody>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>مقدار</th>
+                                                <th>پکیج</th>
+                                                <th>تاریخ</th>
+                                            </tr>
+                                            @{
+                                                int row = 1;
+                                                decimal amount = 0;
+
+                                                foreach (var item in Model.SearchResults)
+                                                {
+                                                    if (item.Amount > 0)
+                                                    {
+                                                        amount = Convert.ToDecimal(item.Amount);
+                                                    }
+
+                                                    <tr>
+                                                        <td>@row</td>
+                                                        <td>@amount.ToString("N0") تومان</td>
+                                                        <td>@item.LogType</td>
+                                                        <td>@ArkaApp.Helper.PersianHelper.GetPersinDate(item.CreatedDate)</td>
+                                                    </tr>
+
+                                                    row++;
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            }
+                            else
+                            {
+                                <p class="text-dark">رکوردی یافت نشد.</p>
+                            }
+                        </div>
+                        <div class="card-footer text-right" style="direction:ltr;">
+                            @Html.PagedListPager(Model.SearchResults, page => Url.Action("Payment", new RouteValueDictionary()
+                                {
+                                { "Page", page }
+                                }),
+                                PagedListRenderOptions.ClassicPlusFirstAndLast)
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Styles{
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+}

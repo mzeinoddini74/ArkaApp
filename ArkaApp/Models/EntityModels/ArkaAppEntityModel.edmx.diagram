@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7c854d7def484b229788e4a6f4ea46db" Name="Diagram1">
+        <EntityTypeShape EntityType="ArkaAppModel.Account" Width="1.5" PointX="5.25" PointY="30.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArkaAppModel.ApiLog" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArkaAppModel.CommentLog" Width="1.5" PointX="9.75" PointY="28.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArkaAppModel.CommentLogDetail" Width="1.5" PointX="12" PointY="29.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArkaAppModel.Content" Width="1.5" PointX="7.5" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArkaAppModel.DirectContentLog" Width="1.5" PointX="9.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArkaAppModel.DirectContentLogDetail" Width="1.5" PointX="12" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArkaAppModel.DirectLog" Width="1.5" PointX="9.75" PointY="32.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArkaAppModel.DirectLogDetail" Width="1.5" PointX="12" PointY="33" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArkaAppModel.ExploreLog" Width="1.5" PointX="9.75" PointY="36.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArkaAppModel.Follower" Width="1.5" PointX="7.5" PointY="21.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArkaAppModel.FollowerDetail" Width="1.5" PointX="12.75" PointY="21.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArkaAppModel.FollowerGenderDetail" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArkaAppModel.FollowerLog" Width="1.5" PointX="7.5" PointY="24.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArkaAppModel.FollowerLogDetail" Width="1.5" PointX="9.75" PointY="25.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArkaAppModel.LikeLog" Width="1.5" PointX="9.75" PointY="39.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArkaAppModel.LikeLogDetail" Width="1.5" PointX="12" PointY="40.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArkaAppModel.Menu" Width="1.5" PointX="0.75" PointY="23.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArkaAppModel.MenuRole" Width="1.5" PointX="3" PointY="27.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArkaAppModel.Post" Width="1.5" PointX="7.5" PointY="37.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArkaAppModel.Province" Width="1.5" PointX="10.5" PointY="21.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArkaAppModel.TelegramContentLog" Width="1.5" PointX="9.75" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArkaAppModel.TelegramContentLogDetail" Width="1.5" PointX="12" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArkaAppModel.TelegramLog" Width="1.5" PointX="9.75" PointY="43.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArkaAppModel.TelegramLogDetail" Width="1.5" PointX="12" PointY="44.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArkaAppModel.TelegramUserContentLog" Width="1.5" PointX="9.75" PointY="18.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArkaAppModel.TelegramUserContentLogDetail" Width="1.5" PointX="12" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArkaAppModel.TelegramUserLog" Width="1.5" PointX="9.75" PointY="47.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArkaAppModel.TelegramUserLogDetail" Width="1.5" PointX="12" PointY="47.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArkaAppModel.User" Width="1.5" PointX="3" PointY="31.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArkaAppModel.UserRole" Width="1.5" PointX="0.75" PointY="28" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArkaAppModel.ViewLog" Width="1.5" PointX="14.75" PointY="34.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArkaAppModel.ViewLogDetail" Width="1.5" PointX="17" PointY="35" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArkaAppModel.WalletChargeLog" Width="1.5" PointX="7.5" PointY="50.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArkaAppModel.WalletPaymentLog" Width="1.5" PointX="7.5" PointY="53.5" IsExpanded="true" />
+        <AssociationConnector Association="ArkaAppModel.FK_Account_User" ManuallyRouted="false" />
+        <AssociationConnector Association="ArkaAppModel.FK_Content_Account" ManuallyRouted="false" />
+        <AssociationConnector Association="ArkaAppModel.FK_Follower_Account" ManuallyRouted="false" />
+        <AssociationConnector Association="ArkaAppModel.FK_FollowerLog_Account" ManuallyRouted="false" />
+        <AssociationConnector Association="ArkaAppModel.FK_Post_Account" ManuallyRouted="false" />
+        <AssociationConnector Association="ArkaAppModel.FK_ViewLog_Account" ManuallyRouted="false" />
+        <AssociationConnector Association="ArkaAppModel.FK_WalletChargeLog_Account" ManuallyRouted="false" />
+        <AssociationConnector Association="ArkaAppModel.FK_WalletPaymentLog_Account" ManuallyRouted="false" />
+        <AssociationConnector Association="ArkaAppModel.FK_CommentLog_Post" ManuallyRouted="false" />
+        <AssociationConnector Association="ArkaAppModel.FK_CommentLogDetail_CommentLog" ManuallyRouted="false" />
+        <AssociationConnector Association="ArkaAppModel.FK_DirectContentLog_Content" ManuallyRouted="false" />
+        <AssociationConnector Association="ArkaAppModel.FK_TelegramContentLog_Content" ManuallyRouted="false" />
+        <AssociationConnector Association="ArkaAppModel.FK_TelegramUserContentLog_Content" ManuallyRouted="false" />
+        <AssociationConnector Association="ArkaAppModel.FK_DirectContentLogDetail_DirectContentLog" ManuallyRouted="false" />
+        <AssociationConnector Association="ArkaAppModel.FK_DirectLog_Post" ManuallyRouted="false" />
+        <AssociationConnector Association="ArkaAppModel.FK_DirectLogDetail_DirectLog" ManuallyRouted="false" />
+        <AssociationConnector Association="ArkaAppModel.FK_ExploreLog_Post" ManuallyRouted="false" />
+        <AssociationConnector Association="ArkaAppModel.FK_FollowerDetail_Follower" ManuallyRouted="false" />
+        <AssociationConnector Association="ArkaAppModel.FK_FollowerDetail_Provinces" ManuallyRouted="false" />
+        <AssociationConnector Association="ArkaAppModel.FK_FollowerLogDetail_FollowerLog" ManuallyRouted="false" />
+        <AssociationConnector Association="ArkaAppModel.FK_LikeLog_Post" ManuallyRouted="false" />
+        <AssociationConnector Association="ArkaAppModel.FK_LikeLogDetail_LikeLog" ManuallyRouted="false" />
+        <AssociationConnector Association="ArkaAppModel.FK_MenuRole_Menu" ManuallyRouted="false" />
+        <AssociationConnector Association="ArkaAppModel.FK_MenuRole_UserRole" ManuallyRouted="false" />
+        <AssociationConnector Association="ArkaAppModel.FK_TelegramLog_Post" ManuallyRouted="false" />
+        <AssociationConnector Association="ArkaAppModel.FK_TelegramUserLog_Post" ManuallyRouted="false" />
+        <AssociationConnector Association="ArkaAppModel.FK_ViewLog_Post" ManuallyRouted="false" />
+        <AssociationConnector Association="ArkaAppModel.FK_TelegramContentLogDetail_TelegramContentLog" ManuallyRouted="false" />
+        <AssociationConnector Association="ArkaAppModel.FK_TelegramLogDetail_TelegramLog" ManuallyRouted="false" />
+        <AssociationConnector Association="ArkaAppModel.FK_TelegramUserContentLogDetail_TelegramUserContentLog" ManuallyRouted="false" />
+        <AssociationConnector Association="ArkaAppModel.FK_TelegramUserLogDetail_TelegramUserLog" ManuallyRouted="false" />
+        <AssociationConnector Association="ArkaAppModel.FK_User_UserRole" ManuallyRouted="false" />
+        <AssociationConnector Association="ArkaAppModel.FK_ViewLogDetail_ViewLog" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ArkaAppModel.Pricing" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="ArkaAppModel.PricingDetail" Width="1.5" PointX="2.75" PointY="3.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

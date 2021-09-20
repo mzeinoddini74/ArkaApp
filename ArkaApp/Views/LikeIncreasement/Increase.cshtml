@@ -1,0 +1,101 @@
+﻿@model ArkaApp.Models.EntityModels.LikeLog
+@{
+    ViewBag.Title = "افزایش Like";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<ul class="breadcrumb breadcrumb-style ">
+    <li class="breadcrumb-item">
+        <h4 class="page-title m-b-0">افزایش Like</h4>
+    </li>
+    <li class="breadcrumb-item">
+        <a href="/Dashboard/Index">
+            <i class="fas fa-home"></i>
+        </a>
+    </li>
+    <li class="breadcrumb-item"><a href="/LikeIncreasement/Index">لیست پست ها</a></li>
+    <li class="breadcrumb-item active">افزایش Like</li>
+</ul>
+<div class="section-body">
+    <div class="row mt-sm-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="tab-pane show" id="settings" role="tabpanel" aria-labelledby="profile-tab2">
+                        <div class="card-header">
+                            <h4>لطفا فرم زیر را تکمیل کنید.</h4>
+                        </div>
+                        @using (Html.BeginForm("Increase", "LikeIncreasement", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true)
+
+                            <input type="hidden" name="PostID" id="PostID" value="@ViewBag.PostID" />
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="form-group col-12">
+                                        @Html.LabelFor(model => model.Count)
+                                        @Html.EditorFor(model => model.Count, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Count, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-6 col-12 align-self-center">
+                                        <label class="custom-switch">
+                                            <input type="checkbox" name="priority-checkbox" id="priority-checkbox" value="0" class="custom-switch-input">
+                                            <span class="custom-switch-indicator"></span>
+                                            <span class="custom-switch-description">ثبت اولویت</span>
+                                        </label>
+                                    </div>
+                                    <div class="form-group col-md-6 col-12 d-none" id="priority-div">
+                                        @Html.DropDownListFor(model => model.Priority, (IEnumerable<SelectListItem>)ViewBag.Priority, "-- اولویت --", new { @class = "form-control select2", data_live_search = "true", data_width = "100%", data_style = "custom-select" })
+                                        @Html.ValidationMessageFor(model => model.Priority, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-6 col-12 align-self-center">
+                                        <label class="custom-switch">
+                                            <input type="checkbox" name="gender-checkbox" id="gender-checkbox" value="0" class="custom-switch-input">
+                                            <span class="custom-switch-indicator"></span>
+                                            <span class="custom-switch-description">ثبت جنسیت</span>
+                                        </label>
+                                    </div>
+                                    <div class="form-group col-md-6 col-12 d-none" id="gender-div">
+                                        @Html.DropDownListFor(model => model.Gender, (IEnumerable<SelectListItem>)ViewBag.Gender, "-- جنسیت --", new { @class = "form-control select2", data_live_search = "true", data_width = "100%", data_style = "custom-select" })
+                                        @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer text-right">
+                                <a href="/LikeIncreasement/Index" class="btn btn-outline-primary">بازگشت</a>
+                                <button type="submit" class="btn btn-primary">ذخیره تغییرات</button>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts{
+    <script src="~/Scripts/select2/js/select2.full.min.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $("#gender-checkbox").change(function () {
+                $("#gender-div").toggleClass('d-none');
+
+            });
+            $("#priority-checkbox").change(function () {
+                $("#priority-div").toggleClass('d-none');
+            });
+        });
+    </script>
+
+}
+@section Styles{
+    <link href="~/Content/select2/css/select2.min.css" rel="stylesheet" />
+}

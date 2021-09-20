@@ -1,0 +1,42 @@
+﻿@using (ArkaApp.Models.EntityModels.ArkaAppEntities db = new ArkaApp.Models.EntityModels.ArkaAppEntities())
+{
+    int userID = db.User.FirstOrDefault(x => x.UserName.Equals(HttpContext.Current.User.Identity.Name)).UserID;
+    var accounts = db.Account.Where(x => x.UserID == userID && x.IsEnabled == true && x.IsDeleted != true).ToList();
+
+    var accountId = ArkaApp.Helper.Utility.GetAccountId();
+
+    <div class="dropdown-menu dropdown-menu-right pullDown">
+        <div class="dropdown-title">
+            حساب های کاربری
+        </div>
+        @if (accounts.Count > 0)
+        {
+            foreach (var item in accounts)
+            {
+                if (item.AccountID == accountId)
+                {
+                    <a href="#" class="dropdown-item has-icon disabled">
+                        <i class="fas fa-check text-success"></i> @item.AccountUserName (حساب جاری)
+                    </a>
+                }
+
+            }
+            foreach (var item in accounts)
+            {
+                if (item.AccountID != accountId)
+                {
+                    <a href="@Url.Action("SelectAccount", "Account", new { id = item.AccountID })" class="dropdown-item has-icon">
+                        <i class="fas fa-link"></i> @item.AccountUserName
+                    </a>
+                }
+            }
+
+        }
+        <div class="dropdown-divider"></div>
+        <a href="@Url.Action("Index","Account",new { isDefault = false })" class="dropdown-item has-icon">
+            <i class="fa fa-user-cog"></i>
+            مدیریت
+        </a>
+    </div>
+
+}

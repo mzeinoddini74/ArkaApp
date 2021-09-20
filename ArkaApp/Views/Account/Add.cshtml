@@ -1,0 +1,51 @@
+﻿@model ArkaApp.Models.EntityModels.Account
+@{
+    ViewBag.Title = "ثبت حساب کاربری";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+
+<section class="section">
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h4>ثبت حساب کاربری</h4>
+                    </div>
+                    <div class="card-body">
+                        @using (Html.BeginForm("Add", "Account", FormMethod.Post))
+                        {
+
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true)
+
+                            <input type="hidden" value="@ViewBag.UserID" name="UserID" id="UserID" />
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.AccountUserName)
+                                @Html.EditorFor(model => model.AccountUserName, new { htmlAttributes = new { @class = "form-control", maxlength = 200, autocomplete = "off", tabindex = "1" } })
+                                @Html.ValidationMessageFor(model => model.AccountUserName, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <div class="custom-control custom-checkbox">
+                                    @Html.CheckBox("IsDefault", false, new { @class = "custom-control-input", tabindex = "2" })
+                                    <label class="custom-control-label" for="IsDefault">حساب پیش فرض باشد؟</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="3">
+                                    ثبت
+                                </button>
+                                <a href="/Account/Index" class="btn btn-link text-left mt-2 pull-right " tabindex="4">
+                                    بازگشت
+                                </a>
+                            </div>
+
+
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

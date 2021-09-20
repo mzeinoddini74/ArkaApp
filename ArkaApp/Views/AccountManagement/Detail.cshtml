@@ -1,0 +1,102 @@
+﻿@model ArkaApp.Models.EntityModels.Account
+
+@{
+    ViewBag.Title = "مشاهده حساب";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<ul class="breadcrumb breadcrumb-style ">
+    <li class="breadcrumb-item">
+        <h4 class="page-title m-b-0">مشاهده حساب</h4>
+    </li>
+    <li class="breadcrumb-item">
+        <a href="/Dashboard/Index">
+            <i class="fas fa-home"></i>
+        </a>
+    </li>
+    <li class="breadcrumb-item">
+        <a href="/AccountManagement/Index">
+            لیست حساب ها
+        </a>
+    </li>
+    <li class="breadcrumb-item active">مشاهده حساب</li>
+</ul>
+<div class="section-body">
+    <div class="row mt-sm-4">
+        <div class="col-12 col-md-12 col-lg-4">
+            <div class="card author-box">
+                <div class="card-body">
+                    <div class="author-box-center">
+                        @if (Model.ProfilePicture != null)
+                        {
+                            <figure class="avatar mr-2 avatar-xl">
+                                <img src="@Model.ProfilePicture" alt="تصویر">
+                            </figure>
+                        }
+                        else
+                        {
+                            <figure class="avatar mr-2 avatar-xl">
+                                <img src="~/Images/png/user.png" />
+                            </figure>
+                        }
+                        <div class="clearfix mt-3"></div>
+                        <div class="author-box-name">
+                            @if (Model.IsEnabled)
+                            {
+                                <a href="#" class="text-success" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="@Model.AccountUserName (فعال)">
+                                    <i class="fas fa-check"></i>
+                                    @Model.AccountUserName
+                                </a>
+                            }
+                            else
+                            {
+                                <a href="#" class="text-danger" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="@Model.AccountUserName (غیر فعال)">
+                                    <i class="fas fa-times"></i>
+                                    @Model.AccountUserName
+                                </a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-12 col-lg-8">
+            <div class="card">
+                <div class="card-body">
+                    <div class="tab-pane show" id="settings" role="tabpanel" aria-labelledby="profile-tab2">
+                        <div class="card-header">
+                            <h4>اطلاعات حساب</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="form-group col-md-6 col-12">
+                                    @Html.LabelFor(model => model.AccountUserName)
+                                    @Html.DisplayFor(model => model.AccountUserName, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+                                <div class="form-group col-md-6 col-12">
+                                    @Html.LabelFor(model => model.AccountPK)
+                                    @Html.DisplayFor(model => model.AccountPK, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-md-6 col-12">
+                                    @Html.LabelFor(model => model.UserID)
+                                    @Html.DisplayFor(model => model.User.FullName)
+                                </div>
+                                <div class="form-group col-md-6 col-12">
+                                    @Html.LabelFor(model => model.User.CreatedDate)
+                                    @ArkaApp.Helper.PersianHelper.GetPersinDateTime(Model.User.CreatedDate)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer text-right">
+                            <a href="/AccountManagement/Index" class="btn btn-outline-primary">بازگشت</a>
+                            <a href="@Url.Action("Edit", "AccountManagement", new { id = Model.AccountID })" class="btn btn-primary">ویرایش</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

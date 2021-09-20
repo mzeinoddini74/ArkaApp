@@ -1,0 +1,256 @@
+D:\Arka\ArkaApp\bin\ArkaApp.dll.config
+D:\Arka\ArkaApp\bin\ArkaApp.dll
+D:\Arka\ArkaApp\bin\ArkaApp.pdb
+D:\Arka\ArkaApp\bin\roslyn\csc.exe
+D:\Arka\ArkaApp\bin\roslyn\csc.exe.config
+D:\Arka\ArkaApp\bin\roslyn\csc.rsp
+D:\Arka\ArkaApp\bin\roslyn\csi.exe
+D:\Arka\ArkaApp\bin\roslyn\csi.exe.config
+D:\Arka\ArkaApp\bin\roslyn\csi.rsp
+D:\Arka\ArkaApp\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Arka\ArkaApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Arka\ArkaApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Arka\ArkaApp\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Arka\ArkaApp\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Arka\ArkaApp\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Arka\ArkaApp\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Arka\ArkaApp\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Arka\ArkaApp\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Arka\ArkaApp\bin\roslyn\Microsoft.Managed.Core.targets
+D:\Arka\ArkaApp\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Arka\ArkaApp\bin\roslyn\System.AppContext.dll
+D:\Arka\ArkaApp\bin\roslyn\System.Collections.Immutable.dll
+D:\Arka\ArkaApp\bin\roslyn\System.Console.dll
+D:\Arka\ArkaApp\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\Arka\ArkaApp\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Arka\ArkaApp\bin\roslyn\System.IO.Compression.dll
+D:\Arka\ArkaApp\bin\roslyn\System.IO.FileSystem.dll
+D:\Arka\ArkaApp\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Arka\ArkaApp\bin\roslyn\System.IO.Pipes.AccessControl.dll
+D:\Arka\ArkaApp\bin\roslyn\System.IO.Pipes.dll
+D:\Arka\ArkaApp\bin\roslyn\System.Reflection.Metadata.dll
+D:\Arka\ArkaApp\bin\roslyn\System.Security.AccessControl.dll
+D:\Arka\ArkaApp\bin\roslyn\System.Security.Claims.dll
+D:\Arka\ArkaApp\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\Arka\ArkaApp\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\Arka\ArkaApp\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\Arka\ArkaApp\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\Arka\ArkaApp\bin\roslyn\System.Security.Principal.Windows.dll
+D:\Arka\ArkaApp\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\Arka\ArkaApp\bin\roslyn\System.ValueTuple.dll
+D:\Arka\ArkaApp\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\Arka\ArkaApp\bin\roslyn\System.Xml.XmlDocument.dll
+D:\Arka\ArkaApp\bin\roslyn\System.Xml.XPath.dll
+D:\Arka\ArkaApp\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\Arka\ArkaApp\bin\roslyn\vbc.exe
+D:\Arka\ArkaApp\bin\roslyn\vbc.exe.config
+D:\Arka\ArkaApp\bin\roslyn\vbc.rsp
+D:\Arka\ArkaApp\bin\roslyn\VBCSCompiler.exe
+D:\Arka\ArkaApp\bin\roslyn\VBCSCompiler.exe.config
+D:\Arka\ArkaApp\bin\Antlr3.Runtime.dll
+D:\Arka\ArkaApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Arka\ArkaApp\bin\Microsoft.Web.Infrastructure.dll
+D:\Arka\ArkaApp\bin\Newtonsoft.Json.dll
+D:\Arka\ArkaApp\bin\System.Web.Helpers.dll
+D:\Arka\ArkaApp\bin\System.Web.Mvc.dll
+D:\Arka\ArkaApp\bin\System.Web.Optimization.dll
+D:\Arka\ArkaApp\bin\System.Web.Razor.dll
+D:\Arka\ArkaApp\bin\System.Web.Webpages.Deployment.dll
+D:\Arka\ArkaApp\bin\System.Web.Webpages.dll
+D:\Arka\ArkaApp\bin\System.Web.Webpages.Razor.dll
+D:\Arka\ArkaApp\bin\WebGrease.dll
+D:\Arka\ArkaApp\bin\Antlr3.Runtime.pdb
+D:\Arka\ArkaApp\bin\Newtonsoft.Json.xml
+D:\Arka\ArkaApp\bin\System.Web.Optimization.xml
+D:\Arka\ArkaApp\bin\System.Web.Razor.xml
+D:\Arka\ArkaApp\bin\System.Web.Webpages.xml
+D:\Arka\ArkaApp\bin\System.Web.Webpages.Deployment.xml
+D:\Arka\ArkaApp\bin\System.Web.Webpages.Razor.xml
+D:\Arka\ArkaApp\bin\System.Web.Helpers.xml
+D:\Arka\ArkaApp\bin\System.Web.Mvc.xml
+D:\Arka\ArkaApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Arka\ArkaApp\obj\Debug\ArkaApp.csprojAssemblyReference.cache
+D:\Arka\ArkaApp\obj\Debug\ArkaApp.csproj.CopyComplete
+D:\Arka\ArkaApp\obj\Debug\ArkaApp.dll
+D:\Arka\ArkaApp\obj\Debug\ArkaApp.pdb
+D:\Arka\ArkaApp\bin\EntityFramework.dll
+D:\Arka\ArkaApp\bin\EntityFramework.xml
+D:\Arka\ArkaApp\bin\PagedList.dll
+D:\Arka\ArkaApp\bin\PagedList.xml
+D:\Arka\ArkaApp\bin\PagedList.Mvc.dll
+D:\Arka\ArkaApp\bin\PagedList.Mvc.xml
+D:\Arka\ArkaApp\bin\AutoMapper.dll
+D:\Arka\ArkaApp\bin\EntityFramework.SqlServer.dll
+D:\Arka\ArkaApp\bin\AutoMapper.xml
+D:\Arka\ArkaApp\bin\EntityFramework.SqlServer.xml
+D:\Work Projects\Arka\ArkaApp\obj\Debug\ArkaApp.csprojAssemblyReference.cache
+D:\Work Projects\Arka\ArkaApp\obj\Debug\ArkaApp.dll
+D:\Work Projects\Arka\ArkaApp\obj\Debug\ArkaApp.pdb
+D:\Work Projects\Arka\ArkaApp\bin\ArkaApp.dll.config
+D:\Work Projects\Arka\ArkaApp\bin\ArkaApp.dll
+D:\Work Projects\Arka\ArkaApp\bin\ArkaApp.pdb
+D:\Work Projects\Arka\ArkaApp\bin\roslyn\csc.exe
+D:\Work Projects\Arka\ArkaApp\bin\roslyn\csc.exe.config
+D:\Work Projects\Arka\ArkaApp\bin\roslyn\csc.rsp
+D:\Work Projects\Arka\ArkaApp\bin\roslyn\csi.exe
+D:\Work Projects\Arka\ArkaApp\bin\roslyn\csi.exe.config
+D:\Work Projects\Arka\ArkaApp\bin\roslyn\csi.rsp
+D:\Work Projects\Arka\ArkaApp\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Work Projects\Arka\ArkaApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Work Projects\Arka\ArkaApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Work Projects\Arka\ArkaApp\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Work Projects\Arka\ArkaApp\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Work Projects\Arka\ArkaApp\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Work Projects\Arka\ArkaApp\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Work Projects\Arka\ArkaApp\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Work Projects\Arka\ArkaApp\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Work Projects\Arka\ArkaApp\bin\roslyn\Microsoft.Managed.Core.targets
+D:\Work Projects\Arka\ArkaApp\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Work Projects\Arka\ArkaApp\bin\roslyn\System.AppContext.dll
+D:\Work Projects\Arka\ArkaApp\bin\roslyn\System.Collections.Immutable.dll
+D:\Work Projects\Arka\ArkaApp\bin\roslyn\System.Console.dll
+D:\Work Projects\Arka\ArkaApp\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\Work Projects\Arka\ArkaApp\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Work Projects\Arka\ArkaApp\bin\roslyn\System.IO.Compression.dll
+D:\Work Projects\Arka\ArkaApp\bin\roslyn\System.IO.FileSystem.dll
+D:\Work Projects\Arka\ArkaApp\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Work Projects\Arka\ArkaApp\bin\roslyn\System.IO.Pipes.AccessControl.dll
+D:\Work Projects\Arka\ArkaApp\bin\roslyn\System.IO.Pipes.dll
+D:\Work Projects\Arka\ArkaApp\bin\roslyn\System.Reflection.Metadata.dll
+D:\Work Projects\Arka\ArkaApp\bin\roslyn\System.Security.AccessControl.dll
+D:\Work Projects\Arka\ArkaApp\bin\roslyn\System.Security.Claims.dll
+D:\Work Projects\Arka\ArkaApp\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\Work Projects\Arka\ArkaApp\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\Work Projects\Arka\ArkaApp\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\Work Projects\Arka\ArkaApp\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\Work Projects\Arka\ArkaApp\bin\roslyn\System.Security.Principal.Windows.dll
+D:\Work Projects\Arka\ArkaApp\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\Work Projects\Arka\ArkaApp\bin\roslyn\System.ValueTuple.dll
+D:\Work Projects\Arka\ArkaApp\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\Work Projects\Arka\ArkaApp\bin\roslyn\System.Xml.XmlDocument.dll
+D:\Work Projects\Arka\ArkaApp\bin\roslyn\System.Xml.XPath.dll
+D:\Work Projects\Arka\ArkaApp\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\Work Projects\Arka\ArkaApp\bin\roslyn\vbc.exe
+D:\Work Projects\Arka\ArkaApp\bin\roslyn\vbc.exe.config
+D:\Work Projects\Arka\ArkaApp\bin\roslyn\vbc.rsp
+D:\Work Projects\Arka\ArkaApp\bin\roslyn\VBCSCompiler.exe
+D:\Work Projects\Arka\ArkaApp\bin\roslyn\VBCSCompiler.exe.config
+D:\Work Projects\Arka\ArkaApp\bin\Antlr3.Runtime.dll
+D:\Work Projects\Arka\ArkaApp\bin\AutoMapper.dll
+D:\Work Projects\Arka\ArkaApp\bin\EntityFramework.dll
+D:\Work Projects\Arka\ArkaApp\bin\EntityFramework.SqlServer.dll
+D:\Work Projects\Arka\ArkaApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Work Projects\Arka\ArkaApp\bin\Microsoft.Web.Infrastructure.dll
+D:\Work Projects\Arka\ArkaApp\bin\Newtonsoft.Json.dll
+D:\Work Projects\Arka\ArkaApp\bin\PagedList.dll
+D:\Work Projects\Arka\ArkaApp\bin\PagedList.Mvc.dll
+D:\Work Projects\Arka\ArkaApp\bin\System.Web.Helpers.dll
+D:\Work Projects\Arka\ArkaApp\bin\System.Web.Mvc.dll
+D:\Work Projects\Arka\ArkaApp\bin\System.Web.Optimization.dll
+D:\Work Projects\Arka\ArkaApp\bin\System.Web.Razor.dll
+D:\Work Projects\Arka\ArkaApp\bin\System.Web.Webpages.Deployment.dll
+D:\Work Projects\Arka\ArkaApp\bin\System.Web.Webpages.dll
+D:\Work Projects\Arka\ArkaApp\bin\System.Web.Webpages.Razor.dll
+D:\Work Projects\Arka\ArkaApp\bin\WebGrease.dll
+D:\Work Projects\Arka\ArkaApp\bin\Antlr3.Runtime.pdb
+D:\Work Projects\Arka\ArkaApp\bin\AutoMapper.xml
+D:\Work Projects\Arka\ArkaApp\bin\EntityFramework.xml
+D:\Work Projects\Arka\ArkaApp\bin\EntityFramework.SqlServer.xml
+D:\Work Projects\Arka\ArkaApp\bin\Newtonsoft.Json.xml
+D:\Work Projects\Arka\ArkaApp\bin\PagedList.xml
+D:\Work Projects\Arka\ArkaApp\bin\PagedList.Mvc.xml
+D:\Work Projects\Arka\ArkaApp\bin\System.Web.Optimization.xml
+D:\Work Projects\Arka\ArkaApp\bin\System.Web.Razor.xml
+D:\Work Projects\Arka\ArkaApp\bin\System.Web.Webpages.xml
+D:\Work Projects\Arka\ArkaApp\bin\System.Web.Webpages.Deployment.xml
+D:\Work Projects\Arka\ArkaApp\bin\System.Web.Webpages.Razor.xml
+D:\Work Projects\Arka\ArkaApp\bin\System.Web.Helpers.xml
+D:\Work Projects\Arka\ArkaApp\bin\System.Web.Mvc.xml
+D:\Work Projects\Arka\ArkaApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Work Projects\Arka\ArkaApp\obj\Debug\ArkaApp.csproj.CopyComplete
+F:\Projects\Arka\ArkaApp\bin\ArkaApp.dll.config
+F:\Projects\Arka\ArkaApp\bin\ArkaApp.dll
+F:\Projects\Arka\ArkaApp\bin\ArkaApp.pdb
+F:\Projects\Arka\ArkaApp\bin\roslyn\csc.exe
+F:\Projects\Arka\ArkaApp\bin\roslyn\csc.exe.config
+F:\Projects\Arka\ArkaApp\bin\roslyn\csc.rsp
+F:\Projects\Arka\ArkaApp\bin\roslyn\csi.exe
+F:\Projects\Arka\ArkaApp\bin\roslyn\csi.exe.config
+F:\Projects\Arka\ArkaApp\bin\roslyn\csi.rsp
+F:\Projects\Arka\ArkaApp\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\Projects\Arka\ArkaApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\Projects\Arka\ArkaApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+F:\Projects\Arka\ArkaApp\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\Projects\Arka\ArkaApp\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+F:\Projects\Arka\ArkaApp\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\Projects\Arka\ArkaApp\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\Projects\Arka\ArkaApp\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+F:\Projects\Arka\ArkaApp\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+F:\Projects\Arka\ArkaApp\bin\roslyn\Microsoft.Managed.Core.targets
+F:\Projects\Arka\ArkaApp\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\Projects\Arka\ArkaApp\bin\roslyn\System.AppContext.dll
+F:\Projects\Arka\ArkaApp\bin\roslyn\System.Collections.Immutable.dll
+F:\Projects\Arka\ArkaApp\bin\roslyn\System.Console.dll
+F:\Projects\Arka\ArkaApp\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+F:\Projects\Arka\ArkaApp\bin\roslyn\System.Diagnostics.StackTrace.dll
+F:\Projects\Arka\ArkaApp\bin\roslyn\System.IO.Compression.dll
+F:\Projects\Arka\ArkaApp\bin\roslyn\System.IO.FileSystem.dll
+F:\Projects\Arka\ArkaApp\bin\roslyn\System.IO.FileSystem.Primitives.dll
+F:\Projects\Arka\ArkaApp\bin\roslyn\System.IO.Pipes.AccessControl.dll
+F:\Projects\Arka\ArkaApp\bin\roslyn\System.IO.Pipes.dll
+F:\Projects\Arka\ArkaApp\bin\roslyn\System.Reflection.Metadata.dll
+F:\Projects\Arka\ArkaApp\bin\roslyn\System.Security.AccessControl.dll
+F:\Projects\Arka\ArkaApp\bin\roslyn\System.Security.Claims.dll
+F:\Projects\Arka\ArkaApp\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+F:\Projects\Arka\ArkaApp\bin\roslyn\System.Security.Cryptography.Encoding.dll
+F:\Projects\Arka\ArkaApp\bin\roslyn\System.Security.Cryptography.Primitives.dll
+F:\Projects\Arka\ArkaApp\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+F:\Projects\Arka\ArkaApp\bin\roslyn\System.Security.Principal.Windows.dll
+F:\Projects\Arka\ArkaApp\bin\roslyn\System.Text.Encoding.CodePages.dll
+F:\Projects\Arka\ArkaApp\bin\roslyn\System.ValueTuple.dll
+F:\Projects\Arka\ArkaApp\bin\roslyn\System.Xml.ReaderWriter.dll
+F:\Projects\Arka\ArkaApp\bin\roslyn\System.Xml.XmlDocument.dll
+F:\Projects\Arka\ArkaApp\bin\roslyn\System.Xml.XPath.dll
+F:\Projects\Arka\ArkaApp\bin\roslyn\System.Xml.XPath.XDocument.dll
+F:\Projects\Arka\ArkaApp\bin\roslyn\vbc.exe
+F:\Projects\Arka\ArkaApp\bin\roslyn\vbc.exe.config
+F:\Projects\Arka\ArkaApp\bin\roslyn\vbc.rsp
+F:\Projects\Arka\ArkaApp\bin\roslyn\VBCSCompiler.exe
+F:\Projects\Arka\ArkaApp\bin\roslyn\VBCSCompiler.exe.config
+F:\Projects\Arka\ArkaApp\bin\Antlr3.Runtime.dll
+F:\Projects\Arka\ArkaApp\bin\AutoMapper.dll
+F:\Projects\Arka\ArkaApp\bin\EntityFramework.dll
+F:\Projects\Arka\ArkaApp\bin\EntityFramework.SqlServer.dll
+F:\Projects\Arka\ArkaApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\Projects\Arka\ArkaApp\bin\Microsoft.Web.Infrastructure.dll
+F:\Projects\Arka\ArkaApp\bin\Newtonsoft.Json.dll
+F:\Projects\Arka\ArkaApp\bin\PagedList.dll
+F:\Projects\Arka\ArkaApp\bin\PagedList.Mvc.dll
+F:\Projects\Arka\ArkaApp\bin\System.Web.Helpers.dll
+F:\Projects\Arka\ArkaApp\bin\System.Web.Mvc.dll
+F:\Projects\Arka\ArkaApp\bin\System.Web.Optimization.dll
+F:\Projects\Arka\ArkaApp\bin\System.Web.Razor.dll
+F:\Projects\Arka\ArkaApp\bin\System.Web.Webpages.Deployment.dll
+F:\Projects\Arka\ArkaApp\bin\System.Web.Webpages.dll
+F:\Projects\Arka\ArkaApp\bin\System.Web.Webpages.Razor.dll
+F:\Projects\Arka\ArkaApp\bin\WebGrease.dll
+F:\Projects\Arka\ArkaApp\bin\Antlr3.Runtime.pdb
+F:\Projects\Arka\ArkaApp\bin\AutoMapper.xml
+F:\Projects\Arka\ArkaApp\bin\EntityFramework.xml
+F:\Projects\Arka\ArkaApp\bin\EntityFramework.SqlServer.xml
+F:\Projects\Arka\ArkaApp\bin\Newtonsoft.Json.xml
+F:\Projects\Arka\ArkaApp\bin\PagedList.xml
+F:\Projects\Arka\ArkaApp\bin\PagedList.Mvc.xml
+F:\Projects\Arka\ArkaApp\bin\System.Web.Optimization.xml
+F:\Projects\Arka\ArkaApp\bin\System.Web.Razor.xml
+F:\Projects\Arka\ArkaApp\bin\System.Web.Webpages.xml
+F:\Projects\Arka\ArkaApp\bin\System.Web.Webpages.Deployment.xml
+F:\Projects\Arka\ArkaApp\bin\System.Web.Webpages.Razor.xml
+F:\Projects\Arka\ArkaApp\bin\System.Web.Helpers.xml
+F:\Projects\Arka\ArkaApp\bin\System.Web.Mvc.xml
+F:\Projects\Arka\ArkaApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\Projects\Arka\ArkaApp\obj\Debug\ArkaApp.csprojAssemblyReference.cache
+F:\Projects\Arka\ArkaApp\obj\Debug\ArkaApp.csproj.CoreCompileInputs.cache
+F:\Projects\Arka\ArkaApp\obj\Debug\ArkaApp.csproj.CopyComplete
+F:\Projects\Arka\ArkaApp\obj\Debug\ArkaApp.dll
+F:\Projects\Arka\ArkaApp\obj\Debug\ArkaApp.pdb

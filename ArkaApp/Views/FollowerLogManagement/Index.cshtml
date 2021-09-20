@@ -1,0 +1,154 @@
+﻿@model ArkaApp.Models.ViewModels.FollowerSearchViewModel
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "گزارش افزایش Follower";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="section">
+    <ul class="breadcrumb breadcrumb-style ">
+        <li class="breadcrumb-item">
+            <h4 class="page-title m-b-0">گزارش افزایش Follower</h4>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="/Dashboard/Index">
+                <i class="fas fa-home"></i>
+            </a>
+        </li>
+        <li class="breadcrumb-item active">گزارش افزایش Follower</li>
+    </ul>
+    <div class="section-body">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>گزارش افزایش Follower</h4>
+                    </div>
+
+                    <div class="card-body">
+                        @using (Html.BeginForm("Index", "FollowerLogManagement", FormMethod.Get))
+                        {
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-10">
+                                        @Html.DropDownListFor(model => model.Id, Model.Accounts, "-- حساب --", new { @class = "form-control select2", data_live_search = "true", data_width = "100%", data_style = "custom-select" })
+                                    </div>
+
+                                    <div class="col-2">
+                                        <button class="btn btn-outline-primary btn-block" type="submit" name="SearchButton" id="SearchButton" value="جستجو"><i data-feather="search"></i>&nbsp; جستجو</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            if (Model.SearchResults.Count > 0)
+                            {
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-md">
+                                        <tbody>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>حساب</th>
+                                                <th>کاربر</th>
+                                                <th>اولویت</th>
+                                                <th>جنسیت</th>
+                                                <th>وضعیت</th>
+                                                <th></th>
+                                            </tr>
+                                            @{
+                                                int row = 1;
+                                                foreach (var item in Model.SearchResults)
+                                                {
+                                                    <tr>
+                                                        <td>@row</td>
+                                                        <td>@item.Account.AccountUserName</td>
+                                                        <td>@item.Account.User.FullName</td>
+                                                        <td>
+                                                            @{
+                                                                switch (item.Priority)
+                                                                {
+                                                                    case (short)ArkaApp.Models.PriorityEnumModel.DontCare:
+                                                                        <div class="badge-outline col-blue">متوسط</div>
+                                                                        break;
+                                                                    case (short)ArkaApp.Models.PriorityEnumModel.Highest:
+                                                                        <div class="badge-outline col-red">بالا</div>
+                                                                        break;
+                                                                    case (short)ArkaApp.Models.PriorityEnumModel.Lowest:
+                                                                        <div class="badge-outline col-cyan">کم</div>
+                                                                        break;
+                                                                }
+                                                            }
+                                                        </td>
+                                                        <td>
+                                                            @{
+                                                                switch (item.Gender)
+                                                                {
+                                                                    case (short)ArkaApp.Models.GenderEnumModel.DontCare:
+                                                                        <div class="badge-outline col-blue">مهم نیست</div>
+                                                                        break;
+                                                                    case (short)ArkaApp.Models.GenderEnumModel.Female:
+                                                                        <div class="badge-outline col-blue">زن</div>
+                                                                        break;
+                                                                    case (short)ArkaApp.Models.GenderEnumModel.Male:
+                                                                        <div class="badge-outline col-blue">مرد</div>
+                                                                        break;
+                                                                }
+                                                            }
+                                                        </td>
+                                                        <td>
+                                                            @if (item.IsFinished != null && (bool)item.IsFinished)
+                                                            {
+                                                                <p class="text-success"><i class="fas fa-check"></i>&nbsp;به پایان رسیده است</p>
+                                                            }
+                                                            else
+                                                            {
+                                                                <p class="text-info"><i class="fas fa-play"></i>&nbsp;در حال اجرا</p>
+                                                            }
+                                                        </td>
+                                                        <td>
+                                                            @if (item.IsFinished != null && (bool)item.IsFinished)
+                                                            {
+                                                                <a class="btn btn-outline-primary" href="@Url.Action("Detail", "FollowerLogManagement", new { id = item.FollowerLogID })">جزئیات</a>
+                                                            }
+                                                            else
+                                                            {
+                                                                <a class="btn btn-outline-primary" href="@Url.Action("LiveDetail", "FollowerLogManagement", new { id = item.FollowerLogID })">جزئیات</a>
+                                                            }
+                                                        </td>
+                                                    </tr>
+
+                                                    row++;
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="text-right" style="direction:ltr;">
+
+                                    @Html.PagedListPager(Model.SearchResults, page => Url.Action("Index", new RouteValueDictionary()
+                                    {
+                                        { "Page", page },
+                                        { "Id", Model.Id }
+                                    }),
+                                    PagedListRenderOptions.ClassicPlusFirstAndLast)
+                                </div>
+                            }
+                            else
+                            {
+                                <p class="text-dark">رکوردی یافت نشد.</p>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts{
+    <script src="~/Scripts/select2/js/select2.full.min.js"></script>
+}
+@section Styles{
+    <link href="~/Content/select2/css/select2.min.css" rel="stylesheet" />
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+}

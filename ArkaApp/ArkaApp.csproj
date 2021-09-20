@@ -1,0 +1,1335 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B6B84FE4-2E38-423E-B7E6-583534727677}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ArkaApp</RootNamespace>
+    <AssemblyName>ArkaApp</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44374</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <WebGreaseLibPath>packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper, Version=10.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>packages\AutoMapper.10.0.0\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.5.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-select\bootstrap-select.css" />
+    <Content Include="Content\bootstrap-social\bootstrap-social.css" />
+    <Content Include="Content\bootstrap-tagsinput\bootstrap-tagsinput.css" />
+    <Content Include="Content\css\app.min.css" />
+    <Content Include="Content\css\components.css" />
+    <Content Include="Content\css\custom.css" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\fonts\fonts\webfonts\fa-brands-400.html" />
+    <Content Include="Content\fonts\nunito-v9-latin-600.svg" />
+    <Content Include="Content\fonts\nunito-v9-latin-700.svg" />
+    <Content Include="Content\fonts\nunito-v9-latin-800.svg" />
+    <Content Include="Content\fonts\nunito-v9-latin-regular.svg" />
+    <Content Include="Content\fonts\webfonts\fa-brands-400.svg" />
+    <Content Include="Content\fonts\webfonts\fa-regular-400.svg" />
+    <Content Include="Content\fonts\webfonts\fa-solid-900.svg" />
+    <Content Include="Content\img\banner\1.png" />
+    <Content Include="Content\img\banner\2.png" />
+    <Content Include="Content\img\banner\3.png" />
+    <Content Include="Content\img\banner\4.png" />
+    <Content Include="Content\img\blog\img01.png" />
+    <Content Include="Content\img\blog\img02.png" />
+    <Content Include="Content\img\blog\img03.png" />
+    <Content Include="Content\img\blog\img04.png" />
+    <Content Include="Content\img\blog\img05.png" />
+    <Content Include="Content\img\blog\img06.png" />
+    <Content Include="Content\img\blog\img07.png" />
+    <Content Include="Content\img\blog\img08.png" />
+    <Content Include="Content\img\blog\img09.png" />
+    <Content Include="Content\img\blog\img10.png" />
+    <Content Include="Content\img\blog\img11.png" />
+    <Content Include="Content\img\blog\img12.png" />
+    <Content Include="Content\img\blog\img13.png" />
+    <Content Include="Content\img\blog\img14.png" />
+    <Content Include="Content\img\blog\img15.png" />
+    <Content Include="Content\img\browsers\chrome.png" />
+    <Content Include="Content\img\browsers\firefox.png" />
+    <Content Include="Content\img\browsers\internet-explorer.png" />
+    <Content Include="Content\img\browsers\opera.png" />
+    <Content Include="Content\img\browsers\safari.png" />
+    <Content Include="Content\img\cards\americanexpress.png" />
+    <Content Include="Content\img\cards\dinersclub.png" />
+    <Content Include="Content\img\cards\discover.png" />
+    <Content Include="Content\img\cards\jcb.png" />
+    <Content Include="Content\img\cards\mastercard.png" />
+    <Content Include="Content\img\cards\paypal.png" />
+    <Content Include="Content\img\cards\visa.png" />
+    <Content Include="Content\img\favicon.ico" />
+    <Content Include="Content\img\image-64.png" />
+    <Content Include="Content\img\image-gallery\1.png" />
+    <Content Include="Content\img\image-gallery\10.png" />
+    <Content Include="Content\img\image-gallery\11.png" />
+    <Content Include="Content\img\image-gallery\12.png" />
+    <Content Include="Content\img\image-gallery\13.png" />
+    <Content Include="Content\img\image-gallery\14.png" />
+    <Content Include="Content\img\image-gallery\15.png" />
+    <Content Include="Content\img\image-gallery\16.png" />
+    <Content Include="Content\img\image-gallery\17.png" />
+    <Content Include="Content\img\image-gallery\18.png" />
+    <Content Include="Content\img\image-gallery\19.png" />
+    <Content Include="Content\img\image-gallery\2.png" />
+    <Content Include="Content\img\image-gallery\20.png" />
+    <Content Include="Content\img\image-gallery\3.png" />
+    <Content Include="Content\img\image-gallery\4.png" />
+    <Content Include="Content\img\image-gallery\5.png" />
+    <Content Include="Content\img\image-gallery\6.png" />
+    <Content Include="Content\img\image-gallery\7.png" />
+    <Content Include="Content\img\image-gallery\8.png" />
+    <Content Include="Content\img\image-gallery\9.png" />
+    <Content Include="Content\img\image-gallery\thumb\thumb-1.png" />
+    <Content Include="Content\img\image-gallery\thumb\thumb-10.png" />
+    <Content Include="Content\img\image-gallery\thumb\thumb-11.png" />
+    <Content Include="Content\img\image-gallery\thumb\thumb-12.png" />
+    <Content Include="Content\img\image-gallery\thumb\thumb-13.png" />
+    <Content Include="Content\img\image-gallery\thumb\thumb-14.png" />
+    <Content Include="Content\img\image-gallery\thumb\thumb-15.png" />
+    <Content Include="Content\img\image-gallery\thumb\thumb-16.png" />
+    <Content Include="Content\img\image-gallery\thumb\thumb-17.png" />
+    <Content Include="Content\img\image-gallery\thumb\thumb-18.png" />
+    <Content Include="Content\img\image-gallery\thumb\thumb-19.png" />
+    <Content Include="Content\img\image-gallery\thumb\thumb-2.png" />
+    <Content Include="Content\img\image-gallery\thumb\thumb-20.png" />
+    <Content Include="Content\img\image-gallery\thumb\thumb-3.png" />
+    <Content Include="Content\img\image-gallery\thumb\thumb-4.png" />
+    <Content Include="Content\img\image-gallery\thumb\thumb-5.png" />
+    <Content Include="Content\img\image-gallery\thumb\thumb-6.png" />
+    <Content Include="Content\img\image-gallery\thumb\thumb-7.png" />
+    <Content Include="Content\img\image-gallery\thumb\thumb-8.png" />
+    <Content Include="Content\img\image-gallery\thumb\thumb-9.png" />
+    <Content Include="Content\img\loading.gif" />
+    <Content Include="Content\img\logo.png" />
+    <Content Include="Content\img\posts\post11.png" />
+    <Content Include="Content\img\posts\post12.png" />
+    <Content Include="Content\img\posts\post13.png" />
+    <Content Include="Content\img\posts\post4.png" />
+    <Content Include="Content\img\posts\post5.png" />
+    <Content Include="Content\img\posts\post6.png" />
+    <Content Include="Content\img\posts\post7.png" />
+    <Content Include="Content\img\posts\post8.png" />
+    <Content Include="Content\img\posts\post9.png" />
+    <Content Include="Content\img\products\product-1.png" />
+    <Content Include="Content\img\products\product-2.png" />
+    <Content Include="Content\img\products\product-3.png" />
+    <Content Include="Content\img\products\product-4.png" />
+    <Content Include="Content\img\products\product-5.png" />
+    <Content Include="Content\img\spinner-white.svg" />
+    <Content Include="Content\img\spinner.svg" />
+    <Content Include="Content\img\typing.svg" />
+    <Content Include="Content\img\user.png" />
+    <Content Include="Content\img\users\user-1.png" />
+    <Content Include="Content\img\users\user-10.png" />
+    <Content Include="Content\img\users\user-2.png" />
+    <Content Include="Content\img\users\user-3.png" />
+    <Content Include="Content\img\users\user-4.png" />
+    <Content Include="Content\img\users\user-5.png" />
+    <Content Include="Content\img\users\user-6.png" />
+    <Content Include="Content\img\users\user-7.png" />
+    <Content Include="Content\img\users\user-8.png" />
+    <Content Include="Content\img\users\user-9.png" />
+    <Content Include="Content\map\iranmap.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\persianDatePicker\persian-datepicker.css" />
+    <Content Include="Content\persianDatePicker\theme\persian-datepicker-blue.min.css" />
+    <Content Include="Content\persianDatePicker\theme\persian-datepicker-cheerup.min.css" />
+    <Content Include="Content\persianDatePicker\theme\persian-datepicker-dark.min.css" />
+    <Content Include="Content\persianDatePicker\theme\persian-datepicker-redblack.min.css" />
+    <Content Include="Content\select2\css\select2.min.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Images\favicon.ico" />
+    <Content Include="Images\gif\throbber.gif" />
+    <Content Include="Images\jpg\01.jpg" />
+    <Content Include="Images\jpg\03.jpg" />
+    <Content Include="Images\jpg\animate.jpg" />
+    <Content Include="Images\jpg\avatar-1.jpg" />
+    <Content Include="Images\jpg\avatar-2.jpg" />
+    <Content Include="Images\jpg\avatar-3.jpg" />
+    <Content Include="Images\jpg\avatar-4.jpg" />
+    <Content Include="Images\jpg\avatar-5.jpg" />
+    <Content Include="Images\jpg\card1.jpg" />
+    <Content Include="Images\jpg\card13.jpg" />
+    <Content Include="Images\jpg\card14.jpg" />
+    <Content Include="Images\jpg\card2.jpg" />
+    <Content Include="Images\jpg\cs-1.jpg" />
+    <Content Include="Images\jpg\cs-2.jpg" />
+    <Content Include="Images\jpg\error-1.jpg" />
+    <Content Include="Images\jpg\error-2.jpg" />
+    <Content Include="Images\jpg\error-3.jpg" />
+    <Content Include="Images\jpg\error-4.jpg" />
+    <Content Include="Images\jpg\error-5.jpg" />
+    <Content Include="Images\jpg\error-6.jpg" />
+    <Content Include="Images\jpg\nav1.jpg" />
+    <Content Include="Images\jpg\nav10.jpg" />
+    <Content Include="Images\jpg\nav11.jpg" />
+    <Content Include="Images\jpg\nav12.jpg" />
+    <Content Include="Images\jpg\nav2.jpg" />
+    <Content Include="Images\jpg\nav3.jpg" />
+    <Content Include="Images\jpg\nav4.jpg" />
+    <Content Include="Images\jpg\nav5.jpg" />
+    <Content Include="Images\jpg\nav6.jpg" />
+    <Content Include="Images\jpg\nav7.jpg" />
+    <Content Include="Images\jpg\nav8.jpg" />
+    <Content Include="Images\jpg\nav9.jpg" />
+    <Content Include="Images\jpg\overflow.jpg" />
+    <Content Include="Images\jpg\p1.jpg" />
+    <Content Include="Images\jpg\p2.jpg" />
+    <Content Include="Images\jpg\p3.jpg" />
+    <Content Include="Images\jpg\p4.jpg" />
+    <Content Include="Images\jpg\sale-img.jpg" />
+    <Content Include="Images\jpg\slide1.jpg" />
+    <Content Include="Images\jpg\slide2.jpg" />
+    <Content Include="Images\jpg\slide3.jpg" />
+    <Content Include="Images\jpg\slide4.jpg" />
+    <Content Include="Images\jpg\slider5.jpg" />
+    <Content Include="Images\jpg\slider6.jpg" />
+    <Content Include="Images\jpg\slider7.jpg" />
+    <Content Include="Images\jpg\task-u1.jpg" />
+    <Content Include="Images\jpg\task-u2.jpg" />
+    <Content Include="Images\jpg\task-u3.jpg" />
+    <Content Include="Images\jpg\task-u4.jpg" />
+    <Content Include="Images\png\complete.png" />
+    <Content Include="Images\png\details_close.png" />
+    <Content Include="Images\png\details_open.png" />
+    <Content Include="Images\png\euclid.png" />
+    <Content Include="Images\png\jquery.minicolors.png" />
+    <Content Include="Images\png\layers-2x.png" />
+    <Content Include="Images\png\layers.png" />
+    <Content Include="Images\png\logo-small-bottom.png" />
+    <Content Include="Images\png\logo.png" />
+    <Content Include="Images\png\marker-icon.png" />
+    <Content Include="Images\png\select-arrow.png" />
+    <Content Include="Images\png\switch.png" />
+    <Content Include="Images\png\{y}.png" />
+    <Content Include="Images\svg\ad-2.svg" />
+    <Content Include="Images\svg\ad.svg" />
+    <Content Include="Images\svg\ae-2.svg" />
+    <Content Include="Images\svg\ae.svg" />
+    <Content Include="Images\svg\af-2.svg" />
+    <Content Include="Images\svg\af.svg" />
+    <Content Include="Images\svg\ag-2.svg" />
+    <Content Include="Images\svg\ag.svg" />
+    <Content Include="Images\svg\ai-2.svg" />
+    <Content Include="Images\svg\ai.svg" />
+    <Content Include="Images\svg\al-2.svg" />
+    <Content Include="Images\svg\al.svg" />
+    <Content Include="Images\svg\am-2.svg" />
+    <Content Include="Images\svg\am.svg" />
+    <Content Include="Images\svg\ao-2.svg" />
+    <Content Include="Images\svg\ao.svg" />
+    <Content Include="Images\svg\aq-2.svg" />
+    <Content Include="Images\svg\aq.svg" />
+    <Content Include="Images\svg\ar-2.svg" />
+    <Content Include="Images\svg\ar.svg" />
+    <Content Include="Images\svg\as-2.svg" />
+    <Content Include="Images\svg\as.svg" />
+    <Content Include="Images\svg\at-2.svg" />
+    <Content Include="Images\svg\at.svg" />
+    <Content Include="Images\svg\au-2.svg" />
+    <Content Include="Images\svg\au.svg" />
+    <Content Include="Images\svg\aw-2.svg" />
+    <Content Include="Images\svg\aw.svg" />
+    <Content Include="Images\svg\ax-2.svg" />
+    <Content Include="Images\svg\ax.svg" />
+    <Content Include="Images\svg\az-2.svg" />
+    <Content Include="Images\svg\az.svg" />
+    <Content Include="Images\svg\ba-2.svg" />
+    <Content Include="Images\svg\ba.svg" />
+    <Content Include="Images\svg\bb-2.svg" />
+    <Content Include="Images\svg\bb.svg" />
+    <Content Include="Images\svg\bd-2.svg" />
+    <Content Include="Images\svg\bd.svg" />
+    <Content Include="Images\svg\be-2.svg" />
+    <Content Include="Images\svg\be.svg" />
+    <Content Include="Images\svg\bf-2.svg" />
+    <Content Include="Images\svg\bf.svg" />
+    <Content Include="Images\svg\bg-2.svg" />
+    <Content Include="Images\svg\bg.svg" />
+    <Content Include="Images\svg\bh-2.svg" />
+    <Content Include="Images\svg\bh.svg" />
+    <Content Include="Images\svg\bi-2.svg" />
+    <Content Include="Images\svg\bi.svg" />
+    <Content Include="Images\svg\bj-2.svg" />
+    <Content Include="Images\svg\bj.svg" />
+    <Content Include="Images\svg\bl-2.svg" />
+    <Content Include="Images\svg\bl.svg" />
+    <Content Include="Images\svg\bm-2.svg" />
+    <Content Include="Images\svg\bm.svg" />
+    <Content Include="Images\svg\bn-2.svg" />
+    <Content Include="Images\svg\bn.svg" />
+    <Content Include="Images\svg\bo-2.svg" />
+    <Content Include="Images\svg\bo.svg" />
+    <Content Include="Images\svg\bq-2.svg" />
+    <Content Include="Images\svg\bq.svg" />
+    <Content Include="Images\svg\br-2.svg" />
+    <Content Include="Images\svg\br.svg" />
+    <Content Include="Images\svg\bs-2.svg" />
+    <Content Include="Images\svg\bs.svg" />
+    <Content Include="Images\svg\bt-2.svg" />
+    <Content Include="Images\svg\bt.svg" />
+    <Content Include="Images\svg\bv-2.svg" />
+    <Content Include="Images\svg\bv.svg" />
+    <Content Include="Images\svg\bw-2.svg" />
+    <Content Include="Images\svg\bw.svg" />
+    <Content Include="Images\svg\by-2.svg" />
+    <Content Include="Images\svg\by.svg" />
+    <Content Include="Images\svg\bz-2.svg" />
+    <Content Include="Images\svg\bz.svg" />
+    <Content Include="Images\svg\ca-2.svg" />
+    <Content Include="Images\svg\ca.svg" />
+    <Content Include="Images\svg\cc-2.svg" />
+    <Content Include="Images\svg\cc.svg" />
+    <Content Include="Images\svg\cd-2.svg" />
+    <Content Include="Images\svg\cd.svg" />
+    <Content Include="Images\svg\cf-2.svg" />
+    <Content Include="Images\svg\cf.svg" />
+    <Content Include="Images\svg\cg-2.svg" />
+    <Content Include="Images\svg\cg.svg" />
+    <Content Include="Images\svg\ch-2.svg" />
+    <Content Include="Images\svg\ch.svg" />
+    <Content Include="Images\svg\ci-2.svg" />
+    <Content Include="Images\svg\ci.svg" />
+    <Content Include="Images\svg\ck-2.svg" />
+    <Content Include="Images\svg\ck.svg" />
+    <Content Include="Images\svg\cl-2.svg" />
+    <Content Include="Images\svg\cl.svg" />
+    <Content Include="Images\svg\cm-2.svg" />
+    <Content Include="Images\svg\cm.svg" />
+    <Content Include="Images\svg\cn-2.svg" />
+    <Content Include="Images\svg\cn.svg" />
+    <Content Include="Images\svg\co-2.svg" />
+    <Content Include="Images\svg\co.svg" />
+    <Content Include="Images\svg\cr-2.svg" />
+    <Content Include="Images\svg\cr.svg" />
+    <Content Include="Images\svg\cu-2.svg" />
+    <Content Include="Images\svg\cu.svg" />
+    <Content Include="Images\svg\cv-2.svg" />
+    <Content Include="Images\svg\cv.svg" />
+    <Content Include="Images\svg\cw-2.svg" />
+    <Content Include="Images\svg\cw.svg" />
+    <Content Include="Images\svg\cx-2.svg" />
+    <Content Include="Images\svg\cx.svg" />
+    <Content Include="Images\svg\cy-2.svg" />
+    <Content Include="Images\svg\cy.svg" />
+    <Content Include="Images\svg\cz-2.svg" />
+    <Content Include="Images\svg\cz.svg" />
+    <Content Include="Images\svg\dd-icon.svg" />
+    <Content Include="Images\svg\de-2.svg" />
+    <Content Include="Images\svg\de.svg" />
+    <Content Include="Images\svg\dj-2.svg" />
+    <Content Include="Images\svg\dj.svg" />
+    <Content Include="Images\svg\dk-2.svg" />
+    <Content Include="Images\svg\dk.svg" />
+    <Content Include="Images\svg\dm-2.svg" />
+    <Content Include="Images\svg\dm.svg" />
+    <Content Include="Images\svg\do-2.svg" />
+    <Content Include="Images\svg\do.svg" />
+    <Content Include="Images\svg\dz-2.svg" />
+    <Content Include="Images\svg\dz.svg" />
+    <Content Include="Images\svg\ec-2.svg" />
+    <Content Include="Images\svg\ec.svg" />
+    <Content Include="Images\svg\ee-2.svg" />
+    <Content Include="Images\svg\ee.svg" />
+    <Content Include="Images\svg\eg-2.svg" />
+    <Content Include="Images\svg\eg.svg" />
+    <Content Include="Images\svg\eh-2.svg" />
+    <Content Include="Images\svg\eh.svg" />
+    <Content Include="Images\svg\er-2.svg" />
+    <Content Include="Images\svg\er.svg" />
+    <Content Include="Images\svg\es-2.svg" />
+    <Content Include="Images\svg\es.svg" />
+    <Content Include="Images\svg\et-2.svg" />
+    <Content Include="Images\svg\et.svg" />
+    <Content Include="Images\svg\eu-2.svg" />
+    <Content Include="Images\svg\eu.svg" />
+    <Content Include="Images\svg\fi-2.svg" />
+    <Content Include="Images\svg\fi.svg" />
+    <Content Include="Images\svg\fj-2.svg" />
+    <Content Include="Images\svg\fj.svg" />
+    <Content Include="Images\svg\fk-2.svg" />
+    <Content Include="Images\svg\fk.svg" />
+    <Content Include="Images\svg\fm-2.svg" />
+    <Content Include="Images\svg\fm.svg" />
+    <Content Include="Images\svg\fo-2.svg" />
+    <Content Include="Images\svg\fo.svg" />
+    <Content Include="Images\svg\fr-2.svg" />
+    <Content Include="Images\svg\fr.svg" />
+    <Content Include="Images\svg\ga-2.svg" />
+    <Content Include="Images\svg\ga.svg" />
+    <Content Include="Images\svg\gb-2.svg" />
+    <Content Include="Images\svg\gb-eng-2.svg" />
+    <Content Include="Images\svg\gb-eng.svg" />
+    <Content Include="Images\svg\gb-sct-2.svg" />
+    <Content Include="Images\svg\gb-sct.svg" />
+    <Content Include="Images\svg\gb-wls-2.svg" />
+    <Content Include="Images\svg\gb-wls.svg" />
+    <Content Include="Images\svg\gb.svg" />
+    <Content Include="Images\svg\gd-2.svg" />
+    <Content Include="Images\svg\gd.svg" />
+    <Content Include="Images\svg\ge-2.svg" />
+    <Content Include="Images\svg\ge.svg" />
+    <Content Include="Images\svg\gf-2.svg" />
+    <Content Include="Images\svg\gf.svg" />
+    <Content Include="Images\svg\gg-2.svg" />
+    <Content Include="Images\svg\gg.svg" />
+    <Content Include="Images\svg\gh-2.svg" />
+    <Content Include="Images\svg\gh.svg" />
+    <Content Include="Images\svg\gi-2.svg" />
+    <Content Include="Images\svg\gi.svg" />
+    <Content Include="Images\svg\gl-2.svg" />
+    <Content Include="Images\svg\gl.svg" />
+    <Content Include="Images\svg\gm-2.svg" />
+    <Content Include="Images\svg\gm.svg" />
+    <Content Include="Images\svg\gn-2.svg" />
+    <Content Include="Images\svg\gn.svg" />
+    <Content Include="Images\svg\gp-2.svg" />
+    <Content Include="Images\svg\gp.svg" />
+    <Content Include="Images\svg\gq-2.svg" />
+    <Content Include="Images\svg\gq.svg" />
+    <Content Include="Images\svg\gr-2.svg" />
+    <Content Include="Images\svg\gr.svg" />
+    <Content Include="Images\svg\gs-2.svg" />
+    <Content Include="Images\svg\gs.svg" />
+    <Content Include="Images\svg\gt-2.svg" />
+    <Content Include="Images\svg\gt.svg" />
+    <Content Include="Images\svg\gu-2.svg" />
+    <Content Include="Images\svg\gu.svg" />
+    <Content Include="Images\svg\gw-2.svg" />
+    <Content Include="Images\svg\gw.svg" />
+    <Content Include="Images\svg\gy-2.svg" />
+    <Content Include="Images\svg\gy.svg" />
+    <Content Include="Images\svg\hk-2.svg" />
+    <Content Include="Images\svg\hk.svg" />
+    <Content Include="Images\svg\hm-2.svg" />
+    <Content Include="Images\svg\hm.svg" />
+    <Content Include="Images\svg\hn-2.svg" />
+    <Content Include="Images\svg\hn.svg" />
+    <Content Include="Images\svg\hr-2.svg" />
+    <Content Include="Images\svg\hr.svg" />
+    <Content Include="Images\svg\ht-2.svg" />
+    <Content Include="Images\svg\ht.svg" />
+    <Content Include="Images\svg\hu-2.svg" />
+    <Content Include="Images\svg\hu.svg" />
+    <Content Include="Images\svg\id-2.svg" />
+    <Content Include="Images\svg\id.svg" />
+    <Content Include="Images\svg\ie-2.svg" />
+    <Content Include="Images\svg\ie.svg" />
+    <Content Include="Images\svg\il-2.svg" />
+    <Content Include="Images\svg\il.svg" />
+    <Content Include="Images\svg\im-2.svg" />
+    <Content Include="Images\svg\im.svg" />
+    <Content Include="Images\svg\in-2.svg" />
+    <Content Include="Images\svg\in.svg" />
+    <Content Include="Images\svg\io-2.svg" />
+    <Content Include="Images\svg\io.svg" />
+    <Content Include="Images\svg\iq-2.svg" />
+    <Content Include="Images\svg\iq.svg" />
+    <Content Include="Images\svg\ir-2.svg" />
+    <Content Include="Images\svg\ir.svg" />
+    <Content Include="Images\svg\is-2.svg" />
+    <Content Include="Images\svg\is.svg" />
+    <Content Include="Images\svg\it-2.svg" />
+    <Content Include="Images\svg\it.svg" />
+    <Content Include="Images\svg\je-2.svg" />
+    <Content Include="Images\svg\je.svg" />
+    <Content Include="Images\svg\jm-2.svg" />
+    <Content Include="Images\svg\jm.svg" />
+    <Content Include="Images\svg\jo-2.svg" />
+    <Content Include="Images\svg\jo.svg" />
+    <Content Include="Images\svg\jp-2.svg" />
+    <Content Include="Images\svg\jp.svg" />
+    <Content Include="Images\svg\ke-2.svg" />
+    <Content Include="Images\svg\ke.svg" />
+    <Content Include="Images\svg\kg-2.svg" />
+    <Content Include="Images\svg\kg.svg" />
+    <Content Include="Images\svg\kh-2.svg" />
+    <Content Include="Images\svg\kh.svg" />
+    <Content Include="Images\svg\ki-2.svg" />
+    <Content Include="Images\svg\ki.svg" />
+    <Content Include="Images\svg\km-2.svg" />
+    <Content Include="Images\svg\km.svg" />
+    <Content Include="Images\svg\kn-2.svg" />
+    <Content Include="Images\svg\kn.svg" />
+    <Content Include="Images\svg\kp-2.svg" />
+    <Content Include="Images\svg\kp.svg" />
+    <Content Include="Images\svg\kr-2.svg" />
+    <Content Include="Images\svg\kr.svg" />
+    <Content Include="Images\svg\kw-2.svg" />
+    <Content Include="Images\svg\kw.svg" />
+    <Content Include="Images\svg\ky-2.svg" />
+    <Content Include="Images\svg\ky.svg" />
+    <Content Include="Images\svg\kz-2.svg" />
+    <Content Include="Images\svg\kz.svg" />
+    <Content Include="Images\svg\la-2.svg" />
+    <Content Include="Images\svg\la.svg" />
+    <Content Include="Images\svg\lb-2.svg" />
+    <Content Include="Images\svg\lb.svg" />
+    <Content Include="Images\svg\lc-2.svg" />
+    <Content Include="Images\svg\lc.svg" />
+    <Content Include="Images\svg\li-2.svg" />
+    <Content Include="Images\svg\li.svg" />
+    <Content Include="Images\svg\lk-2.svg" />
+    <Content Include="Images\svg\lk.svg" />
+    <Content Include="Images\svg\lr-2.svg" />
+    <Content Include="Images\svg\lr.svg" />
+    <Content Include="Images\svg\ls-2.svg" />
+    <Content Include="Images\svg\ls.svg" />
+    <Content Include="Images\svg\lt-2.svg" />
+    <Content Include="Images\svg\lt.svg" />
+    <Content Include="Images\svg\lu-2.svg" />
+    <Content Include="Images\svg\lu.svg" />
+    <Content Include="Images\svg\lv-2.svg" />
+    <Content Include="Images\svg\lv.svg" />
+    <Content Include="Images\svg\ly-2.svg" />
+    <Content Include="Images\svg\ly.svg" />
+    <Content Include="Images\svg\ma-2.svg" />
+    <Content Include="Images\svg\ma.svg" />
+    <Content Include="Images\svg\mc-2.svg" />
+    <Content Include="Images\svg\mc.svg" />
+    <Content Include="Images\svg\md-2.svg" />
+    <Content Include="Images\svg\md.svg" />
+    <Content Include="Images\svg\me-2.svg" />
+    <Content Include="Images\svg\me.svg" />
+    <Content Include="Images\svg\mf-2.svg" />
+    <Content Include="Images\svg\mf.svg" />
+    <Content Include="Images\svg\mg-2.svg" />
+    <Content Include="Images\svg\mg.svg" />
+    <Content Include="Images\svg\mh-2.svg" />
+    <Content Include="Images\svg\mh.svg" />
+    <Content Include="Images\svg\mk-2.svg" />
+    <Content Include="Images\svg\mk.svg" />
+    <Content Include="Images\svg\ml-2.svg" />
+    <Content Include="Images\svg\ml.svg" />
+    <Content Include="Images\svg\mm-2.svg" />
+    <Content Include="Images\svg\mm.svg" />
+    <Content Include="Images\svg\mn-2.svg" />
+    <Content Include="Images\svg\mn.svg" />
+    <Content Include="Images\svg\mo-2.svg" />
+    <Content Include="Images\svg\mo.svg" />
+    <Content Include="Images\svg\mp-2.svg" />
+    <Content Include="Images\svg\mp.svg" />
+    <Content Include="Images\svg\mq-2.svg" />
+    <Content Include="Images\svg\mq.svg" />
+    <Content Include="Images\svg\mr-2.svg" />
+    <Content Include="Images\svg\mr.svg" />
+    <Content Include="Images\svg\ms-2.svg" />
+    <Content Include="Images\svg\ms.svg" />
+    <Content Include="Images\svg\mt-2.svg" />
+    <Content Include="Images\svg\mt.svg" />
+    <Content Include="Images\svg\mu-2.svg" />
+    <Content Include="Images\svg\mu.svg" />
+    <Content Include="Images\svg\mv-2.svg" />
+    <Content Include="Images\svg\mv.svg" />
+    <Content Include="Images\svg\mw-2.svg" />
+    <Content Include="Images\svg\mw.svg" />
+    <Content Include="Images\svg\mx-2.svg" />
+    <Content Include="Images\svg\mx.svg" />
+    <Content Include="Images\svg\my-2.svg" />
+    <Content Include="Images\svg\my.svg" />
+    <Content Include="Images\svg\mz-2.svg" />
+    <Content Include="Images\svg\mz.svg" />
+    <Content Include="Images\svg\na-2.svg" />
+    <Content Include="Images\svg\na.svg" />
+    <Content Include="Images\svg\nc-2.svg" />
+    <Content Include="Images\svg\nc.svg" />
+    <Content Include="Images\svg\ne-2.svg" />
+    <Content Include="Images\svg\ne.svg" />
+    <Content Include="Images\svg\nf-2.svg" />
+    <Content Include="Images\svg\nf.svg" />
+    <Content Include="Images\svg\ng-2.svg" />
+    <Content Include="Images\svg\ng.svg" />
+    <Content Include="Images\svg\ni-2.svg" />
+    <Content Include="Images\svg\ni.svg" />
+    <Content Include="Images\svg\nl-2.svg" />
+    <Content Include="Images\svg\nl.svg" />
+    <Content Include="Images\svg\no-2.svg" />
+    <Content Include="Images\svg\no.svg" />
+    <Content Include="Images\svg\np-2.svg" />
+    <Content Include="Images\svg\np.svg" />
+    <Content Include="Images\svg\nr-2.svg" />
+    <Content Include="Images\svg\nr.svg" />
+    <Content Include="Images\svg\nu-2.svg" />
+    <Content Include="Images\svg\nu.svg" />
+    <Content Include="Images\svg\nz-2.svg" />
+    <Content Include="Images\svg\nz.svg" />
+    <Content Include="Images\svg\om-2.svg" />
+    <Content Include="Images\svg\om.svg" />
+    <Content Include="Images\svg\pa-2.svg" />
+    <Content Include="Images\svg\pa.svg" />
+    <Content Include="Images\svg\pe-2.svg" />
+    <Content Include="Images\svg\pe.svg" />
+    <Content Include="Images\svg\pf-2.svg" />
+    <Content Include="Images\svg\pf.svg" />
+    <Content Include="Images\svg\pg-2.svg" />
+    <Content Include="Images\svg\pg.svg" />
+    <Content Include="Images\svg\ph-2.svg" />
+    <Content Include="Images\svg\ph.svg" />
+    <Content Include="Images\svg\pk-2.svg" />
+    <Content Include="Images\svg\pk.svg" />
+    <Content Include="Images\svg\pl-2.svg" />
+    <Content Include="Images\svg\pl.svg" />
+    <Content Include="Images\svg\pm-2.svg" />
+    <Content Include="Images\svg\pm.svg" />
+    <Content Include="Images\svg\pn-2.svg" />
+    <Content Include="Images\svg\pn.svg" />
+    <Content Include="Images\svg\pr-2.svg" />
+    <Content Include="Images\svg\pr.svg" />
+    <Content Include="Images\svg\ps-2.svg" />
+    <Content Include="Images\svg\ps.svg" />
+    <Content Include="Images\svg\pt-2.svg" />
+    <Content Include="Images\svg\pt.svg" />
+    <Content Include="Images\svg\pw-2.svg" />
+    <Content Include="Images\svg\pw.svg" />
+    <Content Include="Images\svg\py-2.svg" />
+    <Content Include="Images\svg\py.svg" />
+    <Content Include="Images\svg\qa-2.svg" />
+    <Content Include="Images\svg\qa.svg" />
+    <Content Include="Images\svg\re-2.svg" />
+    <Content Include="Images\svg\re.svg" />
+    <Content Include="Images\svg\ro-2.svg" />
+    <Content Include="Images\svg\ro.svg" />
+    <Content Include="Images\svg\rs-2.svg" />
+    <Content Include="Images\svg\rs.svg" />
+    <Content Include="Images\svg\ru-2.svg" />
+    <Content Include="Images\svg\ru.svg" />
+    <Content Include="Images\svg\rw-2.svg" />
+    <Content Include="Images\svg\rw.svg" />
+    <Content Include="Images\svg\sa-2.svg" />
+    <Content Include="Images\svg\sa.svg" />
+    <Content Include="Images\svg\sb-2.svg" />
+    <Content Include="Images\svg\sb.svg" />
+    <Content Include="Images\svg\sc-2.svg" />
+    <Content Include="Images\svg\sc.svg" />
+    <Content Include="Images\svg\sd-2.svg" />
+    <Content Include="Images\svg\sd.svg" />
+    <Content Include="Images\svg\se-2.svg" />
+    <Content Include="Images\svg\se.svg" />
+    <Content Include="Images\svg\sg-2.svg" />
+    <Content Include="Images\svg\sg.svg" />
+    <Content Include="Images\svg\sh-2.svg" />
+    <Content Include="Images\svg\sh.svg" />
+    <Content Include="Images\svg\si-2.svg" />
+    <Content Include="Images\svg\si.svg" />
+    <Content Include="Images\svg\sj-2.svg" />
+    <Content Include="Images\svg\sj.svg" />
+    <Content Include="Images\svg\sk-2.svg" />
+    <Content Include="Images\svg\sk.svg" />
+    <Content Include="Images\svg\sl-2.svg" />
+    <Content Include="Images\svg\sl.svg" />
+    <Content Include="Images\svg\sm-2.svg" />
+    <Content Include="Images\svg\sm.svg" />
+    <Content Include="Images\svg\sn-2.svg" />
+    <Content Include="Images\svg\sn.svg" />
+    <Content Include="Images\svg\so-2.svg" />
+    <Content Include="Images\svg\so.svg" />
+    <Content Include="Images\svg\sr-2.svg" />
+    <Content Include="Images\svg\sr.svg" />
+    <Content Include="Images\svg\ss-2.svg" />
+    <Content Include="Images\svg\ss.svg" />
+    <Content Include="Images\svg\st-2.svg" />
+    <Content Include="Images\svg\st.svg" />
+    <Content Include="Images\svg\sv-2.svg" />
+    <Content Include="Images\svg\sv.svg" />
+    <Content Include="Images\svg\sx-2.svg" />
+    <Content Include="Images\svg\sx.svg" />
+    <Content Include="Images\svg\sy-2.svg" />
+    <Content Include="Images\svg\sy.svg" />
+    <Content Include="Images\svg\sz-2.svg" />
+    <Content Include="Images\svg\sz.svg" />
+    <Content Include="Images\svg\tc-2.svg" />
+    <Content Include="Images\svg\tc.svg" />
+    <Content Include="Images\svg\td-2.svg" />
+    <Content Include="Images\svg\td.svg" />
+    <Content Include="Images\svg\tf-2.svg" />
+    <Content Include="Images\svg\tf.svg" />
+    <Content Include="Images\svg\tg-2.svg" />
+    <Content Include="Images\svg\tg.svg" />
+    <Content Include="Images\svg\th-2.svg" />
+    <Content Include="Images\svg\th.svg" />
+    <Content Include="Images\svg\themify9f24.svg" />
+    <Content Include="Images\svg\tj-2.svg" />
+    <Content Include="Images\svg\tj.svg" />
+    <Content Include="Images\svg\tk-2.svg" />
+    <Content Include="Images\svg\tk.svg" />
+    <Content Include="Images\svg\tl-2.svg" />
+    <Content Include="Images\svg\tl.svg" />
+    <Content Include="Images\svg\tm-2.svg" />
+    <Content Include="Images\svg\tm.svg" />
+    <Content Include="Images\svg\tn-2.svg" />
+    <Content Include="Images\svg\tn.svg" />
+    <Content Include="Images\svg\to-2.svg" />
+    <Content Include="Images\svg\to.svg" />
+    <Content Include="Images\svg\tr-2.svg" />
+    <Content Include="Images\svg\tr.svg" />
+    <Content Include="Images\svg\tt-2.svg" />
+    <Content Include="Images\svg\tt.svg" />
+    <Content Include="Images\svg\tv-2.svg" />
+    <Content Include="Images\svg\tv.svg" />
+    <Content Include="Images\svg\tw-2.svg" />
+    <Content Include="Images\svg\tw.svg" />
+    <Content Include="Images\svg\tz-2.svg" />
+    <Content Include="Images\svg\tz.svg" />
+    <Content Include="Images\svg\ua-2.svg" />
+    <Content Include="Images\svg\ua.svg" />
+    <Content Include="Images\svg\ug-2.svg" />
+    <Content Include="Images\svg\ug.svg" />
+    <Content Include="Images\svg\um-2.svg" />
+    <Content Include="Images\svg\um.svg" />
+    <Content Include="Images\svg\us-2.svg" />
+    <Content Include="Images\svg\us.svg" />
+    <Content Include="Images\svg\uy-2.svg" />
+    <Content Include="Images\svg\uy.svg" />
+    <Content Include="Images\svg\uz-2.svg" />
+    <Content Include="Images\svg\uz.svg" />
+    <Content Include="Images\svg\va-2.svg" />
+    <Content Include="Images\svg\va.svg" />
+    <Content Include="Images\svg\vc-2.svg" />
+    <Content Include="Images\svg\vc.svg" />
+    <Content Include="Images\svg\ve-2.svg" />
+    <Content Include="Images\svg\ve.svg" />
+    <Content Include="Images\svg\vg-2.svg" />
+    <Content Include="Images\svg\vg.svg" />
+    <Content Include="Images\svg\vi-2.svg" />
+    <Content Include="Images\svg\vi.svg" />
+    <Content Include="Images\svg\vn-2.svg" />
+    <Content Include="Images\svg\vn.svg" />
+    <Content Include="Images\svg\vu-2.svg" />
+    <Content Include="Images\svg\vu.svg" />
+    <Content Include="Images\svg\wf-2.svg" />
+    <Content Include="Images\svg\wf.svg" />
+    <Content Include="Images\svg\ws-2.svg" />
+    <Content Include="Images\svg\ws.svg" />
+    <Content Include="Images\svg\ye-2.svg" />
+    <Content Include="Images\svg\ye.svg" />
+    <Content Include="Images\svg\yt-2.svg" />
+    <Content Include="Images\svg\yt.svg" />
+    <Content Include="Images\svg\za-2.svg" />
+    <Content Include="Images\svg\za.svg" />
+    <Content Include="Images\svg\zm-2.svg" />
+    <Content Include="Images\svg\zm.svg" />
+    <Content Include="Images\svg\zw-2.svg" />
+    <Content Include="Images\svg\zw.svg" />
+    <Content Include="Images\png\user.png" />
+    <Content Include="Models\EntityModels\ArkaAppEntityModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ArkaAppEntityModel.edmx</DependentUpon>
+      <LastGenOutput>ArkaAppEntityModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\EntityModels\ArkaAppEntityModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ArkaAppEntityModel.edmx</DependentUpon>
+      <LastGenOutput>ArkaAppEntityModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\amcharts4\animated.js" />
+    <Content Include="Scripts\amcharts4\charts.js" />
+    <Content Include="Scripts\amcharts4\core.js" />
+    <Content Include="Scripts\amcharts4\maps.js" />
+    <Content Include="Scripts\amcharts4\worldLow.js" />
+    <Content Include="Scripts\app.min.js" />
+    <Content Include="Scripts\bootstrap-select\bootstrap-select.min.js" />
+    <Content Include="Scripts\bootstrap-tagsinput\bootstrap-tagsinput.min.js" />
+    <Content Include="Scripts\jquery.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
+    <Content Include="Scripts\jquery.sparkline.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\map\iranmap.min.js" />
+    <Content Include="Scripts\page\advance-table.js" />
+    <Content Include="Scripts\page\auth-register.js" />
+    <Content Include="Scripts\page\calendar.js" />
+    <Content Include="Scripts\page\chart-amchart.js" />
+    <Content Include="Scripts\page\chart-apexcharts.js" />
+    <Content Include="Scripts\page\chart-chartjs.js" />
+    <Content Include="Scripts\page\chart-echarts.js" />
+    <Content Include="Scripts\page\chart-morris.js" />
+    <Content Include="Scripts\page\chat.js" />
+    <Content Include="Scripts\page\ckeditor.js" />
+    <Content Include="Scripts\page\contact.js" />
+    <Content Include="Scripts\page\create-post.js" />
+    <Content Include="Scripts\page\datatables.js" />
+    <Content Include="Scripts\page\editable-table.js" />
+    <Content Include="Scripts\page\form-wizard.js" />
+    <Content Include="Scripts\page\forms-advanced-forms.js" />
+    <Content Include="Scripts\page\gallery1.js" />
+    <Content Include="Scripts\page\gmaps-advanced-route.js" />
+    <Content Include="Scripts\page\gmaps-draggable-marker.js" />
+    <Content Include="Scripts\page\gmaps-geocoding.js" />
+    <Content Include="Scripts\page\gmaps-geolocation.js" />
+    <Content Include="Scripts\page\gmaps-marker.js" />
+    <Content Include="Scripts\page\gmaps-multiple-marker.js" />
+    <Content Include="Scripts\page\gmaps-route.js" />
+    <Content Include="Scripts\page\gmaps-simple.js" />
+    <Content Include="Scripts\page\index.js" />
+    <Content Include="Scripts\page\index2.js" />
+    <Content Include="Scripts\page\ion-icons.js" />
+    <Content Include="Scripts\page\light-gallery.js" />
+    <Content Include="Scripts\page\multiple-upload.js" />
+    <Content Include="Scripts\page\owl-carousel.js" />
+    <Content Include="Scripts\page\portfolio.js" />
+    <Content Include="Scripts\page\posts.js" />
+    <Content Include="Scripts\page\sparkline.js" />
+    <Content Include="Scripts\page\sweetalert.js" />
+    <Content Include="Scripts\page\toastr.js" />
+    <Content Include="Scripts\page\todo.js" />
+    <Content Include="Scripts\page\vector-map.js" />
+    <Content Include="Scripts\page\widget-chart.js" />
+    <Content Include="Scripts\page\widget-data.js" />
+    <Content Include="Scripts\persianDatePicker\persian-date.js" />
+    <Content Include="Scripts\persianDatePicker\persian-datepicker.js" />
+    <Content Include="Scripts\persianDatePicker\persianDatepicker.js" />
+    <Content Include="Scripts\scripts.js" />
+    <Content Include="Scripts\select2\js\select2.full.min.js" />
+    <Content Include="Scripts\sweetalert\sweetalert.min.js" />
+    <Content Include="Uploads\Users\046419365be345a380d35fc1dc467317.jpg" />
+    <Content Include="Uploads\Users\1aa75b2ed18d4beca7128fef482c6dab.jpg" />
+    <Content Include="Uploads\Users\22bb6bccef4a460fa411c0dc12400854.jpg" />
+    <Content Include="Uploads\Users\2a708e89a30947f9b71f9bf8e18117ed.jpg" />
+    <Content Include="Uploads\Users\2fe65d648ece4507b2158dd4d177daee.jpg" />
+    <Content Include="Uploads\Users\31a1b33d14a64f0fb057f518c8504c72.jpg" />
+    <Content Include="Uploads\Users\3d76238bac5b4c27bea162eb6ae13612.jpg" />
+    <Content Include="Uploads\Users\4030cb65dbd842f3b602859b1c6fd2de.jpg" />
+    <Content Include="Uploads\Users\51b5bdd3ceb64bb5963fcd0506e5770c.jpg" />
+    <Content Include="Uploads\Users\5855ab7728c140e9b24bc11405b60c6b.jpg" />
+    <Content Include="Uploads\Users\5d79730d986041889322af87be6c7745.jpg" />
+    <Content Include="Uploads\Users\5e4fd232b44643a9a4bbe14f2cb74cf1.jpg" />
+    <Content Include="Uploads\Users\6fe0bd16a4d8496caa1d90c26852f714.jpg" />
+    <Content Include="Uploads\Users\934fc22668ab43eea2dd40391dfac95a.jpg" />
+    <Content Include="Uploads\Users\b468245b72d24f3fbb619031bd25ea9c.jpg" />
+    <Content Include="Uploads\Users\d8aa819526244d53956242b1234599f6.jpg" />
+    <Content Include="Uploads\Users\da36ae2a4593499fa20079f6db4bd724.jpg" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AccountManagementController.cs" />
+    <Compile Include="Controllers\ContentManagementController.cs" />
+    <Compile Include="Controllers\ExploreController.cs" />
+    <Compile Include="Controllers\PostManagementController.cs" />
+    <Compile Include="Controllers\ViewLogManagementController.cs" />
+    <Compile Include="Controllers\EmailController.cs" />
+    <Compile Include="Controllers\CommentLogManagementController.cs" />
+    <Compile Include="Controllers\LikeLogManagementController.cs" />
+    <Compile Include="Controllers\FollowerLogManagementController.cs" />
+    <Compile Include="Controllers\FollowerIncreasementController.cs" />
+    <Compile Include="Controllers\CommentIncreasementController.cs" />
+    <Compile Include="Controllers\UserManagementController.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UserRoleManagementController.cs" />
+    <Compile Include="Controllers\LikeIncreasementController.cs" />
+    <Compile Include="Controllers\ViewIncreasementController.cs" />
+    <Compile Include="Controllers\WalletController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\Api\ApiHelper.cs" />
+    <Compile Include="Helper\DirectContentLogHelper.cs" />
+    <Compile Include="Helper\TelegramContentLogHelper.cs" />
+    <Compile Include="Helper\TelegramLogHelper.cs" />
+    <Compile Include="Helper\DirectLogHelper.cs" />
+    <Compile Include="Helper\EmailManager.cs" />
+    <Compile Include="Helper\ApiLogHelper.cs" />
+    <Compile Include="Helper\FollowerLogHelper.cs" />
+    <Compile Include="Helper\Hash.cs" />
+    <Compile Include="Helper\CommentLogHelper.cs" />
+    <Compile Include="Helper\LikeLogHelper.cs" />
+    <Compile Include="Helper\PersianHelper.cs" />
+    <Compile Include="Helper\TelegramUserContentLogHelper.cs" />
+    <Compile Include="Helper\TelegramUserLogHelper.cs" />
+    <Compile Include="Helper\UserAccessAttribute.cs" />
+    <Compile Include="Helper\Utility.cs" />
+    <Compile Include="Helper\ExploreLogHelper.cs" />
+    <Compile Include="Helper\ViewLogHelper.cs" />
+    <Compile Include="Helper\WalletHelper.cs" />
+    <Compile Include="Models\ApiModels\IncreasementModel.cs" />
+    <Compile Include="Models\EntityModels\Account.cs">
+      <DependentUpon>ArkaAppEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityModels\ApiLog.cs">
+      <DependentUpon>ArkaAppEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityModels\ArkaAppEntityModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ArkaAppEntityModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityModels\ArkaAppEntityModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ArkaAppEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityModels\ArkaAppEntityModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ArkaAppEntityModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityModels\CommentLog.cs">
+      <DependentUpon>ArkaAppEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityModels\CommentLogDetail.cs">
+      <DependentUpon>ArkaAppEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityModels\Content.cs">
+      <DependentUpon>ArkaAppEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityModels\DirectContentLog.cs">
+      <DependentUpon>ArkaAppEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityModels\DirectContentLogDetail.cs">
+      <DependentUpon>ArkaAppEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityModels\DirectLog.cs">
+      <DependentUpon>ArkaAppEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityModels\DirectLogDetail.cs">
+      <DependentUpon>ArkaAppEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityModels\ExploreLog.cs">
+      <DependentUpon>ArkaAppEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityModels\Follower.cs">
+      <DependentUpon>ArkaAppEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityModels\FollowerDetail.cs">
+      <DependentUpon>ArkaAppEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityModels\FollowerGenderDetail.cs">
+      <DependentUpon>ArkaAppEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityModels\FollowerLog.cs">
+      <DependentUpon>ArkaAppEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityModels\FollowerLogDetail.cs">
+      <DependentUpon>ArkaAppEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityModels\LikeLog.cs">
+      <DependentUpon>ArkaAppEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityModels\LikeLogDetail.cs">
+      <DependentUpon>ArkaAppEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityModels\Menu.cs">
+      <DependentUpon>ArkaAppEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityModels\MenuRole.cs">
+      <DependentUpon>ArkaAppEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityModels\Post.cs">
+      <DependentUpon>ArkaAppEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityModels\Pricing.cs">
+      <DependentUpon>ArkaAppEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityModels\PricingDetail.cs">
+      <DependentUpon>ArkaAppEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityModels\Province.cs">
+      <DependentUpon>ArkaAppEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityModels\TelegramContentLog.cs">
+      <DependentUpon>ArkaAppEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityModels\TelegramContentLogDetail.cs">
+      <DependentUpon>ArkaAppEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityModels\TelegramLog.cs">
+      <DependentUpon>ArkaAppEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityModels\TelegramLogDetail.cs">
+      <DependentUpon>ArkaAppEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityModels\TelegramUserContentLog.cs">
+      <DependentUpon>ArkaAppEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityModels\TelegramUserContentLogDetail.cs">
+      <DependentUpon>ArkaAppEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityModels\TelegramUserLog.cs">
+      <DependentUpon>ArkaAppEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityModels\TelegramUserLogDetail.cs">
+      <DependentUpon>ArkaAppEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityModels\User.cs">
+      <DependentUpon>ArkaAppEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityModels\UserRole.cs">
+      <DependentUpon>ArkaAppEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityModels\ViewLog.cs">
+      <DependentUpon>ArkaAppEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityModels\ViewLogDetail.cs">
+      <DependentUpon>ArkaAppEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityModels\WalletChargeLog.cs">
+      <DependentUpon>ArkaAppEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityModels\WalletPaymentLog.cs">
+      <DependentUpon>ArkaAppEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EnumModel.cs" />
+    <Compile Include="Models\MetadataModels\DirectContentLogMetadata.cs" />
+    <Compile Include="Models\MetadataModels\TelegramContentLogMetadata.cs" />
+    <Compile Include="Models\MetadataModels\TelegramLogMetadata.cs" />
+    <Compile Include="Models\MetadataModels\DirectLogMetadata.cs" />
+    <Compile Include="Models\MetadataModels\CommentLogMetadata.cs" />
+    <Compile Include="Models\MetadataModels\ContentMetadata.cs" />
+    <Compile Include="Models\MetadataModels\ExploreLogMetadata.cs" />
+    <Compile Include="Models\MetadataModels\FollowerLogMetadata.cs" />
+    <Compile Include="Models\MetadataModels\AccountMetadata.cs" />
+    <Compile Include="Models\MetadataModels\LikeLogMetadata.cs" />
+    <Compile Include="Models\MetadataModels\UserRoleMetadata.cs" />
+    <Compile Include="Models\MetadataModels\UserMetadata.cs" />
+    <Compile Include="Models\MetadataModels\ViewLogMetadata.cs" />
+    <Compile Include="Models\Repositories\IRepository.cs" />
+    <Compile Include="Models\Repositories\Repository.cs" />
+    <Compile Include="Models\Repositories\UnitOfWork.cs" />
+    <Compile Include="Models\ViewModels\ChargeWalletViewModel.cs" />
+    <Compile Include="Models\ViewModels\DashboadViewModel.cs" />
+    <Compile Include="Models\ViewModels\DirectContentLogViewModel.cs" />
+    <Compile Include="Models\ViewModels\PricingViewModel.cs" />
+    <Compile Include="Models\ViewModels\TelegramContentLogViewModel.cs" />
+    <Compile Include="Models\ViewModels\TelegramLogViewModel.cs" />
+    <Compile Include="Models\ViewModels\DirectLogViewModel.cs" />
+    <Compile Include="Models\ViewModels\FollowerLogViewModel.cs" />
+    <Compile Include="Models\ViewModels\LiveChartViewModel.cs" />
+    <Compile Include="Models\ViewModels\LineChartViewModel.cs" />
+    <Compile Include="Models\ViewModels\MapChartViewModel.cs" />
+    <Compile Include="Models\ViewModels\ProfileViewModel.cs" />
+    <Compile Include="Models\ViewModels\UserRoleViewModel.cs" />
+    <Compile Include="Models\ViewModels\ErrorViewModel.cs" />
+    <Compile Include="Models\ViewModels\LoginViewModel.cs" />
+    <Compile Include="Models\ViewModels\SearchViewModel.cs" />
+    <Compile Include="Models\ViewModels\UserViewModel.cs" />
+    <Compile Include="Models\ViewModels\LikeLogViewModel.cs" />
+    <Compile Include="Models\ViewModels\ViewLogViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings\Setting.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include=".editorconfig" />
+    <Content Include="Content\fonts\IRANSansWeb%28FaNum%29.eot" />
+    <Content Include="Content\fonts\IRANSansWeb%28FaNum%29.ttf" />
+    <Content Include="Content\fonts\nunito-v9-latin-600.eot" />
+    <Content Include="Content\fonts\nunito-v9-latin-600.ttf" />
+    <Content Include="Content\fonts\nunito-v9-latin-600.woff" />
+    <Content Include="Content\fonts\nunito-v9-latin-600.woff2" />
+    <Content Include="Content\fonts\nunito-v9-latin-600d41d.eot" />
+    <Content Include="Content\fonts\nunito-v9-latin-700.eot" />
+    <Content Include="Content\fonts\nunito-v9-latin-700.ttf" />
+    <Content Include="Content\fonts\nunito-v9-latin-700.woff" />
+    <Content Include="Content\fonts\nunito-v9-latin-700.woff2" />
+    <Content Include="Content\fonts\nunito-v9-latin-700d41d.eot" />
+    <Content Include="Content\fonts\nunito-v9-latin-800.eot" />
+    <Content Include="Content\fonts\nunito-v9-latin-800.ttf" />
+    <Content Include="Content\fonts\nunito-v9-latin-800.woff" />
+    <Content Include="Content\fonts\nunito-v9-latin-800.woff2" />
+    <Content Include="Content\fonts\nunito-v9-latin-800d41d.eot" />
+    <Content Include="Content\fonts\nunito-v9-latin-regular.eot" />
+    <Content Include="Content\fonts\nunito-v9-latin-regular.ttf" />
+    <Content Include="Content\fonts\nunito-v9-latin-regular.woff" />
+    <Content Include="Content\fonts\nunito-v9-latin-regular.woff2" />
+    <Content Include="Content\fonts\nunito-v9-latin-regulard41d.eot" />
+    <Content Include="Content\fonts\webfonts\fa-brands-400.ttf" />
+    <Content Include="Content\fonts\webfonts\fa-brands-400.woff" />
+    <Content Include="Content\fonts\webfonts\fa-brands-400.woff2" />
+    <Content Include="Content\fonts\webfonts\fa-brands-400d41d.eot" />
+    <Content Include="Content\fonts\webfonts\fa-regular-400.eot" />
+    <Content Include="Content\fonts\webfonts\fa-regular-400.ttf" />
+    <Content Include="Content\fonts\webfonts\fa-regular-400.woff" />
+    <Content Include="Content\fonts\webfonts\fa-regular-400.woff2" />
+    <Content Include="Content\fonts\webfonts\fa-regular-400d41d.eot" />
+    <Content Include="Content\fonts\webfonts\fa-solid-900.eot" />
+    <Content Include="Content\fonts\webfonts\fa-solid-900.ttf" />
+    <Content Include="Content\fonts\webfonts\fa-solid-900.woff" />
+    <Content Include="Content\fonts\webfonts\fa-solid-900.woff2" />
+    <Content Include="Content\fonts\webfonts\fa-solid-900d41d.eot" />
+    <Content Include="Content\persianDatePicker\theme\persian-datepicker-blue.min.css.map" />
+    <Content Include="Content\persianDatePicker\theme\persian-datepicker-cheerup.min.css.map" />
+    <Content Include="Content\persianDatePicker\theme\persian-datepicker-dark.min.css.map" />
+    <Content Include="Content\persianDatePicker\theme\persian-datepicker-redblack.min.css.map" />
+    <EntityDeploy Include="Models\EntityModels\ArkaAppEntityModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ArkaAppEntityModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\EntityModels\ArkaAppEntityModel.edmx.diagram">
+      <DependentUpon>ArkaAppEntityModel.edmx</DependentUpon>
+    </Content>
+    <None Include="packages.config" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Dashboard\Index.cshtml" />
+    <Content Include="Views\Shared\_AuthLayout.cshtml" />
+    <Content Include="Views\Shared\_ErrorPartialView.cshtml" />
+    <Content Include="Views\UserManagement\Index.cshtml" />
+    <Content Include="Views\UserManagement\Detail.cshtml" />
+    <Content Include="Views\UserManagement\Edit.cshtml" />
+    <Content Include="Views\UserManagement\Add.cshtml" />
+    <Content Include="Views\UserManagement\SuperEdit.cshtml" />
+    <Content Include="Views\UserRoleManagement\Index.cshtml" />
+    <Content Include="Views\UserRoleManagement\Edit.cshtml" />
+    <Content Include="Views\UserRoleManagement\Add.cshtml" />
+    <Content Include="Views\UserRoleManagement\Users.cshtml" />
+    <Content Include="Views\UserRoleManagement\Detail.cshtml" />
+    <Content Include="Views\AccountManagement\Index.cshtml" />
+    <Content Include="Views\AccountManagement\Edit.cshtml" />
+    <Content Include="Views\AccountManagement\Add.cshtml" />
+    <Content Include="Views\AccountManagement\Detail.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Account\Add.cshtml" />
+    <Content Include="Views\Shared\_AccountsPartialView.cshtml" />
+    <Content Include="Views\Dashboard\UserProfile.cshtml" />
+    <Content Include="Views\Email\ForgotPassword.cshtml" />
+    <Content Include="Views\Home\ForgotPassword.cshtml" />
+    <Content Include="Views\Home\ChangePassword.cshtml" />
+    <Content Include="Views\Shared\_MenuPartialView.cshtml" />
+    <Content Include="Views\FollowerLogManagement\Index.cshtml" />
+    <Content Include="Views\FollowerLogManagement\Detail.cshtml" />
+    <Content Include="Views\FollowerIncreasement\Index.cshtml" />
+    <Content Include="Views\ViewIncreasement\Index.cshtml" />
+    <Content Include="Views\ViewIncreasement\Increase.cshtml" />
+    <Content Include="Views\FollowerLogManagement\LiveDetail.cshtml" />
+    <Content Include="Views\LikeIncreasement\Index.cshtml" />
+    <Content Include="Views\LikeIncreasement\Increase.cshtml" />
+    <Content Include="Views\CommentIncreasement\Index.cshtml" />
+    <Content Include="Views\CommentIncreasement\Increase.cshtml" />
+    <Content Include="Views\CommentLogManagement\Detail.cshtml" />
+    <Content Include="Views\LikeLogManagement\Index.cshtml" />
+    <Content Include="Views\LikeLogManagement\LiveDetail.cshtml" />
+    <Content Include="Views\LikeLogManagement\Detail.cshtml" />
+    <Content Include="Views\CommentLogManagement\Index.cshtml" />
+    <Content Include="Views\CommentLogManagement\LiveDetail.cshtml" />
+    <Content Include="Views\ViewLogManagement\Detail.cshtml" />
+    <Content Include="Views\ViewLogManagement\Index.cshtml" />
+    <Content Include="Views\ViewLogManagement\LiveDetail.cshtml" />
+    <Content Include="Views\Explore\Index.cshtml" />
+    <Content Include="Views\Explore\ExploreRequest.cshtml" />
+    <Content Include="Views\Dashboard\Pricing.cshtml" />
+    <Content Include="Views\ContentManagement\DirectRequest.cshtml" />
+    <Content Include="Views\ContentManagement\Index.cshtml" />
+    <Content Include="Views\ContentManagement\Add.cshtml" />
+    <Content Include="Views\ContentManagement\Detail.cshtml" />
+    <Content Include="Views\ContentManagement\Edit.cshtml" />
+    <Content Include="Views\Telegram\MessageRequest.cshtml" />
+    <Content Include="Views\TelegramUser\MessageRequest.cshtml" />
+    <Content Include="Views\ContentManagement\TelegramRequest.cshtml" />
+    <Content Include="Views\ContentManagement\TelegramUserRequest.cshtml" />
+    <Content Include="Views\Telegram\Index.cshtml" />
+    <Content Include="Views\TelegramUser\Index.cshtml" />
+    <Content Include="Views\Shared\_WalletPartialView.cshtml" />
+    <Content Include="Views\Wallet\Index.cshtml" />
+    <Content Include="Views\Wallet\Payment.cshtml" />
+    <Content Include="Views\Wallet\Charge.cshtml" />
+    <Content Include="Views\PostManagement\TelegramRequest.cshtml" />
+    <Content Include="Views\PostManagement\TelegramUserRequest.cshtml" />
+    <Content Include="Views\PostManagement\Index.cshtml" />
+    <Content Include="Views\PostManagement\DirectRequest.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Uploads\Contents\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50327</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44374/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

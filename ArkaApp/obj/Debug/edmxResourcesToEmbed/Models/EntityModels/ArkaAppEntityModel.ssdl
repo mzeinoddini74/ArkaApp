@@ -1,0 +1,1001 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ArkaAppModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="AccountID" />
+    </Key>
+    <Property Name="AccountID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="ProfilePicture" Type="nvarchar(max)" />
+    <Property Name="AccountPK" Type="nvarchar(max)" />
+    <Property Name="AccountUserName" Type="nvarchar" MaxLength="500" />
+    <Property Name="IsEnabled" Type="bit" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="IsDefault" Type="bit" />
+    <Property Name="FollowerCount" Type="bigint" />
+    <Property Name="PostCount" Type="bigint" />
+    <Property Name="CurrentWalletAmount" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="ApiLog">
+    <Key>
+      <PropertyRef Name="ApiLogID" />
+    </Key>
+    <Property Name="ApiLogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="State" Type="int" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="AccountID" Type="int" />
+    <Property Name="PostID" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CommentLog">
+    <Key>
+      <PropertyRef Name="CommentLogID" />
+    </Key>
+    <Property Name="CommentLogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PostID" Type="int" Nullable="false" />
+    <Property Name="Priority" Type="smallint" />
+    <Property Name="Gender" Type="smallint" />
+    <Property Name="Count" Type="bigint" />
+    <Property Name="PreviousCount" Type="bigint" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="IsFinished" Type="bit" />
+    <Property Name="FinishedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CommentLogDetail">
+    <Key>
+      <PropertyRef Name="CommentLogDetailID" />
+    </Key>
+    <Property Name="CommentLogDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CommentLogID" Type="int" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Count" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Content">
+    <Key>
+      <PropertyRef Name="ContentID" />
+    </Key>
+    <Property Name="ContentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AccountID" Type="int" />
+    <Property Name="Description" Type="nvarchar" MaxLength="200" />
+    <Property Name="URL" Type="nvarchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DirectContentLog">
+    <Key>
+      <PropertyRef Name="DirectContentLogID" />
+    </Key>
+    <Property Name="DirectContentLogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ContentID" Type="int" />
+    <Property Name="Geo" Type="nvarchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="IsFinished" Type="bit" />
+    <Property Name="FinishedDate" Type="datetime" />
+    <Property Name="Gender" Type="smallint" />
+    <Property Name="Count" Type="bigint" />
+  </EntityType>
+  <EntityType Name="DirectContentLogDetail">
+    <Key>
+      <PropertyRef Name="DirectContentLogDetailID" />
+    </Key>
+    <Property Name="DirectContentLogDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DirectContentLogID" Type="int" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Count" Type="bigint" />
+  </EntityType>
+  <EntityType Name="DirectLog">
+    <Key>
+      <PropertyRef Name="DirectLogID" />
+    </Key>
+    <Property Name="DirectLogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PostID" Type="int" />
+    <Property Name="Count" Type="bigint" />
+    <Property Name="Geo" Type="nvarchar(max)" />
+    <Property Name="Gender" Type="smallint" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="IsFinished" Type="bit" />
+    <Property Name="FinishedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="DirectLogDetail">
+    <Key>
+      <PropertyRef Name="DirectLogDetailID" />
+    </Key>
+    <Property Name="DirectLogDetailID" Type="int" Nullable="false" />
+    <Property Name="DirectLogID" Type="int" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Count" Type="bigint" />
+  </EntityType>
+  <EntityType Name="ExploreLog">
+    <Key>
+      <PropertyRef Name="ExploreLogID" />
+    </Key>
+    <Property Name="ExploreLogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PostID" Type="int" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="FromDateFa" Type="nvarchar" MaxLength="15" />
+    <Property Name="FromDateEn" Type="datetime" />
+    <Property Name="DateCount" Type="int" />
+    <Property Name="EndDateFa" Type="nvarchar" MaxLength="15" />
+    <Property Name="EndDateEn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Follower">
+    <Key>
+      <PropertyRef Name="FollowerID" />
+    </Key>
+    <Property Name="FollowerID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AccountID" Type="int" Nullable="false" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Count" Type="bigint" />
+  </EntityType>
+  <EntityType Name="FollowerDetail">
+    <Key>
+      <PropertyRef Name="FollowerDetailID" />
+    </Key>
+    <Property Name="FollowerDetailID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FollowerID" Type="bigint" />
+    <Property Name="ProvinceID" Type="int" />
+    <Property Name="Count" Type="bigint" />
+    <Property Name="Date" Type="datetime" />
+  </EntityType>
+  <EntityType Name="FollowerGenderDetail">
+    <Key>
+      <PropertyRef Name="FollowerGenderDetailID" />
+    </Key>
+    <Property Name="FollowerGenderDetailID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FollowerID" Type="bigint" />
+    <Property Name="Gender" Type="tinyint" />
+    <Property Name="Count" Type="bigint" />
+    <Property Name="Date" Type="datetime" />
+  </EntityType>
+  <EntityType Name="FollowerLog">
+    <Key>
+      <PropertyRef Name="FollowerLogID" />
+    </Key>
+    <Property Name="FollowerLogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AccountID" Type="int" />
+    <Property Name="Geo" Type="nvarchar(max)" />
+    <Property Name="Priority" Type="smallint" />
+    <Property Name="Gender" Type="smallint" />
+    <Property Name="Count" Type="bigint" />
+    <Property Name="PreviousCount" Type="bigint" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="IsFinished" Type="bit" />
+    <Property Name="FinishedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="FollowerLogDetail">
+    <Key>
+      <PropertyRef Name="FollowerLogDetailID" />
+    </Key>
+    <Property Name="FollowerLogDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FollowerLogID" Type="int" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Count" Type="bigint" />
+  </EntityType>
+  <EntityType Name="LikeLog">
+    <Key>
+      <PropertyRef Name="LikeLogID" />
+    </Key>
+    <Property Name="LikeLogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PostID" Type="int" Nullable="false" />
+    <Property Name="Priority" Type="smallint" />
+    <Property Name="Gender" Type="smallint" />
+    <Property Name="Count" Type="bigint" />
+    <Property Name="PreviousCount" Type="bigint" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="IsFinished" Type="bit" />
+    <Property Name="FinishedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="LikeLogDetail">
+    <Key>
+      <PropertyRef Name="LikeLogDetailID" />
+    </Key>
+    <Property Name="LikeLogDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LikeLogID" Type="int" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Count" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Menu">
+    <Key>
+      <PropertyRef Name="MenuID" />
+    </Key>
+    <Property Name="MenuID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ParentID" Type="int" />
+    <Property Name="ControllerName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="URL" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="IconName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="MenuRole">
+    <Key>
+      <PropertyRef Name="MenuRoleID" />
+    </Key>
+    <Property Name="MenuRoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MenuID" Type="int" Nullable="false" />
+    <Property Name="UserRoleID" Type="int" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="Post">
+    <Key>
+      <PropertyRef Name="PostID" />
+    </Key>
+    <Property Name="PostID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AccountID" Type="int" />
+    <Property Name="PostPK" Type="nvarchar(max)" />
+    <Property Name="Caption" Type="nvarchar(max)" />
+    <Property Name="CreationDate" Type="datetime" />
+    <Property Name="PostType" Type="int" />
+  </EntityType>
+  <EntityType Name="Pricing">
+    <Key>
+      <PropertyRef Name="PricingID" />
+    </Key>
+    <Property Name="PricingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" />
+    <Property Name="TitleFa" Type="nvarchar" MaxLength="50" />
+    <Property Name="Count" Type="int" Nullable="false" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="PricingDetail">
+    <Key>
+      <PropertyRef Name="PricingDetailID" />
+    </Key>
+    <Property Name="PricingDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PricingID" Type="int" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" />
+    <Property Name="TitleFa" Type="nvarchar" MaxLength="50" />
+    <Property Name="Count" Type="int" Nullable="false" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Province">
+    <Key>
+      <PropertyRef Name="ProvinceID" />
+    </Key>
+    <Property Name="ProvinceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="100" />
+    <Property Name="Index" Type="nvarchar" MaxLength="50" />
+    <Property Name="Path" Type="nvarchar(max)" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TelegramContentLog">
+    <Key>
+      <PropertyRef Name="TelegramContentLogID" />
+    </Key>
+    <Property Name="TelegramContentLogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ContentID" Type="int" />
+    <Property Name="Count" Type="bigint" />
+    <Property Name="Regions" Type="nvarchar" MaxLength="50" />
+    <Property Name="GroupTitle" Type="nvarchar" MaxLength="500" />
+    <Property Name="Geo" Type="nvarchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="IsFinished" Type="bit" />
+    <Property Name="FinishedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="TelegramContentLogDetail">
+    <Key>
+      <PropertyRef Name="TelegramContentLogDetailID" />
+    </Key>
+    <Property Name="TelegramContentLogDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TelegramContentLogID" Type="int" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Count" Type="bigint" />
+  </EntityType>
+  <EntityType Name="TelegramLog">
+    <Key>
+      <PropertyRef Name="TelegramLogID" />
+    </Key>
+    <Property Name="TelegramLogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PostID" Type="int" />
+    <Property Name="Count" Type="bigint" />
+    <Property Name="Regions" Type="nvarchar" MaxLength="50" />
+    <Property Name="GroupTitle" Type="nvarchar" MaxLength="500" />
+    <Property Name="Geo" Type="nvarchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="IsFinished" Type="bit" />
+    <Property Name="FinishedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="TelegramLogDetail">
+    <Key>
+      <PropertyRef Name="TelegramLogDetailID" />
+    </Key>
+    <Property Name="TelegramLogDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TelegramLogID" Type="int" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Count" Type="bigint" />
+  </EntityType>
+  <EntityType Name="TelegramUserContentLog">
+    <Key>
+      <PropertyRef Name="TelegramUserContentLogID" />
+    </Key>
+    <Property Name="TelegramUserContentLogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ContentID" Type="int" />
+    <Property Name="Users" Type="nvarchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="IsFinished" Type="bit" />
+    <Property Name="FinishedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="TelegramUserContentLogDetail">
+    <Key>
+      <PropertyRef Name="TelegramUserContentLogDetailID" />
+    </Key>
+    <Property Name="TelegramUserContentLogDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TelegramUserContentLogID" Type="int" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Count" Type="bigint" />
+  </EntityType>
+  <EntityType Name="TelegramUserLog">
+    <Key>
+      <PropertyRef Name="TelegramUserLogID" />
+    </Key>
+    <Property Name="TelegramUserLogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PostID" Type="int" />
+    <Property Name="Users" Type="nvarchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="IsFinished" Type="bit" />
+    <Property Name="FinishedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="TelegramUserLogDetail">
+    <Key>
+      <PropertyRef Name="TelegramUserLogDetailID" />
+    </Key>
+    <Property Name="TelegramUserLogDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TelegramUserLogID" Type="int" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Count" Type="bigint" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="EmailAddress" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="MobileNumber" Type="nvarchar" MaxLength="11" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SaltPassword" Type="nvarchar(max)" />
+    <Property Name="ProfilePicture" Type="nvarchar(max)" />
+    <Property Name="AuthToken" Type="nvarchar(max)" />
+    <Property Name="AuthTokenExpiration" Type="datetime" />
+    <Property Name="IsEnabled" Type="bit" Nullable="false" />
+    <Property Name="UserRoleID" Type="int" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="UserRoleID" />
+    </Key>
+    <Property Name="UserRoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TitleFa" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsEnabled" Type="bit" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="Price" Type="nvarchar" MaxLength="50" />
+    <Property Name="Period" Type="int" />
+    <Property Name="FollowerIncreasementCount" Type="bigint" />
+    <Property Name="AccountsCount" Type="int" />
+  </EntityType>
+  <EntityType Name="ViewLog">
+    <Key>
+      <PropertyRef Name="ViewLogID" />
+    </Key>
+    <Property Name="ViewLogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PostID" Type="int" Nullable="false" />
+    <Property Name="Priority" Type="smallint" />
+    <Property Name="Count" Type="bigint" />
+    <Property Name="PreviousCount" Type="bigint" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="IsFinished" Type="bit" />
+    <Property Name="FinishedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ViewLogDetail">
+    <Key>
+      <PropertyRef Name="ViewLogDetailID" />
+    </Key>
+    <Property Name="ViewLogDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ViewLogID" Type="int" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Count" Type="bigint" />
+  </EntityType>
+  <EntityType Name="WalletChargeLog">
+    <Key>
+      <PropertyRef Name="WalletID" />
+    </Key>
+    <Property Name="WalletID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AccountID" Type="int" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="WalletPaymentLog">
+    <Key>
+      <PropertyRef Name="WalletPaymentLogID" />
+    </Key>
+    <Property Name="WalletPaymentLogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AccountID" Type="int" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="LogID" Type="int" />
+    <Property Name="LogType" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Account_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Account" Type="Self.Account" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Account">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CommentLog_Post">
+    <End Role="Post" Type="Self.Post" Multiplicity="1" />
+    <End Role="CommentLog" Type="Self.CommentLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Post">
+        <PropertyRef Name="PostID" />
+      </Principal>
+      <Dependent Role="CommentLog">
+        <PropertyRef Name="PostID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CommentLogDetail_CommentLog">
+    <End Role="CommentLog" Type="Self.CommentLog" Multiplicity="0..1" />
+    <End Role="CommentLogDetail" Type="Self.CommentLogDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CommentLog">
+        <PropertyRef Name="CommentLogID" />
+      </Principal>
+      <Dependent Role="CommentLogDetail">
+        <PropertyRef Name="CommentLogID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Content_Account">
+    <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+    <End Role="Content" Type="Self.Content" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="AccountID" />
+      </Principal>
+      <Dependent Role="Content">
+        <PropertyRef Name="AccountID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DirectContentLog_Content">
+    <End Role="Content" Type="Self.Content" Multiplicity="0..1" />
+    <End Role="DirectContentLog" Type="Self.DirectContentLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Content">
+        <PropertyRef Name="ContentID" />
+      </Principal>
+      <Dependent Role="DirectContentLog">
+        <PropertyRef Name="ContentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DirectContentLogDetail_DirectContentLog">
+    <End Role="DirectContentLog" Type="Self.DirectContentLog" Multiplicity="0..1" />
+    <End Role="DirectContentLogDetail" Type="Self.DirectContentLogDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DirectContentLog">
+        <PropertyRef Name="DirectContentLogID" />
+      </Principal>
+      <Dependent Role="DirectContentLogDetail">
+        <PropertyRef Name="DirectContentLogID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DirectLog_Post">
+    <End Role="Post" Type="Self.Post" Multiplicity="0..1" />
+    <End Role="DirectLog" Type="Self.DirectLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Post">
+        <PropertyRef Name="PostID" />
+      </Principal>
+      <Dependent Role="DirectLog">
+        <PropertyRef Name="PostID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DirectLogDetail_DirectLog">
+    <End Role="DirectLog" Type="Self.DirectLog" Multiplicity="0..1" />
+    <End Role="DirectLogDetail" Type="Self.DirectLogDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DirectLog">
+        <PropertyRef Name="DirectLogID" />
+      </Principal>
+      <Dependent Role="DirectLogDetail">
+        <PropertyRef Name="DirectLogID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ExploreLog_Post">
+    <End Role="Post" Type="Self.Post" Multiplicity="1" />
+    <End Role="ExploreLog" Type="Self.ExploreLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Post">
+        <PropertyRef Name="PostID" />
+      </Principal>
+      <Dependent Role="ExploreLog">
+        <PropertyRef Name="PostID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Follower_Account">
+    <End Role="Account" Type="Self.Account" Multiplicity="1" />
+    <End Role="Follower" Type="Self.Follower" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="AccountID" />
+      </Principal>
+      <Dependent Role="Follower">
+        <PropertyRef Name="AccountID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FollowerDetail_Follower">
+    <End Role="Follower" Type="Self.Follower" Multiplicity="0..1" />
+    <End Role="FollowerDetail" Type="Self.FollowerDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Follower">
+        <PropertyRef Name="FollowerID" />
+      </Principal>
+      <Dependent Role="FollowerDetail">
+        <PropertyRef Name="FollowerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FollowerDetail_Provinces">
+    <End Role="Province" Type="Self.Province" Multiplicity="0..1" />
+    <End Role="FollowerDetail" Type="Self.FollowerDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Province">
+        <PropertyRef Name="ProvinceID" />
+      </Principal>
+      <Dependent Role="FollowerDetail">
+        <PropertyRef Name="ProvinceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FollowerLog_Account">
+    <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+    <End Role="FollowerLog" Type="Self.FollowerLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="AccountID" />
+      </Principal>
+      <Dependent Role="FollowerLog">
+        <PropertyRef Name="AccountID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FollowerLogDetail_FollowerLog">
+    <End Role="FollowerLog" Type="Self.FollowerLog" Multiplicity="0..1" />
+    <End Role="FollowerLogDetail" Type="Self.FollowerLogDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FollowerLog">
+        <PropertyRef Name="FollowerLogID" />
+      </Principal>
+      <Dependent Role="FollowerLogDetail">
+        <PropertyRef Name="FollowerLogID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LikeLog_Post">
+    <End Role="Post" Type="Self.Post" Multiplicity="1" />
+    <End Role="LikeLog" Type="Self.LikeLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Post">
+        <PropertyRef Name="PostID" />
+      </Principal>
+      <Dependent Role="LikeLog">
+        <PropertyRef Name="PostID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LikeLogDetail_LikeLog">
+    <End Role="LikeLog" Type="Self.LikeLog" Multiplicity="0..1" />
+    <End Role="LikeLogDetail" Type="Self.LikeLogDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LikeLog">
+        <PropertyRef Name="LikeLogID" />
+      </Principal>
+      <Dependent Role="LikeLogDetail">
+        <PropertyRef Name="LikeLogID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MenuRole_Menu">
+    <End Role="Menu" Type="Self.Menu" Multiplicity="1" />
+    <End Role="MenuRole" Type="Self.MenuRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Menu">
+        <PropertyRef Name="MenuID" />
+      </Principal>
+      <Dependent Role="MenuRole">
+        <PropertyRef Name="MenuID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MenuRole_UserRole">
+    <End Role="UserRole" Type="Self.UserRole" Multiplicity="1" />
+    <End Role="MenuRole" Type="Self.MenuRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRole">
+        <PropertyRef Name="UserRoleID" />
+      </Principal>
+      <Dependent Role="MenuRole">
+        <PropertyRef Name="UserRoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Post_Account">
+    <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+    <End Role="Post" Type="Self.Post" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="AccountID" />
+      </Principal>
+      <Dependent Role="Post">
+        <PropertyRef Name="AccountID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TelegramContentLog_Content">
+    <End Role="Content" Type="Self.Content" Multiplicity="0..1" />
+    <End Role="TelegramContentLog" Type="Self.TelegramContentLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Content">
+        <PropertyRef Name="ContentID" />
+      </Principal>
+      <Dependent Role="TelegramContentLog">
+        <PropertyRef Name="ContentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TelegramContentLogDetail_TelegramContentLog">
+    <End Role="TelegramContentLog" Type="Self.TelegramContentLog" Multiplicity="0..1" />
+    <End Role="TelegramContentLogDetail" Type="Self.TelegramContentLogDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TelegramContentLog">
+        <PropertyRef Name="TelegramContentLogID" />
+      </Principal>
+      <Dependent Role="TelegramContentLogDetail">
+        <PropertyRef Name="TelegramContentLogID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TelegramLog_Post">
+    <End Role="Post" Type="Self.Post" Multiplicity="0..1" />
+    <End Role="TelegramLog" Type="Self.TelegramLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Post">
+        <PropertyRef Name="PostID" />
+      </Principal>
+      <Dependent Role="TelegramLog">
+        <PropertyRef Name="PostID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TelegramLogDetail_TelegramLog">
+    <End Role="TelegramLog" Type="Self.TelegramLog" Multiplicity="0..1" />
+    <End Role="TelegramLogDetail" Type="Self.TelegramLogDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TelegramLog">
+        <PropertyRef Name="TelegramLogID" />
+      </Principal>
+      <Dependent Role="TelegramLogDetail">
+        <PropertyRef Name="TelegramLogID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TelegramUserContentLog_Content">
+    <End Role="Content" Type="Self.Content" Multiplicity="0..1" />
+    <End Role="TelegramUserContentLog" Type="Self.TelegramUserContentLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Content">
+        <PropertyRef Name="ContentID" />
+      </Principal>
+      <Dependent Role="TelegramUserContentLog">
+        <PropertyRef Name="ContentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TelegramUserContentLogDetail_TelegramUserContentLog">
+    <End Role="TelegramUserContentLog" Type="Self.TelegramUserContentLog" Multiplicity="0..1" />
+    <End Role="TelegramUserContentLogDetail" Type="Self.TelegramUserContentLogDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TelegramUserContentLog">
+        <PropertyRef Name="TelegramUserContentLogID" />
+      </Principal>
+      <Dependent Role="TelegramUserContentLogDetail">
+        <PropertyRef Name="TelegramUserContentLogID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TelegramUserLog_Post">
+    <End Role="Post" Type="Self.Post" Multiplicity="0..1" />
+    <End Role="TelegramUserLog" Type="Self.TelegramUserLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Post">
+        <PropertyRef Name="PostID" />
+      </Principal>
+      <Dependent Role="TelegramUserLog">
+        <PropertyRef Name="PostID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TelegramUserLogDetail_TelegramUserLog">
+    <End Role="TelegramUserLog" Type="Self.TelegramUserLog" Multiplicity="0..1" />
+    <End Role="TelegramUserLogDetail" Type="Self.TelegramUserLogDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TelegramUserLog">
+        <PropertyRef Name="TelegramUserLogID" />
+      </Principal>
+      <Dependent Role="TelegramUserLogDetail">
+        <PropertyRef Name="TelegramUserLogID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_UserRole">
+    <End Role="UserRole" Type="Self.UserRole" Multiplicity="1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRole">
+        <PropertyRef Name="UserRoleID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="UserRoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ViewLog_Account">
+    <End Role="Account" Type="Self.Account" Multiplicity="1" />
+    <End Role="ViewLog" Type="Self.ViewLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="AccountID" />
+      </Principal>
+      <Dependent Role="ViewLog">
+        <PropertyRef Name="PostID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ViewLog_Post">
+    <End Role="Post" Type="Self.Post" Multiplicity="1" />
+    <End Role="ViewLog" Type="Self.ViewLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Post">
+        <PropertyRef Name="PostID" />
+      </Principal>
+      <Dependent Role="ViewLog">
+        <PropertyRef Name="PostID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ViewLogDetail_ViewLog">
+    <End Role="ViewLog" Type="Self.ViewLog" Multiplicity="0..1" />
+    <End Role="ViewLogDetail" Type="Self.ViewLogDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ViewLog">
+        <PropertyRef Name="ViewLogID" />
+      </Principal>
+      <Dependent Role="ViewLogDetail">
+        <PropertyRef Name="ViewLogID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WalletChargeLog_Account">
+    <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+    <End Role="WalletChargeLog" Type="Self.WalletChargeLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="AccountID" />
+      </Principal>
+      <Dependent Role="WalletChargeLog">
+        <PropertyRef Name="AccountID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WalletPaymentLog_Account">
+    <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+    <End Role="WalletPaymentLog" Type="Self.WalletPaymentLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="AccountID" />
+      </Principal>
+      <Dependent Role="WalletPaymentLog">
+        <PropertyRef Name="AccountID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ArkaAppModelStoreContainer">
+    <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ApiLog" EntityType="Self.ApiLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CommentLog" EntityType="Self.CommentLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CommentLogDetail" EntityType="Self.CommentLogDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Content" EntityType="Self.Content" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DirectContentLog" EntityType="Self.DirectContentLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DirectContentLogDetail" EntityType="Self.DirectContentLogDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DirectLog" EntityType="Self.DirectLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DirectLogDetail" EntityType="Self.DirectLogDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ExploreLog" EntityType="Self.ExploreLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Follower" EntityType="Self.Follower" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FollowerDetail" EntityType="Self.FollowerDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FollowerGenderDetail" EntityType="Self.FollowerGenderDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FollowerLog" EntityType="Self.FollowerLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FollowerLogDetail" EntityType="Self.FollowerLogDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LikeLog" EntityType="Self.LikeLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LikeLogDetail" EntityType="Self.LikeLogDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MenuRole" EntityType="Self.MenuRole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Post" EntityType="Self.Post" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pricing" EntityType="Self.Pricing" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PricingDetail" EntityType="Self.PricingDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Province" EntityType="Self.Province" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TelegramContentLog" EntityType="Self.TelegramContentLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TelegramContentLogDetail" EntityType="Self.TelegramContentLogDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TelegramLog" EntityType="Self.TelegramLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TelegramLogDetail" EntityType="Self.TelegramLogDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TelegramUserContentLog" EntityType="Self.TelegramUserContentLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TelegramUserContentLogDetail" EntityType="Self.TelegramUserContentLogDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TelegramUserLog" EntityType="Self.TelegramUserLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TelegramUserLogDetail" EntityType="Self.TelegramUserLogDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ViewLog" EntityType="Self.ViewLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ViewLogDetail" EntityType="Self.ViewLogDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WalletChargeLog" EntityType="Self.WalletChargeLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WalletPaymentLog" EntityType="Self.WalletPaymentLog" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Account_User" Association="Self.FK_Account_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Account" EntitySet="Account" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CommentLog_Post" Association="Self.FK_CommentLog_Post">
+      <End Role="Post" EntitySet="Post" />
+      <End Role="CommentLog" EntitySet="CommentLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CommentLogDetail_CommentLog" Association="Self.FK_CommentLogDetail_CommentLog">
+      <End Role="CommentLog" EntitySet="CommentLog" />
+      <End Role="CommentLogDetail" EntitySet="CommentLogDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Content_Account" Association="Self.FK_Content_Account">
+      <End Role="Account" EntitySet="Account" />
+      <End Role="Content" EntitySet="Content" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DirectContentLog_Content" Association="Self.FK_DirectContentLog_Content">
+      <End Role="Content" EntitySet="Content" />
+      <End Role="DirectContentLog" EntitySet="DirectContentLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DirectContentLogDetail_DirectContentLog" Association="Self.FK_DirectContentLogDetail_DirectContentLog">
+      <End Role="DirectContentLog" EntitySet="DirectContentLog" />
+      <End Role="DirectContentLogDetail" EntitySet="DirectContentLogDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DirectLog_Post" Association="Self.FK_DirectLog_Post">
+      <End Role="Post" EntitySet="Post" />
+      <End Role="DirectLog" EntitySet="DirectLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DirectLogDetail_DirectLog" Association="Self.FK_DirectLogDetail_DirectLog">
+      <End Role="DirectLog" EntitySet="DirectLog" />
+      <End Role="DirectLogDetail" EntitySet="DirectLogDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ExploreLog_Post" Association="Self.FK_ExploreLog_Post">
+      <End Role="Post" EntitySet="Post" />
+      <End Role="ExploreLog" EntitySet="ExploreLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Follower_Account" Association="Self.FK_Follower_Account">
+      <End Role="Account" EntitySet="Account" />
+      <End Role="Follower" EntitySet="Follower" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FollowerDetail_Follower" Association="Self.FK_FollowerDetail_Follower">
+      <End Role="Follower" EntitySet="Follower" />
+      <End Role="FollowerDetail" EntitySet="FollowerDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FollowerDetail_Provinces" Association="Self.FK_FollowerDetail_Provinces">
+      <End Role="Province" EntitySet="Province" />
+      <End Role="FollowerDetail" EntitySet="FollowerDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FollowerLog_Account" Association="Self.FK_FollowerLog_Account">
+      <End Role="Account" EntitySet="Account" />
+      <End Role="FollowerLog" EntitySet="FollowerLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FollowerLogDetail_FollowerLog" Association="Self.FK_FollowerLogDetail_FollowerLog">
+      <End Role="FollowerLog" EntitySet="FollowerLog" />
+      <End Role="FollowerLogDetail" EntitySet="FollowerLogDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LikeLog_Post" Association="Self.FK_LikeLog_Post">
+      <End Role="Post" EntitySet="Post" />
+      <End Role="LikeLog" EntitySet="LikeLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LikeLogDetail_LikeLog" Association="Self.FK_LikeLogDetail_LikeLog">
+      <End Role="LikeLog" EntitySet="LikeLog" />
+      <End Role="LikeLogDetail" EntitySet="LikeLogDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MenuRole_Menu" Association="Self.FK_MenuRole_Menu">
+      <End Role="Menu" EntitySet="Menu" />
+      <End Role="MenuRole" EntitySet="MenuRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MenuRole_UserRole" Association="Self.FK_MenuRole_UserRole">
+      <End Role="UserRole" EntitySet="UserRole" />
+      <End Role="MenuRole" EntitySet="MenuRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Post_Account" Association="Self.FK_Post_Account">
+      <End Role="Account" EntitySet="Account" />
+      <End Role="Post" EntitySet="Post" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TelegramContentLog_Content" Association="Self.FK_TelegramContentLog_Content">
+      <End Role="Content" EntitySet="Content" />
+      <End Role="TelegramContentLog" EntitySet="TelegramContentLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TelegramContentLogDetail_TelegramContentLog" Association="Self.FK_TelegramContentLogDetail_TelegramContentLog">
+      <End Role="TelegramContentLog" EntitySet="TelegramContentLog" />
+      <End Role="TelegramContentLogDetail" EntitySet="TelegramContentLogDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TelegramLog_Post" Association="Self.FK_TelegramLog_Post">
+      <End Role="Post" EntitySet="Post" />
+      <End Role="TelegramLog" EntitySet="TelegramLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TelegramLogDetail_TelegramLog" Association="Self.FK_TelegramLogDetail_TelegramLog">
+      <End Role="TelegramLog" EntitySet="TelegramLog" />
+      <End Role="TelegramLogDetail" EntitySet="TelegramLogDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TelegramUserContentLog_Content" Association="Self.FK_TelegramUserContentLog_Content">
+      <End Role="Content" EntitySet="Content" />
+      <End Role="TelegramUserContentLog" EntitySet="TelegramUserContentLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TelegramUserContentLogDetail_TelegramUserContentLog" Association="Self.FK_TelegramUserContentLogDetail_TelegramUserContentLog">
+      <End Role="TelegramUserContentLog" EntitySet="TelegramUserContentLog" />
+      <End Role="TelegramUserContentLogDetail" EntitySet="TelegramUserContentLogDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TelegramUserLog_Post" Association="Self.FK_TelegramUserLog_Post">
+      <End Role="Post" EntitySet="Post" />
+      <End Role="TelegramUserLog" EntitySet="TelegramUserLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TelegramUserLogDetail_TelegramUserLog" Association="Self.FK_TelegramUserLogDetail_TelegramUserLog">
+      <End Role="TelegramUserLog" EntitySet="TelegramUserLog" />
+      <End Role="TelegramUserLogDetail" EntitySet="TelegramUserLogDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_UserRole" Association="Self.FK_User_UserRole">
+      <End Role="UserRole" EntitySet="UserRole" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ViewLog_Account" Association="Self.FK_ViewLog_Account">
+      <End Role="Account" EntitySet="Account" />
+      <End Role="ViewLog" EntitySet="ViewLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ViewLog_Post" Association="Self.FK_ViewLog_Post">
+      <End Role="Post" EntitySet="Post" />
+      <End Role="ViewLog" EntitySet="ViewLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ViewLogDetail_ViewLog" Association="Self.FK_ViewLogDetail_ViewLog">
+      <End Role="ViewLog" EntitySet="ViewLog" />
+      <End Role="ViewLogDetail" EntitySet="ViewLogDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WalletChargeLog_Account" Association="Self.FK_WalletChargeLog_Account">
+      <End Role="Account" EntitySet="Account" />
+      <End Role="WalletChargeLog" EntitySet="WalletChargeLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WalletPaymentLog_Account" Association="Self.FK_WalletPaymentLog_Account">
+      <End Role="Account" EntitySet="Account" />
+      <End Role="WalletPaymentLog" EntitySet="WalletPaymentLog" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,8 @@
+﻿@model List<ArkaApp.Models.ViewModels.ErrorViewModel>
+
+<div class="alert alert-error text-white" role="alert">
+    @foreach (var item in Model)
+    {
+        <p style="color:#FFF">@item.Message</p>
+    }
+</div>

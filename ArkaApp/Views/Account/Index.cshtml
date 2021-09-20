@@ -1,0 +1,126 @@
+﻿@model List<ArkaApp.Models.EntityModels.Account>
+@{
+    ViewBag.Title = "انتخاب حساب کاربری";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+
+<section class="section">
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-10 offset-md-1 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h4 class="col-9">انتخاب حساب کاربری</h4>
+                        <h4 class="col-3 text-right">
+                            <a class="btn btn-primary" href="@Url.Action("Add","Account",new { id = ViewBag.UserID })">ثبت حساب جدید</a>
+                        </h4>
+                    </div>
+                    <div class="card-body">
+                        @if (ViewBag.Done != null && ViewBag.Done == "Done")
+                        {
+                            <div class="alert alert-success" role="alert">
+                                عملیات با موفقیت انجام شد.
+                            </div>
+                        }
+
+                        @if (Model.Count > 0)
+                        {
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-md">
+                                    <tbody>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>نام کاربری</th>
+                                            <th></th>
+                                        </tr>
+                                        @{
+                                            int row = 1;
+                                            foreach (var item in Model)
+                                            {
+                                                <tr>
+                                                    <td>@row</td>
+                                                    @if ((bool)item.IsDefault)
+                                                    {
+                                                        <td> @item.AccountUserName (حساب پیش فرض)</td>
+                                                    }
+                                                    else
+                                                    {
+                                                        <td>@item.AccountUserName</td>
+
+                                                    }
+                                                    <td>
+                                                        <div class="dropdown">
+                                                            <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                عملیات
+                                                            </button>
+                                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                                <a class="dropdown-item" href="@Url.Action("SelectAccount", "Account", new { id = item.AccountID })">ورود</a>
+                                                                @if (!(bool)item.IsDefault)
+                                                                {
+                                                                    <a class="dropdown-item" href="@Url.Action("SetAccountAsDefault", "Account", new { id = item.AccountID })">ثبت به عنوان پیش فرض</a>
+                                                                }
+                                                                <a href="#" class="dropdown-item btnDelete" data-id="@item.AccountID">حذف</a>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                                                row++;
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        }
+                        else
+                        {
+                            <p class="text-dark">رکوردی یافت نشد.</p>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts{
+    <script src="~/Scripts/sweetalert/sweetalert.min.js"></script>
+    <script>
+        $('.table-responsive').on('show.bs.dropdown', function () {
+            $('.table-responsive').css("overflow", "inherit");
+        });
+
+        $('.table-responsive').on('hide.bs.dropdown', function () {
+            $('.table-responsive').css("overflow", "auto");
+        })
+
+        $('.btnDelete').click(function () {
+            var id = $(this).data("id");
+            swal({
+                title: 'آیا از حذف حساب انتخابی مطمئن هستید؟',
+                icon: 'warning',
+                buttons: true,
+                dangerMode: true,
+            }).then((willDelete) => {
+                if (willDelete) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/Account/DeactiveAccount/" + id, // the URL of the controller action method
+                        data: null, // optional data
+                        success: function (result) {
+                            swal('حساب انتخابی با موفقیت حذف شد.', {
+                                icon: 'success',
+                            });
+                            location.reload();
+                        },
+                        error: function (result) {
+                            swal('حساب انتخابی حذف نشد.', {
+                                icon: 'error',
+                            });
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+}

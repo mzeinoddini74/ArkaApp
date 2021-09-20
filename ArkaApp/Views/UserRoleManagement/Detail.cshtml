@@ -1,0 +1,79 @@
+﻿@model ArkaApp.Models.ViewModels.UserRoleViewModel
+
+@{
+    ViewBag.Title = "مشاهده نقش";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<ul class="breadcrumb breadcrumb-style ">
+    <li class="breadcrumb-item">
+        <h4 class="page-title m-b-0">مشاهده نقش</h4>
+    </li>
+    <li class="breadcrumb-item">
+        <a href="/Dashboard/Index">
+            <i class="fas fa-home"></i>
+        </a>
+    </li>
+    <li class="breadcrumb-item">
+        <a href="/UserManagement/Index">
+            لیست نقش ها
+        </a>
+    </li>
+    <li class="breadcrumb-item active">مشاهده نقش</li>
+</ul>
+<div class="section-body">
+    <div class="row mt-sm-4">
+        <div class="col-12 col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="tab-pane show" id="settings" role="tabpanel" aria-labelledby="profile-tab2">
+                        <div class="card-header">
+                            <h4>اطلاعات کاربر</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="form-group col-md-6 col-12">
+                                    @Html.LabelFor(model => model.UserRole.Title)
+                                    @Html.DisplayFor(model => model.UserRole.Title, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+                                <div class="form-group col-md-6 col-12">
+                                    @Html.LabelFor(model => model.UserRole.TitleFa)
+                                    @Html.DisplayFor(model => model.UserRole.TitleFa, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-md-6 col-12">
+                                    @Html.LabelFor(model => model.UserRole.CreatedBy)
+                                    @Html.DisplayFor(model => model.CreatedBy)
+                                </div>
+                                <div class="form-group col-md-6 col-12">
+                                    @Html.LabelFor(model => model.UserRole.CreatedDate)
+                                    @ArkaApp.Helper.PersianHelper.GetPersinDateTime((DateTime)Model.UserRole.CreatedDate)
+                                </div>
+                            </div>
+                            @if (Model.UpdatedBy != string.Empty)
+                            {
+                                <div class="row">
+                                    <div class="form-group col-md-6 col-12">
+                                        @Html.LabelFor(model => model.UserRole.UpdatedBy)
+                                        @Html.DisplayFor(model => model.UpdatedBy)
+                                    </div>
+                                    <div class="form-group col-md-6 col-12">
+                                        @Html.LabelFor(model => model.UserRole.UpdatedDate)
+                                        @ArkaApp.Helper.PersianHelper.GetPersinDateTime((DateTime)Model.UserRole.UpdatedDate)
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                        <div class="card-footer text-right">
+                            <a href="/UserRoleManagement/Index" class="btn btn-outline-primary">بازگشت</a>
+                            <a href="@Url.Action("Edit", "UserRoleManagement", new { id = Model.UserRole.UserRoleID })" class="btn btn-primary">ویرایش</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

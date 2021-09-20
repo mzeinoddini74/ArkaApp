@@ -1,0 +1,95 @@
+﻿@model ArkaApp.Models.EntityModels.TelegramUserLog
+@{
+    ViewBag.Title = "ارسال پست به لیست افراد تلگرام";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<ul class="breadcrumb breadcrumb-style ">
+    <li class="breadcrumb-item">
+        <h4 class="page-title m-b-0">ارسال پست به لیست افراد تلگرام</h4>
+    </li>
+    <li class="breadcrumb-item">
+        <a href="/Dashboard/Index">
+            <i class="fas fa-home"></i>
+        </a>
+    </li>
+    <li class="breadcrumb-item"><a href="/TelegramUser/Index">لیست پست ها</a></li>
+    <li class="breadcrumb-item active">ارسال پست به لیست افراد تلگرام</li>
+</ul>
+<div class="section-body">
+    <div class="row mt-sm-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="tab-pane show" id="settings" role="tabpanel" aria-labelledby="profile-tab2">
+                        <div class="card-header">
+                            <h4>لطفا فرم زیر را تکمیل کنید.</h4>
+                        </div>
+                        @using (Html.BeginForm("MessageRequest", "TelegramUser", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true)
+
+                            <input type="hidden" id="PostID" name="PostID" value="@ViewBag.PostID" />
+
+                            <div class="card-body">
+                                @if (ViewBag.Done != null && ViewBag.Done == "Done")
+                                {
+                                    <div class="alert alert-success" role="alert">
+                                        درخواست شما با موفقیت ارسال شد.
+                                    </div>
+                                }
+                                @if (ViewBag.Error != null && ViewBag.Error == "400")
+                                {
+                                    <div class="alert alert-warning" role="alert">
+                                        پست انتخابی یافت نشد.
+                                    </div>
+                                }
+                                else if (ViewBag.Error != null && ViewBag.Error == "401")
+                                {
+                                    <div class="alert alert-danger" role="alert">
+                                        درخواست غیرمجاز می باشد.
+                                    </div>
+                                }
+                                else if (ViewBag.Error != null && ViewBag.Error == "Error")
+                                {
+                                    <div class="alert alert-danger" role="alert">
+                                        در ارسال درخواست مشکلی پیش آمده است. لطفا مجددا تلاش کنید.
+                                    </div>
+                                }
+
+                                <div class="row">
+                                    <div class="form-group col-12">
+                                        @Html.Label("شماره موبایل افراد")
+                                        @Html.EditorFor(model => model.Users, new { htmlAttributes = new { @class = "form-control inputtags w-100" } })
+                                        @Html.ValidationMessageFor(model => model.Users, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="card-footer text-right">
+                                <a href="/TelegramUser/Index" class="btn btn-outline-primary">بازگشت</a>
+                                <button type="submit" class="btn btn-primary">ذخیره تغییرات</button>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts{
+    <script src="~/Scripts/bootstrap-tagsinput/bootstrap-tagsinput.min.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $(".inputtags").tagsinput('items');
+        });
+    </script>
+}
+@section Styles{
+    <link href="~/Content/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet" />
+}

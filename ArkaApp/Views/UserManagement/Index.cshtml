@@ -1,0 +1,202 @@
+﻿@model ArkaApp.Models.ViewModels.UserSearchViewModel
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "مدیریت کاربران";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="section">
+    <ul class="breadcrumb breadcrumb-style ">
+        <li class="breadcrumb-item">
+            <h4 class="page-title m-b-0">مدیریت کاربران</h4>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="/Dashboard/Index">
+                <i class="fas fa-home"></i>
+            </a>
+        </li>
+        <li class="breadcrumb-item active">لیست کاربران</li>
+    </ul>
+    <div class="section-body">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="col-9">لیست کاربران</h4>
+                        <h4 class="col-3 text-right">
+                            <a class="btn btn-primary" href="/UserManagement/Add">ثبت کاربر جدید</a>
+                        </h4>
+                    </div>
+                    @using (Html.BeginForm("Index", "UserManagement", FormMethod.Get))
+                    {
+                        <div class="card-body">
+                            @if (ViewBag.Done != null && ViewBag.Done == "Done")
+                            {
+                                <div class="alert alert-success" role="alert">
+                                    عملیات با موفقیت انجام شد.
+                                </div>
+                            }
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-4">
+                                        @Html.TextBoxFor(model => model.FullName, new { @class = "form-control", placeholder = @Html.DisplayNameFor(x => x.FullName) })
+                                    </div>
+                                    <div class="col-4">
+                                        @Html.TextBoxFor(model => model.UserName, new { @class = "form-control", placeholder = @Html.DisplayNameFor(x => x.UserName) })
+                                    </div>
+                                    <div class="col-4">
+                                        @Html.TextBoxFor(model => model.EmailAddress, new { @class = "form-control", placeholder = @Html.DisplayNameFor(x => x.EmailAddress) })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-4">
+                                        @Html.DropDownListFor(model => model.UserRoleID, Model.UserRoles, "-- نقش کاربر --", new { @class = "form-control select2" })
+
+                                    </div>
+                                    <div class="col-4">
+                                        @Html.DropDownListFor(model => model.CreatedBy, Model.Creators, "-- ثبت شده توسط --", new { @class = "form-control select2", data_live_search = "true", data_width = "100%", data_style = "custom-select" })
+                                    </div>
+                                    <div class="col-2">
+                                        @Html.DropDownListFor(model => model.IsEnabled, (IEnumerable<SelectListItem>)ViewBag.IsEnabled, null, new { @class = "form-control select2", data_width = "100%", data_style = "custom-select" })
+                                    </div>
+                                    <div class="col-2">
+                                        <button class="btn btn-outline-primary btn-block" type="submit" name="SearchButton" id="SearchButton" value="جستجو"><i data-feather="search"></i>&nbsp; جستجو</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            @if (Model.SearchResults.Count > 0)
+                            {
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-md">
+                                        <tbody>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>نام</th>
+                                                <th>نام کاربری</th>
+                                                <th>آدرس پست الکترونیکی</th>
+                                                <th>نقش کاربر</th>
+                                                <th>ایجاد شده توسط</th>
+                                                <th>وضعیت</th>
+                                                <th></th>
+                                            </tr>
+                                            @{
+                                                int row = 1;
+                                                foreach (var item in Model.SearchResults)
+                                                {
+                                                    <tr>
+                                                        <td>@row</td>
+                                                        <td>@item.User.FullName</td>
+                                                        <td>@item.User.UserName</td>
+                                                        <td>@item.User.EmailAddress</td>
+                                                        <td>@item.User.UserRole.Title</td>
+                                                        <td>@item.CreatedBy</td>
+
+                                                        <td>
+                                                            @if (item.User.IsEnabled)
+                                                            {
+                                                                <p class="text-success"><i class="fas fa-check"></i>&nbsp;فعال</p>
+                                                            }
+                                                            else
+                                                            {
+                                                                <p class="text-danger"><i class="fas fa-times"></i>&nbsp;غیر فعال</p>
+                                                            }
+                                                        </td>
+                                                        <td>
+                                                            <div class="dropdown">
+                                                                <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                    عملیات
+                                                                </button>
+                                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                                    <a class="dropdown-item" href="@Url.Action("Detail", "UserManagement", new { id = item.User.UserID })">جزئیات</a>
+                                                                    <a class="dropdown-item" href="@Url.Action("Edit", "UserManagement", new { id = item.User.UserID })">ویرایش</a>
+                                                                    @if (ViewBag.UserRole == "SuperAdmin")
+                                                                    {
+                                                                        <a class="dropdown-item" href="@Url.Action("SuperEdit", "UserManagement", new { id = item.User.UserID })">تغییر رمزعبور</a>
+                                                                        <a href="#" class="dropdown-item btnDelete" data-id="@item.User.UserID">حذف</a>
+                                                                    }
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+
+                                                    row++;
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            }
+                            else
+                            {
+                                <p class="text-dark">رکوردی یافت نشد.</p>
+                            }
+                        </div>
+                        <div class="card-footer text-right" style="direction:ltr;">
+                            @Html.PagedListPager(Model.SearchResults, page => Url.Action("Index", new RouteValueDictionary()
+                                {
+                                { "Page", page },
+                                { "CreatedBy", Model.CreatedBy },
+                                { "EmailAddress", Model.EmailAddress },
+                                { "FullName", Model.FullName },
+                                { "IsEnabled", Model.IsEnabled },
+                                { "UserRoleID", Model.UserRoleID },
+                                { "UserName", Model.UserName }
+                                }),
+                                PagedListRenderOptions.ClassicPlusFirstAndLast)
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@section Scripts{
+    <script src="~/Scripts/select2/js/select2.full.min.js"></script>
+    <script src="~/Scripts/sweetalert/sweetalert.min.js"></script>
+    <script>
+        $('.table-responsive').on('show.bs.dropdown', function () {
+            $('.table-responsive').css("overflow", "inherit");
+        });
+
+        $('.table-responsive').on('hide.bs.dropdown', function () {
+            $('.table-responsive').css("overflow", "auto");
+        })
+
+        $('.btnDelete').click(function () {
+            var id = $(this).data("id");
+            swal({
+                title: 'آیا از حذف رکورد انتخابی مطمئن هستید؟',
+                icon: 'warning',
+                buttons: true,
+                dangerMode: true,
+            }).then((willDelete) => {
+                if (willDelete) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/UserManagement/Delete/" + id, // the URL of the controller action method
+                        data: null, // optional data
+                        success: function (result) {
+                            swal('رکورد انتخابی با موفقیت حذف شد.', {
+                                icon: 'success',
+                            });
+                            location.reload();
+                        },
+                        error: function (result) {
+                            swal('رکورد انتخابی حذف نشد.', {
+                                icon: 'error',
+                            });
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+}
+@section Styles{
+    <link href="~/Content/select2/css/select2.min.css" rel="stylesheet" />
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+}

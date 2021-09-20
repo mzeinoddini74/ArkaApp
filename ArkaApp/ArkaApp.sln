@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29411.108
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArkaApp", "ArkaApp.csproj", "{B6B84FE4-2E38-423E-B7E6-583534727677}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B6B84FE4-2E38-423E-B7E6-583534727677}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6B84FE4-2E38-423E-B7E6-583534727677}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6B84FE4-2E38-423E-B7E6-583534727677}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6B84FE4-2E38-423E-B7E6-583534727677}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D75ECBE5-E2AC-48AF-8A40-4AC6F0450A84}
+	EndGlobalSection
+EndGlobal

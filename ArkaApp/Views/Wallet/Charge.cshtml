@@ -1,0 +1,51 @@
+﻿@{@model ArkaApp.Models.ViewModels.ChargeWalletViewModel
+
+    ViewBag.Title = "شارژ کیف پول";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<ul class="breadcrumb breadcrumb-style ">
+    <li class="breadcrumb-item">
+        <h4 class="page-title m-b-0">شارژ کیف پول</h4>
+    </li>
+    <li class="breadcrumb-item">
+        <a href="/Dashboard/Index">
+            <i class="fas fa-home"></i>
+        </a>
+    </li>
+    <li class="breadcrumb-item"><a href="/CommentIncreasement/Index">لیست پست ها</a></li>
+    <li class="breadcrumb-item active">شارژ کیف پول</li>
+</ul>
+<div class="section-body">
+    <div class="row mt-sm-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="tab-pane show" id="settings" role="tabpanel" aria-labelledby="profile-tab2">
+                        <div class="card-header">
+                            <h4>لطفا فرم زیر را تکمیل کنید.</h4>
+                        </div>
+                        @using (Html.BeginForm("Charge", "Wallet", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true)
+
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="form-group col-12">
+                                        @Html.Label("مبلغ")
+                                        @Html.DropDownListFor(model => model.Amount, (IEnumerable<SelectListItem>)ViewBag.Amounts, null, new { @class = "form-control select2", data_width = "100%", data_style = "custom-select" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer text-right">
+                                <a href="/Dashboard/Index" class="btn btn-outline-primary">بازگشت</a>
+                                <button type="submit" class="btn btn-primary">ذخیره تغییرات</button>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

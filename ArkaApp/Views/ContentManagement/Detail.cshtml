@@ -1,0 +1,85 @@
+﻿@model ArkaApp.Models.EntityModels.Content
+@using ArkaApp.Helper
+@{
+    ViewBag.Title = "مشاهده محتوا";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<ul class="breadcrumb breadcrumb-style ">
+    <li class="breadcrumb-item">
+        <h4 class="page-title m-b-0">مشاهده محتوا</h4>
+    </li>
+    <li class="breadcrumb-item">
+        <a href="/Dashboard/Index">
+            <i class="fas fa-home"></i>
+        </a>
+    </li>
+    <li class="breadcrumb-item">
+        <a href="/ContentManagement/Index">
+            لیست محتوا ها
+        </a>
+    </li>
+    <li class="breadcrumb-item active">مشاهده محتوا</li>
+</ul>
+<div class="section-body">
+    <div class="row mt-sm-4">
+        <div class="col-12 col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="tab-pane show" id="settings" role="tabpanel" aria-labelledby="profile-tab2">
+                        <div class="card-header">
+                            <h4>اطلاعات محتوا</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="form-group col-12">
+                                    @Html.LabelFor(model => model.URL)
+                                    <br />
+                                    @{
+                                        var ext = Model.URL.Split('.').ToArray();
+                                    }
+
+                                    @if (Model.URL.HasImageExtension())
+                                    {
+                                        <img src="@Model.URL" class="img-thumbnail" />
+                                    }
+                                    else if (Model.URL.HasVideoExtension())
+                                    {
+                                        <video controls>
+                                            <source src="@Model.URL" type="video/@ext[1]">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                    }
+                                    else if (Model.URL.HasAudioExtension())
+                                    {
+                                        <audio controls>
+                                            <source src="@Model.URL" type="audio/@ext[1]">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    }
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-12">
+                                    @Html.LabelFor(model => model.Description)
+                                    @Html.DisplayFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-md-6 col-12">
+                                    @Html.LabelFor(model => model.CreatedDate)
+                                    @ArkaApp.Helper.PersianHelper.GetPersinDateTime((DateTime)Model.CreatedDate)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer text-right">
+                            <a href="/ContentManagement/Index" class="btn btn-outline-primary">بازگشت</a>
+                            <a href="@Url.Action("Edit", "ContentManagement", new { id = Model.ContentID })" class="btn btn-primary">ویرایش</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

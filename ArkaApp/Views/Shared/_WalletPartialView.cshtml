@@ -1,0 +1,29 @@
+﻿@using (ArkaApp.Models.EntityModels.ArkaAppEntities db = new ArkaApp.Models.EntityModels.ArkaAppEntities())
+{
+    var accountId = ArkaApp.Helper.Utility.GetAccountId();
+    var account = db.Account.Where(x => x.AccountID == accountId).FirstOrDefault();
+
+    <a href="#" data-toggle="dropdown" class="nav-link nav-link-lg message-toggle">
+        <i data-feather="credit-card" data-toggle="tooltip" data-placement="bottom" title="کیف پول شما (@(Convert.ToDecimal(account.CurrentWalletAmount).ToString("N0")) تومان)"></i>
+    </a>
+
+    <div class="dropdown-menu dropdown-menu-right pullDown">
+        <div class="dropdown-title">
+            کیف پول شما (@(Convert.ToDecimal(account.CurrentWalletAmount).ToString("N0")) تومان)
+        </div>
+        <a href="@Url.Action("Index","Wallet")" class="dropdown-item has-icon">
+            <i class="fa fa-history"></i>
+            مشاهده سابقه شارژ کیف پول
+        </a>
+        <a href="@Url.Action("Payment","Wallet")" class="dropdown-item has-icon">
+            <i class="fa fa-money-bill"></i>
+            مشاهده سابقه خرید
+        </a>
+        <div class="dropdown-divider"></div>
+        <a href="@Url.Action("Charge","Wallet")" class="dropdown-item has-icon">
+            <i class="fa fa-coins"></i>
+            شارژ کیف پول
+        </a>
+    </div>
+
+}

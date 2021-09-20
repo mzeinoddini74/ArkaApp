@@ -1,0 +1,78 @@
+﻿@model ArkaApp.Models.EntityModels.Account
+
+@{
+    ViewBag.Title = "ثبت حساب";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<ul class="breadcrumb breadcrumb-style ">
+    <li class="breadcrumb-item">
+        <h4 class="page-title m-b-0">ثبت حساب</h4>
+    </li>
+    <li class="breadcrumb-item">
+        <a href="/Dashboard/Index">
+            <i class="fas fa-home"></i>
+        </a>
+    </li>
+    <li class="breadcrumb-item">
+        <a href="/AccountManagement/Index">
+            لیست حساب ها
+        </a>
+    </li>
+    <li class="breadcrumb-item active">ثبت حساب</li>
+</ul>
+<div class="section-body">
+    <div class="row mt-sm-4">
+        <div class="col-12 col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="tab-pane show" id="settings" role="tabpanel" aria-labelledby="profile-tab2">
+                        <div class="card-header">
+                            <h4>اطلاعات حساب</h4>
+                        </div>
+                        @using (Html.BeginForm("Add", "AccountManagement", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true)
+
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="form-group col-md-6 col-12">
+                                        @Html.LabelFor(model => model.AccountUserName)
+                                        @Html.EditorFor(model => model.AccountUserName, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.AccountUserName, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group col-md-6 col-12">
+                                        @Html.LabelFor(model => model.UserID)
+                                        @Html.DropDownListFor(model => model.UserID, (SelectList)ViewBag.Users, "-- کاربر --", new { @class = "form-control select2" })
+                                        @Html.ValidationMessageFor(model => model.UserID, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-12">
+                                        <div class="custom-control custom-checkbox">
+                                            @Html.CheckBox("IsEnabled", false, new { @class = "custom-control-input" })
+                                            <label class="custom-control-label" for="IsEnabled">وضعیت</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="card-footer text-right">
+                                <a href="/AccountManagement/Index" class="btn btn-outline-primary">بازگشت</a>
+                                <button type="submit" class="btn btn-primary">ذخیره تغییرات</button>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/Scripts/select2/js/select2.full.min.js"></script>
+}
+@section Styles{
+    <link href="~/Content/select2/css/select2.min.css" rel="stylesheet" />
+}

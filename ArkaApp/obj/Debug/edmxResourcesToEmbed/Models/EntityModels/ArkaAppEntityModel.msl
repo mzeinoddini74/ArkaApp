@@ -1,0 +1,473 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ArkaAppModelStoreContainer" CdmEntityContainer="ArkaAppEntities1">
+    <EntitySetMapping Name="Account">
+      <EntityTypeMapping TypeName="ArkaAppModel.Account">
+        <MappingFragment StoreEntitySet="Account">
+          <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="ProfilePicture" ColumnName="ProfilePicture" />
+          <ScalarProperty Name="AccountPK" ColumnName="AccountPK" />
+          <ScalarProperty Name="AccountUserName" ColumnName="AccountUserName" />
+          <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+          <ScalarProperty Name="FollowerCount" ColumnName="FollowerCount" />
+          <ScalarProperty Name="PostCount" ColumnName="PostCount" />
+          <ScalarProperty Name="CurrentWalletAmount" ColumnName="CurrentWalletAmount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ApiLog">
+      <EntityTypeMapping TypeName="ArkaAppModel.ApiLog">
+        <MappingFragment StoreEntitySet="ApiLog">
+          <ScalarProperty Name="ApiLogID" ColumnName="ApiLogID" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+          <ScalarProperty Name="PostID" ColumnName="PostID" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CommentLog">
+      <EntityTypeMapping TypeName="ArkaAppModel.CommentLog">
+        <MappingFragment StoreEntitySet="CommentLog">
+          <ScalarProperty Name="CommentLogID" ColumnName="CommentLogID" />
+          <ScalarProperty Name="PostID" ColumnName="PostID" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="PreviousCount" ColumnName="PreviousCount" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="IsFinished" ColumnName="IsFinished" />
+          <ScalarProperty Name="FinishedDate" ColumnName="FinishedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CommentLogDetail">
+      <EntityTypeMapping TypeName="ArkaAppModel.CommentLogDetail">
+        <MappingFragment StoreEntitySet="CommentLogDetail">
+          <ScalarProperty Name="CommentLogDetailID" ColumnName="CommentLogDetailID" />
+          <ScalarProperty Name="CommentLogID" ColumnName="CommentLogID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Content">
+      <EntityTypeMapping TypeName="ArkaAppModel.Content">
+        <MappingFragment StoreEntitySet="Content">
+          <ScalarProperty Name="ContentID" ColumnName="ContentID" />
+          <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DirectContentLog">
+      <EntityTypeMapping TypeName="ArkaAppModel.DirectContentLog">
+        <MappingFragment StoreEntitySet="DirectContentLog">
+          <ScalarProperty Name="DirectContentLogID" ColumnName="DirectContentLogID" />
+          <ScalarProperty Name="ContentID" ColumnName="ContentID" />
+          <ScalarProperty Name="Geo" ColumnName="Geo" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="IsFinished" ColumnName="IsFinished" />
+          <ScalarProperty Name="FinishedDate" ColumnName="FinishedDate" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DirectContentLogDetail">
+      <EntityTypeMapping TypeName="ArkaAppModel.DirectContentLogDetail">
+        <MappingFragment StoreEntitySet="DirectContentLogDetail">
+          <ScalarProperty Name="DirectContentLogDetailID" ColumnName="DirectContentLogDetailID" />
+          <ScalarProperty Name="DirectContentLogID" ColumnName="DirectContentLogID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DirectLog">
+      <EntityTypeMapping TypeName="ArkaAppModel.DirectLog">
+        <MappingFragment StoreEntitySet="DirectLog">
+          <ScalarProperty Name="DirectLogID" ColumnName="DirectLogID" />
+          <ScalarProperty Name="PostID" ColumnName="PostID" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="Geo" ColumnName="Geo" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="IsFinished" ColumnName="IsFinished" />
+          <ScalarProperty Name="FinishedDate" ColumnName="FinishedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DirectLogDetail">
+      <EntityTypeMapping TypeName="ArkaAppModel.DirectLogDetail">
+        <MappingFragment StoreEntitySet="DirectLogDetail">
+          <ScalarProperty Name="DirectLogDetailID" ColumnName="DirectLogDetailID" />
+          <ScalarProperty Name="DirectLogID" ColumnName="DirectLogID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExploreLog">
+      <EntityTypeMapping TypeName="ArkaAppModel.ExploreLog">
+        <MappingFragment StoreEntitySet="ExploreLog">
+          <ScalarProperty Name="ExploreLogID" ColumnName="ExploreLogID" />
+          <ScalarProperty Name="PostID" ColumnName="PostID" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="FromDateFa" ColumnName="FromDateFa" />
+          <ScalarProperty Name="FromDateEn" ColumnName="FromDateEn" />
+          <ScalarProperty Name="DateCount" ColumnName="DateCount" />
+          <ScalarProperty Name="EndDateFa" ColumnName="EndDateFa" />
+          <ScalarProperty Name="EndDateEn" ColumnName="EndDateEn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Follower">
+      <EntityTypeMapping TypeName="ArkaAppModel.Follower">
+        <MappingFragment StoreEntitySet="Follower">
+          <ScalarProperty Name="FollowerID" ColumnName="FollowerID" />
+          <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FollowerDetail">
+      <EntityTypeMapping TypeName="ArkaAppModel.FollowerDetail">
+        <MappingFragment StoreEntitySet="FollowerDetail">
+          <ScalarProperty Name="FollowerDetailID" ColumnName="FollowerDetailID" />
+          <ScalarProperty Name="FollowerID" ColumnName="FollowerID" />
+          <ScalarProperty Name="ProvinceID" ColumnName="ProvinceID" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FollowerGenderDetail">
+      <EntityTypeMapping TypeName="ArkaAppModel.FollowerGenderDetail">
+        <MappingFragment StoreEntitySet="FollowerGenderDetail">
+          <ScalarProperty Name="FollowerGenderDetailID" ColumnName="FollowerGenderDetailID" />
+          <ScalarProperty Name="FollowerID" ColumnName="FollowerID" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FollowerLog">
+      <EntityTypeMapping TypeName="ArkaAppModel.FollowerLog">
+        <MappingFragment StoreEntitySet="FollowerLog">
+          <ScalarProperty Name="FollowerLogID" ColumnName="FollowerLogID" />
+          <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+          <ScalarProperty Name="Geo" ColumnName="Geo" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="PreviousCount" ColumnName="PreviousCount" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="IsFinished" ColumnName="IsFinished" />
+          <ScalarProperty Name="FinishedDate" ColumnName="FinishedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FollowerLogDetail">
+      <EntityTypeMapping TypeName="ArkaAppModel.FollowerLogDetail">
+        <MappingFragment StoreEntitySet="FollowerLogDetail">
+          <ScalarProperty Name="FollowerLogDetailID" ColumnName="FollowerLogDetailID" />
+          <ScalarProperty Name="FollowerLogID" ColumnName="FollowerLogID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LikeLog">
+      <EntityTypeMapping TypeName="ArkaAppModel.LikeLog">
+        <MappingFragment StoreEntitySet="LikeLog">
+          <ScalarProperty Name="LikeLogID" ColumnName="LikeLogID" />
+          <ScalarProperty Name="PostID" ColumnName="PostID" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="PreviousCount" ColumnName="PreviousCount" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="IsFinished" ColumnName="IsFinished" />
+          <ScalarProperty Name="FinishedDate" ColumnName="FinishedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LikeLogDetail">
+      <EntityTypeMapping TypeName="ArkaAppModel.LikeLogDetail">
+        <MappingFragment StoreEntitySet="LikeLogDetail">
+          <ScalarProperty Name="LikeLogDetailID" ColumnName="LikeLogDetailID" />
+          <ScalarProperty Name="LikeLogID" ColumnName="LikeLogID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Menu">
+      <EntityTypeMapping TypeName="ArkaAppModel.Menu">
+        <MappingFragment StoreEntitySet="Menu">
+          <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="ControllerName" ColumnName="ControllerName" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="IconName" ColumnName="IconName" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MenuRole">
+      <EntityTypeMapping TypeName="ArkaAppModel.MenuRole">
+        <MappingFragment StoreEntitySet="MenuRole">
+          <ScalarProperty Name="MenuRoleID" ColumnName="MenuRoleID" />
+          <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+          <ScalarProperty Name="UserRoleID" ColumnName="UserRoleID" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Post">
+      <EntityTypeMapping TypeName="ArkaAppModel.Post">
+        <MappingFragment StoreEntitySet="Post">
+          <ScalarProperty Name="PostID" ColumnName="PostID" />
+          <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+          <ScalarProperty Name="PostPK" ColumnName="PostPK" />
+          <ScalarProperty Name="Caption" ColumnName="Caption" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="PostType" ColumnName="PostType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Province">
+      <EntityTypeMapping TypeName="ArkaAppModel.Province">
+        <MappingFragment StoreEntitySet="Province">
+          <ScalarProperty Name="ProvinceID" ColumnName="ProvinceID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Index" ColumnName="Index" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TelegramContentLog">
+      <EntityTypeMapping TypeName="ArkaAppModel.TelegramContentLog">
+        <MappingFragment StoreEntitySet="TelegramContentLog">
+          <ScalarProperty Name="TelegramContentLogID" ColumnName="TelegramContentLogID" />
+          <ScalarProperty Name="ContentID" ColumnName="ContentID" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="Regions" ColumnName="Regions" />
+          <ScalarProperty Name="GroupTitle" ColumnName="GroupTitle" />
+          <ScalarProperty Name="Geo" ColumnName="Geo" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="IsFinished" ColumnName="IsFinished" />
+          <ScalarProperty Name="FinishedDate" ColumnName="FinishedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TelegramContentLogDetail">
+      <EntityTypeMapping TypeName="ArkaAppModel.TelegramContentLogDetail">
+        <MappingFragment StoreEntitySet="TelegramContentLogDetail">
+          <ScalarProperty Name="TelegramContentLogDetailID" ColumnName="TelegramContentLogDetailID" />
+          <ScalarProperty Name="TelegramContentLogID" ColumnName="TelegramContentLogID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TelegramLog">
+      <EntityTypeMapping TypeName="ArkaAppModel.TelegramLog">
+        <MappingFragment StoreEntitySet="TelegramLog">
+          <ScalarProperty Name="TelegramLogID" ColumnName="TelegramLogID" />
+          <ScalarProperty Name="PostID" ColumnName="PostID" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="Regions" ColumnName="Regions" />
+          <ScalarProperty Name="GroupTitle" ColumnName="GroupTitle" />
+          <ScalarProperty Name="Geo" ColumnName="Geo" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="IsFinished" ColumnName="IsFinished" />
+          <ScalarProperty Name="FinishedDate" ColumnName="FinishedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TelegramLogDetail">
+      <EntityTypeMapping TypeName="ArkaAppModel.TelegramLogDetail">
+        <MappingFragment StoreEntitySet="TelegramLogDetail">
+          <ScalarProperty Name="TelegramLogDetailID" ColumnName="TelegramLogDetailID" />
+          <ScalarProperty Name="TelegramLogID" ColumnName="TelegramLogID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TelegramUserContentLog">
+      <EntityTypeMapping TypeName="ArkaAppModel.TelegramUserContentLog">
+        <MappingFragment StoreEntitySet="TelegramUserContentLog">
+          <ScalarProperty Name="TelegramUserContentLogID" ColumnName="TelegramUserContentLogID" />
+          <ScalarProperty Name="ContentID" ColumnName="ContentID" />
+          <ScalarProperty Name="Users" ColumnName="Users" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="IsFinished" ColumnName="IsFinished" />
+          <ScalarProperty Name="FinishedDate" ColumnName="FinishedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TelegramUserContentLogDetail">
+      <EntityTypeMapping TypeName="ArkaAppModel.TelegramUserContentLogDetail">
+        <MappingFragment StoreEntitySet="TelegramUserContentLogDetail">
+          <ScalarProperty Name="TelegramUserContentLogDetailID" ColumnName="TelegramUserContentLogDetailID" />
+          <ScalarProperty Name="TelegramUserContentLogID" ColumnName="TelegramUserContentLogID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TelegramUserLog">
+      <EntityTypeMapping TypeName="ArkaAppModel.TelegramUserLog">
+        <MappingFragment StoreEntitySet="TelegramUserLog">
+          <ScalarProperty Name="TelegramUserLogID" ColumnName="TelegramUserLogID" />
+          <ScalarProperty Name="PostID" ColumnName="PostID" />
+          <ScalarProperty Name="Users" ColumnName="Users" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="IsFinished" ColumnName="IsFinished" />
+          <ScalarProperty Name="FinishedDate" ColumnName="FinishedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TelegramUserLogDetail">
+      <EntityTypeMapping TypeName="ArkaAppModel.TelegramUserLogDetail">
+        <MappingFragment StoreEntitySet="TelegramUserLogDetail">
+          <ScalarProperty Name="TelegramUserLogDetailID" ColumnName="TelegramUserLogDetailID" />
+          <ScalarProperty Name="TelegramUserLogID" ColumnName="TelegramUserLogID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="ArkaAppModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="SaltPassword" ColumnName="SaltPassword" />
+          <ScalarProperty Name="ProfilePicture" ColumnName="ProfilePicture" />
+          <ScalarProperty Name="AuthToken" ColumnName="AuthToken" />
+          <ScalarProperty Name="AuthTokenExpiration" ColumnName="AuthTokenExpiration" />
+          <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+          <ScalarProperty Name="UserRoleID" ColumnName="UserRoleID" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserRole">
+      <EntityTypeMapping TypeName="ArkaAppModel.UserRole">
+        <MappingFragment StoreEntitySet="UserRole">
+          <ScalarProperty Name="UserRoleID" ColumnName="UserRoleID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="TitleFa" ColumnName="TitleFa" />
+          <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Period" ColumnName="Period" />
+          <ScalarProperty Name="FollowerIncreasementCount" ColumnName="FollowerIncreasementCount" />
+          <ScalarProperty Name="AccountsCount" ColumnName="AccountsCount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewLog">
+      <EntityTypeMapping TypeName="ArkaAppModel.ViewLog">
+        <MappingFragment StoreEntitySet="ViewLog">
+          <ScalarProperty Name="ViewLogID" ColumnName="ViewLogID" />
+          <ScalarProperty Name="PostID" ColumnName="PostID" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="PreviousCount" ColumnName="PreviousCount" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="IsFinished" ColumnName="IsFinished" />
+          <ScalarProperty Name="FinishedDate" ColumnName="FinishedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewLogDetail">
+      <EntityTypeMapping TypeName="ArkaAppModel.ViewLogDetail">
+        <MappingFragment StoreEntitySet="ViewLogDetail">
+          <ScalarProperty Name="ViewLogDetailID" ColumnName="ViewLogDetailID" />
+          <ScalarProperty Name="ViewLogID" ColumnName="ViewLogID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WalletChargeLog">
+      <EntityTypeMapping TypeName="ArkaAppModel.WalletChargeLog">
+        <MappingFragment StoreEntitySet="WalletChargeLog">
+          <ScalarProperty Name="WalletID" ColumnName="WalletID" />
+          <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WalletPaymentLog">
+      <EntityTypeMapping TypeName="ArkaAppModel.WalletPaymentLog">
+        <MappingFragment StoreEntitySet="WalletPaymentLog">
+          <ScalarProperty Name="WalletPaymentLogID" ColumnName="WalletPaymentLogID" />
+          <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="LogID" ColumnName="LogID" />
+          <ScalarProperty Name="LogType" ColumnName="LogType" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pricing">
+      <EntityTypeMapping TypeName="ArkaAppModel.Pricing">
+        <MappingFragment StoreEntitySet="Pricing">
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="TitleFa" ColumnName="TitleFa" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="PricingID" ColumnName="PricingID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PricingDetail">
+      <EntityTypeMapping TypeName="ArkaAppModel.PricingDetail">
+        <MappingFragment StoreEntitySet="PricingDetail">
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="TitleFa" ColumnName="TitleFa" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="PricingID" ColumnName="PricingID" />
+          <ScalarProperty Name="PricingDetailID" ColumnName="PricingDetailID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

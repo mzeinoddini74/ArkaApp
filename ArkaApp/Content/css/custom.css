@@ -1,0 +1,400 @@
+
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY3VzdG9tLmNzcyIsInNvdXJjZXMiOlsiY3VzdG9tLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiJ9 */
+
+/*# sourceMappingURL=custom.css.map */
+.errorSection {
+    background-color: #dc0b0b !important;
+    color: #ffffff !important;
+}
+
+.select2-selection__rendered {
+    padding-top: 7px;
+}
+
+.trashbadge {
+    bottom: 18.64%;
+    height: 50%;
+    padding: 0.1rem;
+    position: absolute;
+    left: 20.64%;
+    transform: translate(-50%, 50%);
+    width: 50%;
+    z-index: 2;
+    border-radius: 50%;
+    height: 0.5em;
+    width: 0.5em;
+    cursor: pointer;
+}
+
+.avatar.avatar-xl {
+    font-size: 30px;
+    height: 100px;
+    width: 100px;
+}
+
+.validation-summary-errors {
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 100%;
+}
+
+    .validation-summary-errors ul {
+        padding: 15px;
+        margin-bottom: 20px;
+        border: 1px solid transparent;
+        border-radius: 3px;
+        border-color: #d73925;
+        background-color: #d73925;
+        color: #fff !important;
+        list-style-type: none;
+    }
+
+.text-danger, .text-danger-all *, .text-danger-all *:before, .text-danger-all *:after {
+    color: #dc3545 !important;
+}
+
+.dropdown-menu {
+    width: 200px;
+}
+
+.btn {
+    line-height: 30px;
+}
+
+.dropdown-list .dropdown-list-content {
+    height: auto !important;
+    overflow: hidden;
+}
+
+.custom-switch {
+    padding-right: 0rem !important;
+}
+
+.settingSidebar ul.choose-theme li div.red {
+    background: #D8163A;
+    -webkit-box-shadow: -4px 3px 6px 0 rgba(0,0,0,0.2);
+    box-shadow: -4px 3px 6px 0 rgba(0,0,0,0.2);
+}
+
+.theme-insta .settingSidebar .settingPanelToggle {
+    background: #f09433 !important;
+    background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%) !important;
+    background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%) !important;
+    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%) !important;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 ) !important;
+}
+
+.theme-insta a {
+    color: #D1245A;
+}
+
+.theme-insta .btn-outline-primary {
+    color: #D1245A;
+    background-color: transparent;
+    border-color: #D1245A;
+}
+    .theme-insta .btn-outline-primary:hover {
+        color: #fff;
+        background-color: #D1245A;
+        border-color: #D1245A;
+    }
+.theme-insta .custom-switch-input:checked ~ .custom-switch-indicator {
+    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%) !important;
+}
+.theme-insta .sidebar-color .selectgroup-input:checked + .selectgroup-button {
+    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%) !important;
+}
+.theme-insta .selectgroup-input-radio:focus + .selectgroup-button, .theme-insta .selectgroup-input-radio:checked + .selectgroup-button {
+    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%) !important;
+}
+.theme-red .btn-outline-primary:hover, .theme-red .btn-outline-primary:focus, .theme-red .btn-outline-primary:not([disabled]):not(.disabled):active, .theme-red .btn-outline-primary.disabled:hover, .theme-red .btn-outline-primary.disabled:focus, .theme-red .btn-outline-primary.disabled:active, .theme-red .btn-outline-primary:visited {
+    background-color: #D8163A;
+}
+.theme-purple .btn-outline-primary:hover, .theme-purple .btn-outline-primary:focus, .theme-purple .btn-outline-primary:not([disabled]):not(.disabled):active, .theme-purple .btn-outline-primary.disabled:hover, .theme-purple .btn-outline-primary.disabled:focus, .theme-purple .btn-outline-primary.disabled:active, .theme-purple .btn-outline-primary:visited {
+    background-color: #5864BD;
+}
+.theme-cyan .btn-outline-primary:hover, .theme-cyan .btn-outline-primary:focus, .theme-cyan .btn-outline-primary:not([disabled]):not(.disabled):active, .theme-cyan .btn-outline-primary.disabled:hover, .theme-cyan .btn-outline-primary.disabled:focus, .theme-cyan .btn-outline-primary.disabled:active, .theme-cyan .btn-outline-primary:visited {
+    background-color: #3dc9b3;
+}
+.theme-orange .btn-outline-primary:hover, .theme-orange .btn-outline-primary:focus, .theme-orange .btn-outline-primary:not([disabled]):not(.disabled):active, .theme-orange .btn-outline-primary.disabled:hover, .theme-orange .btn-outline-primary.disabled:focus, .theme-orange .btn-outline-primary.disabled:active, .theme-orange .btn-outline-primary:visited {
+    background-color: #FFA117;
+}
+.theme-white .btn-outline-primary:hover, .theme-white .btn-outline-primary:focus, .theme-white .btn-outline-primary:not([disabled]):not(.disabled):active, .theme-white .btn-outline-primary.disabled:hover, .theme-white .btn-outline-primary.disabled:focus, .theme-white .btn-outline-primary.disabled:active, .theme-white .btn-outline-primary:visited {
+    background-color: #6777ef;
+}
+.theme-black .btn-outline-primary:hover, .theme-black .btn-outline-primary:focus, .theme-black .btn-outline-primary:not([disabled]):not(.disabled):active, .theme-black .btn-outline-primary.disabled:hover, .theme-black .btn-outline-primary.disabled:focus, .theme-black .btn-outline-primary.disabled:active, .theme-black .btn-outline-primary:visited {
+    background-color: #353c48;
+}
+.theme-green .btn-outline-primary:hover, .theme-green .btn-outline-primary:focus, .theme-green .btn-outline-primary:not([disabled]):not(.disabled):active, .theme-green .btn-outline-primary.disabled:hover, .theme-green .btn-outline-primary.disabled:focus, .theme-green .btn-outline-primary.disabled:active, .theme-green .btn-outline-primary:visited {
+    background-color: #28c76f;
+}
+.theme-insta .btn-outline-primary:hover, .theme-insta .btn-outline-primary:focus, .theme-insta .btn-outline-primary:not([disabled]):not(.disabled):active, .theme-insta .btn-outline-primary.disabled:hover, .theme-insta .btn-outline-primary.disabled:focus, .theme-insta .btn-outline-primary.disabled:active, .theme-insta .btn-outline-primary:visited {
+    background: #f09433 !important;
+    background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%) !important;
+    background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%) !important;
+    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%) !important;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 ) !important;
+}
+
+.btn-outline-primary svg {
+    width: 16px;
+}
+
+.theme-red .pagination > .active > a, .theme-red .pagination > .active > span, .theme-red .pagination > .active > a:hover, .theme-red .pagination > .active > span:hover, .theme-red .pagination > .active > a:focus, .theme-red .pagination > .active > span:focus {
+    z-index: 2;
+    color: #ffffff;
+    cursor: default;
+    background-color: #D8163A;
+    border-color: #D8163A;
+}
+
+.theme-purple .pagination > .active > a, .theme-purple .pagination > .active > span, .theme-purple .pagination > .active > a:hover, .theme-purple .pagination > .active > span:hover, .theme-purple .pagination > .active > a:focus, .theme-purple .pagination > .active > span:focus {
+    z-index: 2;
+    color: #ffffff;
+    cursor: default;
+    background-color: #5864BD;
+    border-color: #5864BD;
+}
+
+.theme-cyan .pagination > .active > a, .theme-cyan .pagination > .active > span, .theme-cyan .pagination > .active > a:hover, .theme-cyan .pagination > .active > span:hover, .theme-cyan .pagination > .active > a:focus, .theme-cyan .pagination > .active > span:focus {
+    z-index: 2;
+    color: #ffffff;
+    cursor: default;
+    background-color: #3dc9b3;
+    border-color: #3dc9b3;
+}
+
+.theme-orange .pagination > .active > a, .theme-orange .pagination > .active > span, .theme-orange .pagination > .active > a:hover, .theme-orange .pagination > .active > span:hover, .theme-orange .pagination > .active > a:focus, .theme-orange .pagination > .active > span:focus {
+    z-index: 2;
+    color: #ffffff;
+    cursor: default;
+    background-color: #FFA117;
+    border-color: #FFA117;
+}
+
+.theme-white .pagination > .active > a, .theme-white .pagination > .active > span, .theme-white .pagination > .active > a:hover, .theme-white .pagination > .active > span:hover, .theme-white .pagination > .active > a:focus, .theme-white .pagination > .active > span:focus {
+    z-index: 2;
+    color: #ffffff;
+    cursor: default;
+    background-color: #6777ef;
+    border-color: #6777ef;
+}
+
+.theme-black .pagination > .active > a, .theme-black .pagination > .active > span, .theme-black .pagination > .active > a:hover, .theme-black .pagination > .active > span:hover, .theme-black .pagination > .active > a:focus, .theme-black .pagination > .active > span:focus {
+    z-index: 2;
+    color: #ffffff;
+    cursor: default;
+    background-color: #353c48;
+    border-color: #353c48;
+}
+
+.theme-green .pagination > .active > a, .theme-green .pagination > .active > span, .theme-green .pagination > .active > a:hover, .theme-green .pagination > .active > span:hover, .theme-green .pagination > .active > a:focus, .theme-green .pagination > .active > span:focus {
+    z-index: 2;
+    color: #ffffff;
+    cursor: default;
+    background-color: #28c76f;
+    border-color: #28c76f;
+}
+
+.theme-insta .pagination > .active > a, .theme-insta .pagination > .active > span, .theme-insta .pagination > .active > a:hover, .theme-insta .pagination > .active > span:hover, .theme-insta .pagination > .active > a:focus, .theme-insta .pagination > .active > span:focus {
+    z-index: 2;
+    color: #ffffff;
+    cursor: default;
+    background: #f09433 !important;
+    background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%) !important;
+    background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%) !important;
+    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%) !important;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 ) !important;
+    border-color: #cc2366;
+}
+
+
+.theme-insta li.active span {
+    background-color: #D1245A;
+    /* Create the gradient. */
+    background-image: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%) !important;
+    /* Set the background size and repeat properties. */
+    background-size: 100%;
+    background-repeat: repeat;
+    /* Use the text as a mask for the background. */
+    /* This will show the gradient as a text color rather than element bg. */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+}
+
+.theme-insta li.active svg {
+    color: #D1245A;
+    fill: #D1245A !important;
+    background-color: transparent;
+}
+
+.theme-red li.active span {
+    color: #D8163A;
+}
+
+.theme-red li.active svg {
+    color: #D8163A;
+    background-color: transparent;
+    fill: #D8163A !important;
+}
+
+.theme-purple li.active span {
+    color: #5864BD;
+}
+
+.theme-purple li.active svg {
+    color: #5864BD;
+    background-color: transparent;
+    fill: #5864BD !important;
+}
+
+.theme-cyan li.active span {
+    color: #3dc9b3;
+}
+
+.theme-cyan li.active svg {
+    color: #3dc9b3;
+    background-color: transparent;
+    fill: #3dc9b3 !important;
+}
+
+.theme-orange li.active span {
+    color: #FFA117;
+}
+
+.theme-orange li.active svg {
+    color: #FFA117;
+    background-color: transparent;
+    fill: #FFA117 !important;
+}
+
+.theme-white li.active span {
+    color: #6777ef;
+}
+
+.theme-white li.active svg {
+    color: #6777ef;
+    background-color: transparent;
+    fill: #6777ef !important;
+}
+
+.theme-black li.active span {
+    color: #353c48;
+}
+
+.theme-black li.active svg {
+    color: #353c48;
+    background-color: transparent;
+    fill: #353c48 !important;
+}
+
+.theme-green li.active span {
+    color: #28c76f;
+}
+
+.theme-green li.active svg {
+    color: #28c76f;
+    background-color: transparent;
+    fill: #28c76f !important;
+}
+
+.light-sidebar .main-sidebar .sidebar-menu li.active a {
+    background-color: #F7F7F7;
+}
+
+.theme-red .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+    background-color: #D8163A !important;
+}
+
+.theme-purple .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+    background-color: #5864BD !important;
+}
+
+.theme-cyan .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+    background-color: #3dc9b3 !important;
+}
+
+.theme-orange .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+    background-color: #FFA117 !important;
+}
+
+.theme-white .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+    background-color: #6777ef !important;
+}
+
+.theme-black .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+    background-color: #353c48 !important;
+}
+
+.theme-green .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+    background-color: #28c76f !important;
+}
+
+.theme-insta .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+    background: #f09433 !important;
+    background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%) !important;
+    background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%) !important;
+    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%) !important;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 ) !important;
+}
+
+.theme-red .custom-checkbox .custom-control-input:active ~ .custom-control-label::before {
+    background-color: #D8163A !important;
+}
+
+.theme-purple .custom-checkbox .custom-control-input:active ~ .custom-control-label::before {
+    background-color: #5864BD !important;
+}
+
+.theme-cyan .custom-checkbox .custom-control-input:active ~ .custom-control-label::before {
+    background-color: #3dc9b3 !important;
+}
+
+.theme-orange .custom-checkbox .custom-control-input:active ~ .custom-control-label::before {
+    background-color: #FFA117 !important;
+}
+
+.theme-white .custom-checkbox .custom-control-input:active ~ .custom-control-label::before {
+    background-color: #6777ef !important;
+}
+
+.theme-black .custom-checkbox .custom-control-input:active ~ .custom-control-label::before {
+    background-color: #353c48 !important;
+}
+
+.theme-green .custom-checkbox .custom-control-input:active ~ .custom-control-label::before {
+    background-color: #28c76f !important;
+}
+
+.theme-insta .custom-checkbox .custom-control-input:active ~ .custom-control-label::before {
+    background: #f09433 !important;
+    background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%) !important;
+    background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%) !important;
+    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%) !important;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 ) !important;
+}
+
+.select2-container--default .select2-selection--single {
+    background-color: #fdfdff !important;
+    border-color: #e4e6fc !important;
+}
+
+.select2-container--default .select2-search--dropdown .select2-search__field {
+    background-color: #ffffff !important;
+    border-color: #e4e6fc !important;
+}
+
+.theme-insta .navbar {
+    background: #f09433 !important;
+    background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%) !important;
+    background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%) !important;
+    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%) !important;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 ) !important;
+}
+.bootstrap-tagsinput{
+    width: 100%;
+}

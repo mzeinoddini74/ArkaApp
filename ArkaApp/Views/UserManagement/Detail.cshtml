@@ -1,0 +1,152 @@
+﻿@model ArkaApp.Models.ViewModels.UserViewModel
+
+@{
+    ViewBag.Title = "مشاهده کاربر";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<ul class="breadcrumb breadcrumb-style ">
+    <li class="breadcrumb-item">
+        <h4 class="page-title m-b-0">مشاهده کاربر</h4>
+    </li>
+    <li class="breadcrumb-item">
+        <a href="/Dashboard/Index">
+            <i class="fas fa-home"></i>
+        </a>
+    </li>
+    <li class="breadcrumb-item">
+        <a href="/UserManagement/Index">
+            لیست کاربران
+        </a>
+    </li>
+    <li class="breadcrumb-item active">مشاهده کاربر</li>
+</ul>
+<div class="section-body">
+    <div class="row mt-sm-4">
+        <div class="col-12 col-md-12 col-lg-4">
+            <div class="card author-box">
+                <div class="card-body">
+                    <div class="author-box-center">
+                        @if (Model.User.ProfilePicture != null)
+                        {
+                            <figure class="avatar mr-2 avatar-xl">
+                                <img src="@Model.User.ProfilePicture" alt="تصویر">
+                            </figure>
+                        }
+                        else
+                        {
+                            <figure class="avatar mr-2 avatar-xl">
+                                <img src="~/Images/png/user.png" alt="تصویر">
+                            </figure>
+                        }
+                        <div class="clearfix mt-3"></div>
+                        <div class="author-box-name">
+                            @if (Model.User.IsEnabled)
+                            {
+                                <a href="#" class="text-success" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="@Model.User.FullName (فعال)">
+                                    <i class="fas fa-check"></i>
+                                    @Model.User.FullName <span class="text-small"> (@Model.User.UserRole.TitleFa)</span>
+                                </a>
+                            }
+                            else
+                            {
+                                <a href="#" class="text-danger" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="@Model.User.FullName (غیر فعال)">
+                                    <i class="fas fa-times"></i>
+                                    @Model.User.FullName <span class="text-small"> (@Model.User.UserRole.TitleFa)</span>
+                                </a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-12 col-lg-8">
+            <div class="card">
+                <div class="card-body">
+                    <div class="tab-pane show" id="settings" role="tabpanel" aria-labelledby="profile-tab2">
+                        <div class="card-header">
+                            <h4>اطلاعات کاربر</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="form-group col-md-6 col-12">
+                                    @Html.LabelFor(model => model.User.FullName)
+                                    @Html.DisplayFor(model => model.User.FullName, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+                                <div class="form-group col-md-6 col-12">
+                                    @Html.LabelFor(model => model.User.EmailAddress)
+                                    @Html.DisplayFor(model => model.User.EmailAddress, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-md-6 col-12">
+                                    @Html.LabelFor(model => model.User.CreatedBy)
+                                    @Html.DisplayFor(model => model.CreatedBy)
+                                </div>
+                                <div class="form-group col-md-6 col-12">
+                                    @Html.LabelFor(model => model.User.CreatedDate)
+                                    @ArkaApp.Helper.PersianHelper.GetPersinDateTime(Model.User.CreatedDate)
+                                </div>
+                            </div>
+                            @if (Model.UpdatedBy != string.Empty)
+                            {
+                                <div class="row">
+                                    <div class="form-group col-md-6 col-12">
+                                        @Html.LabelFor(model => model.User.UpdatedBy)
+                                        @Html.DisplayFor(model => model.UpdatedBy)
+                                    </div>
+                                    <div class="form-group col-md-6 col-12">
+                                        @Html.LabelFor(model => model.User.UpdatedDate)
+                                        @ArkaApp.Helper.PersianHelper.GetPersinDateTime((DateTime)Model.User.UpdatedDate)
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                        <div class="card-footer text-right">
+                            <a href="/UserManagement/Index" class="btn btn-outline-primary">بازگشت</a>
+                            <a href="@Url.Action("Edit", "UserManagement", new { id = Model.User.UserID })" class="btn btn-primary">ویرایش</a>
+                            @if (ViewBag.UserRole == "SuperAdmin")
+                            {
+                                <button class="btn btn-danger" id="btnDelete" data-id="@Model.User.UserID">حذف</button>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script src="~/Scripts/sweetalert/sweetalert.min.js"></script>
+    <script>
+        $('#btnDelete').click(function () {
+            var id = $('#btnDelete').data("id");
+            swal({
+                title: 'آیا از حذف رکورد انتخابی مطمئن هستید؟',
+                icon: 'warning',
+                buttons: true,
+                dangerMode: true,
+            }).then((willDelete) => {
+                if (willDelete) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/UserManagement/Delete/" + id, // the URL of the controller action method
+                        data: null, // optional data
+                        success: function (result) {
+                            swal('رکورد انتخابی با موفقیت حذف شد.', {
+                                icon: 'success',
+                            });
+                            window.location.replace("/UserManagement/Index");
+                        },
+                        error: function (result) {
+                            swal('رکورد انتخابی حذف نشد.', {
+                                icon: 'error',
+                            });
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+}
